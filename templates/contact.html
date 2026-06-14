@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="bg-gradient-to-r from-[#4a0f1f] via-[#6b1a2e] to-[#2b0b12] text-white py-20 text-center px-6">
+
+    <h1 class="text-4xl md:text-5xl font-bold">Contact Us</h1>
+    <p class="text-gray-200 mt-3 max-w-2xl mx-auto">
+        We’re here to help. Reach out for internships, collaborations, or queries.
+    </p>
+
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="py-20 px-6 bg-gray-50">
+
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+
+        <!-- CONTACT FORM -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg">
+
+            <h2 class="text-2xl font-bold text-[#6b1a2e] mb-6">
+                Send a Message
+            </h2>
+
+            <form method="POST" action="/contact">
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2">Name</label>
+                    <input type="text" name="name"
+                           class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6b1a2e]"
+                           placeholder="Your Name">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2">Email</label>
+                    <input type="email" name="email"
+                           class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6b1a2e]"
+                           placeholder="Your Email">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2">Message</label>
+                    <textarea name="message" rows="5"
+                              class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6b1a2e]"
+                              placeholder="Write your message..."></textarea>
+                </div>
+
+                <button type="submit"
+                        class="w-full bg-[#6b1a2e] text-white py-3 rounded-lg hover:bg-[#4a0f1f] transition">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- CONTACT INFO -->
+        <div class="space-y-6">
+
+            <!-- Card 1 -->
+            <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
+                <h3 class="text-xl font-bold text-[#6b1a2e] mb-2">Email</h3>
+                <p class="text-gray-600">secretsinthestains02@gmail.com</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
+                <h3 class="text-xl font-bold text-[#6b1a2e] mb-2">Internship Support</h3>
+                <p class="text-gray-600">Forensic Science Training & Guidance</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
+                <h3 class="text-xl font-bold text-[#6b1a2e] mb-2">Response Time</h3>
+                <p class="text-gray-600">Within 24–48 hours</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="py-16 bg-[#2b0b12] text-white text-center">
+
+    <h2 class="text-2xl font-bold mb-3">Let’s Build Something Together</h2>
+    <p class="text-gray-300 mb-6">Forensic science training, internships, and collaborations.</p>
+
+    <a href="/internships"
+       class="bg-white text-[#6b1a2e] px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">
+        Apply for Internship
+    </a>
+
+</section>
+
+{% endblock %}

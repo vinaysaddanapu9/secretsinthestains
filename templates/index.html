@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="forensic-bg min-h-screen flex items-center pt-24 overflow-hidden">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+            <!-- LEFT -->
+            <div>
+
+                <span class="uppercase tracking-[4px] text-red-300 text-sm">
+                    Learn. Practice. Excel.
+                </span>
+
+                <h1 class="text-5xl lg:text-7xl font-extrabold text-white mt-5 leading-tight">
+
+                    Empowering Future
+
+                    <span class="block text-[#ff4d6d]">
+                        Forensic Professionals
+                    </span>
+
+                </h1>
+
+                <p class="text-gray-300 mt-8 text-lg max-w-xl">
+                    Explore internships, forensic learning resources,
+                    certificate verification and practical forensic
+                    science education.
+                </p>
+
+                <div class="flex flex-wrap gap-4 mt-10">
+
+                    <a href="/programs"
+                       class="bg-[#7a0019] hover:bg-[#9b1236]
+                              text-white px-8 py-4 rounded-xl
+                              transition duration-300
+                              hover:-translate-y-1">
+
+                        Explore Programs →
+                    </a>
+
+                    <a href="/contact"
+                       class="border border-white
+                              text-white px-8 py-4 rounded-xl
+                              transition duration-300
+                              hover:bg-white hover:text-black">
+
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div class="relative">
+
+                <!-- DNA IMAGE -->
+
+                <img
+                    src="{{ url_for('static', filename='images/dna.png') }}"
+                    class="w-full animate-pulse"
+                >
+
+                <!-- FINGERPRINT CARD -->
+
+                <div class="absolute bottom-10 right-0 bg-black/70 backdrop-blur-md
+                            border border-[#7a0019]
+                            rounded-3xl p-6 shadow-2xl">
+
+                    <img
+                        src="{{ url_for('static', filename='images/fingerprint.png') }}"
+                        class="w-32"
+                    >
+
+                    <h3 class="text-white font-bold mt-3">
+                        Evidence Analysis
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CURVED TRANSITION -->
+
+<div class="-mt-20">
+    <svg viewBox="0 0 1440 200" class="w-full">
+
+        <path fill="#f8f4f5"
+              d="M0,96L80,106.7C160,117,320,139,480,144C640,149,800,139,960,117.3C1120,96,1280,64,1360,48L1440,32L1440,320L0,320Z">
+        </path>
+
+    </svg>
+</div>
+
+<!-- PROGRAMS SECTION -->
+
+<section class="bg-[#f8f4f5] pb-24">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center">
+
+            <span class="uppercase tracking-[4px] text-[#7a0019] text-sm">
+                Our Programs
+            </span>
+
+            <h2 class="text-5xl font-bold mt-4">
+                Programs &
+                <span class="text-[#7a0019]">
+                    Learning Opportunities
+                </span>
+            </h2>
+
+            <p class="text-gray-600 mt-6 max-w-2xl mx-auto">
+                Designed for students, researchers and aspiring
+                forensic professionals.
+            </p>
+
+        </div>
+
+        <!-- CARDS -->
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+
+            <!-- Internship -->
+
+            <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl
+                        transition duration-300 hover:-translate-y-2 p-8">
+
+                <div class="w-20 h-20 bg-[#7a0019]
+                            rounded-full flex items-center justify-center
+                            text-white text-3xl mx-auto">
+
+                    💼
+
+                </div>
+
+                <h3 class="text-2xl font-bold text-center mt-6">
+                    Internships
+                </h3>
+
+                <p class="text-gray-600 text-center mt-4">
+                    Hands-on forensic training with practical exposure.
+                </p>
+
+                <a href="/internships"
+                   class="block text-center mt-8 bg-[#7a0019]
+                          text-white py-3 rounded-xl">
+
+                    Explore
+                </a>
+
+            </div>
+
+            <!-- Webinar -->
+
+            <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl
+                        transition duration-300 hover:-translate-y-2 p-8">
+
+                <div class="w-20 h-20 bg-blue-900
+                            rounded-full flex items-center justify-center
+                            text-white text-3xl mx-auto">
+
+                    🎙️
+
+                </div>
+
+                <h3 class="text-2xl font-bold text-center mt-6">
+                    Webinars
+                </h3>
+
+                <p class="text-gray-600 text-center mt-4">
+                    Expert sessions on forensic science advancements.
+                </p>
+
+                <a href="#"
+                   class="block text-center mt-8 bg-blue-900
+                          text-white py-3 rounded-xl">
+
+                    View
+                </a>
+
+            </div>
+
+            <!-- Notes -->
+
+            <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl
+                        transition duration-300 hover:-translate-y-2 p-8">
+
+                <div class="w-20 h-20 bg-green-700
+                            rounded-full flex items-center justify-center
+                            text-white text-3xl mx-auto">
+
+                    📄
+
+                </div>
+
+                <h3 class="text-2xl font-bold text-center mt-6">
+                    Blogs
+                </h3>
+
+                <p class="text-gray-600 text-center mt-4">
+                    Curated resources and academic content.
+                </p>
+
+                <a href="/blogs"
+                   class="block text-center mt-8 bg-green-700
+                          text-white py-3 rounded-xl">
+
+                    Access
+                </a>
+
+            </div>
+
+            <!-- Courses -->
+
+            <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl
+                        transition duration-300 hover:-translate-y-2 p-8">
+
+                <div class="w-20 h-20 bg-purple-700
+                            rounded-full flex items-center justify-center
+                            text-white text-3xl mx-auto">
+
+                    🎓
+
+                </div>
+
+                <h3 class="text-2xl font-bold text-center mt-6">
+                    Quiz
+                </h3>
+
+                <p class="text-gray-600 text-center mt-4">
+                    Structured forensic science learning pathways.
+                </p>
+
+                <a href="#"
+                   class="block text-center mt-8 bg-purple-700
+                          text-white py-3 rounded-xl">
+
+                    Explore
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="bg-[#1a0006] py-20">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div class="bg-gradient-to-r from-[#7a0019] to-[#3d0010]
+                    rounded-3xl p-10">
+
+            <div class="flex flex-col lg:flex-row
+                        justify-between items-center gap-6">
+
+                <div>
+
+                    <h2 class="text-4xl font-bold text-white">
+                        Empowering the Next Generation
+                    </h2>
+
+                    <p class="text-gray-200 mt-3">
+                        Through quality education, research and practical training.
+                    </p>
+
+                </div>
+
+                <a href="/about"
+                   class="bg-white text-[#7a0019]
+                          px-8 py-4 rounded-xl font-semibold">
+
+                    Know Our Mission →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

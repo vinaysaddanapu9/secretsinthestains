@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="bg-gradient-to-r from-[#4a0f1f] via-[#6b1a2e] to-[#2b0b12] text-white py-24 px-6 text-center">
+
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        About Secrets in the Stains
+    </h1>
+
+    <p class="max-w-3xl mx-auto text-gray-200 text-lg">
+        A forensic science learning platform focused on internships, training, and real-world case-based education.
+    </p>
+
+</section>
+
+<!-- WHO WE ARE -->
+<section class="py-20 px-6 bg-white">
+
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+        <img src="{{ url_for('static', filename='images/about.jpg') }}"
+             class="rounded-2xl shadow-2xl hover:scale-105 transition duration-500 w-full"
+             alt="Forensic Science">
+
+        <div>
+            <h2 class="text-3xl font-bold text-[#6b1a2e] mb-4">Who We Are?</h2>
+
+            <p class="text-gray-600 leading-relaxed mb-4">
+                Secrets in the Stains is a forensic science learning and training platform designed to bridge
+                academic knowledge with real-world forensic application.
+            </p>
+
+            <p class="text-gray-600 leading-relaxed">
+                We focus on structured learning, internships, and practical exposure for aspiring forensic professionals.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOUNDERS -->
+<section class="py-20 px-6 bg-white">
+
+    <div class="max-w-6xl mx-auto text-center mb-12">
+        <h2 class="text-3xl font-bold text-[#6b1a2e]">Our Leadership</h2>
+        <p class="text-gray-600 mt-2">Meet the minds behind Secrets in the Stains</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+
+        <!-- Founder -->
+        <div class="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition text-center border-t-4 border-[#6b1a2e]">
+
+            <img src="{{ url_for('static', filename='images/founder.jpg') }}"
+                 class="w-40 h-40 mx-auto rounded-full object-cover mb-4 shadow-md">
+
+            <h3 class="text-xl font-bold">Sai Sudha Kandukuri</h3>
+            <p class="text-[#6b1a2e] font-semibold mb-3">Founder</p>
+
+            <p class="text-gray-600 text-sm leading-relaxed">
+                Assistant Professor in Forensic Science, UGC NET (2023),
+                FACT Chemical Sciences (2024) qualified.
+                Specialized in forensic document examination and research-based learning.
+            </p>
+
+        </div>
+
+        <!-- Co-Founder -->
+        <div class="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition text-center border-t-4 border-[#6b1a2e]">
+
+            <img src="{{ url_for('static', filename='images/cofounder.jpg') }}"
+                 class="w-40 h-40 mx-auto rounded-full object-cover mb-4 shadow-md">
+
+            <h3 class="text-xl font-bold">Vijay Krishna Mulaparthi</h3>
+            <p class="text-[#6b1a2e] font-semibold mb-3">Co-Founder</p>
+
+            <p class="text-gray-600 text-sm leading-relaxed">
+                Specialist in insurance fraud investigations, handwriting analysis,
+                signature verification, and multimedia forensic research.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- WHAT WE OFFER -->
+<section class="py-20 px-6 bg-gray-50">
+
+    <div class="max-w-6xl mx-auto text-center">
+
+        <h2 class="text-3xl font-bold text-[#6b1a2e] mb-10">What We Offer</h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+
+            <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl border-l-4 border-[#6b1a2e]">
+                Internship programs in forensic science fundamentals
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl border-l-4 border-[#6b1a2e]">
+                Fingerprint analysis training
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl border-l-4 border-[#6b1a2e]">
+                Crime scene investigation basics
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl border-l-4 border-[#6b1a2e]">
+                Case-based forensic challenges and practice modules
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl border-l-4 border-[#6b1a2e]">
+                Certificate-based learning programs
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- WHO CAN JOIN -->
+<section class="py-20 px-6 bg-white">
+
+    <div class="max-w-6xl mx-auto text-center">
+
+        <h2 class="text-3xl font-bold text-[#6b1a2e] mb-10">Who Can Join</h2>
+
+        <div class="flex flex-wrap justify-center gap-4">
+
+            <span class="bg-[#6b1a2e] text-white px-5 py-2 rounded-full">Forensic Science Students</span>
+            <span class="bg-[#6b1a2e] text-white px-5 py-2 rounded-full">Life Science Students</span>
+            <span class="bg-[#6b1a2e] text-white px-5 py-2 rounded-full">Criminology Aspirants</span>
+            <span class="bg-[#6b1a2e] text-white px-5 py-2 rounded-full">Competitive Exam Candidates</span>
+            <span class="bg-[#6b1a2e] text-white px-5 py-2 rounded-full">Anyone Interested in Forensics</span>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- COMMITMENT -->
+<section class="py-20 px-6 bg-gray-50 text-center">
+
+    <div class="max-w-4xl mx-auto">
+
+        <h2 class="text-3xl font-bold text-[#6b1a2e] mb-6">Our Commitment</h2>
+
+        <p class="text-gray-600 leading-relaxed">
+            We aim to maintain high-quality learning content and provide a meaningful training experience
+            that builds confidence, analytical thinking, and practical understanding in forensic science.
+        </p>
+
+    </div>
+</section>
+
+<!-- SOCIAL -->
+<section class="py-16 bg-[#2b0b12] text-center text-white">
+
+    <h2 class="text-2xl font-bold mb-6">Connect With Us</h2>
+
+    <div class="flex justify-center gap-8">
+
+        <a href="https://www.youtube.com/@secretsinthestains" target="_blank" class="hover:text-red-400 transition">
+            YouTube
+        </a>
+
+        <a href="https://www.instagram.com/secretsinthestains?igsh=MTltaTkzbWhkNjNydQ==" target="_blank" class="hover:text-pink-400 transition">
+            Instagram
+        </a>
+
+        <a href="https://www.linkedin.com/in/secrets-in-the-stains-13b910391?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="hover:text-blue-300 transition">
+            LinkedIn
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

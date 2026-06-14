@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}?v=99">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Secrets in the Stains{% endblock %}</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body{
+            background:#f5f5f5;
+        }
+
+        .forensic-bg{
+            background: linear-gradient(
+                rgba(0,0,0,0.75),
+                rgba(0,0,0,0.75)
+            ),
+            url("{{ url_for('static', filename='images/hero-bg.png') }}");
+
+            background-size:cover;
+            background-position:center;
+        }
+
+        .accent{
+            color:#c11244;
+        }
+
+        .btn-primary{
+            background:#c11244;
+            transition:0.3s;
+        }
+
+        .btn-primary:hover{
+            background:#980f35;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex justify-between items-center h-20">
+
+            <div class="flex items-center gap-3">
+
+                <img
+                    src="{{ url_for('static', filename='images/logo.jpg') }}"
+                    alt="Secrets in the Stains"
+                    class="h-14 w-auto object-contain rounded-lg"
+                >
+
+                <div>
+                    <h1 class="text-white text-xl font-bold">
+                        Secrets in the Stains
+                    </h1>
+
+                    <p class="text-gray-300 text-xs">
+                        Science. Evidence. Truth.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="hidden md:flex gap-8 text-white">
+
+                <a href="/">Home</a>
+
+                <a href="/certificate-verification">
+                    Certificate Verification
+                </a>
+
+                <a href="/about">
+                    About
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</nav>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
