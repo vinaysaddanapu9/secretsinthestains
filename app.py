@@ -4,7 +4,7 @@ from database.db import get_all_applications, save_message, backup_db, get_messa
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
 
-backup_db()
+#backup_db()
 
 ADMIN_USERNAME = "admin"
 ADMIN_PASSWORD_HASH = generate_password_hash("KanDukuri@98")

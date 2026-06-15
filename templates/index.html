@@ -56,35 +56,36 @@
 
             </div>
 
-            <!-- RIGHT -->
+            <div class="relative flex flex-col items-center">
 
-            <div class="relative">
+    <!-- DNA IMAGE -->
+    <img
+        src="{{ url_for('static', filename='images/dna.png') }}"
+        class="w-full max-w-md animate-pulse"
+        alt="DNA Analysis"
+    >
 
-                <!-- DNA IMAGE -->
+    <!-- FINGERPRINT CARD -->
+    <div class="mt-6 lg:absolute lg:bottom-10 lg:right-0
+                bg-black/70 backdrop-blur-md
+                border border-[#7a0019]
+                rounded-3xl p-6 shadow-2xl">
 
-                <img
-                    src="{{ url_for('static', filename='images/dna.png') }}"
-                    class="w-full animate-pulse"
-                >
+        <img
+            src="{{ url_for('static', filename='images/fingerprint.png') }}"
+            class="w-24 md:w-32 mx-auto"
+            alt="Fingerprint Analysis"
+        >
 
-                <!-- FINGERPRINT CARD -->
+        <h3 class="text-white font-bold mt-3 text-center">
+            Evidence Analysis
+        </h3>
 
-                <div class="absolute bottom-10 right-0 bg-black/70 backdrop-blur-md
-                            border border-[#7a0019]
-                            rounded-3xl p-6 shadow-2xl">
+    </div>
 
-                    <img
-                        src="{{ url_for('static', filename='images/fingerprint.png') }}"
-                        class="w-32"
-                    >
+</div>
 
-                    <h3 class="text-white font-bold mt-3">
-                        Evidence Analysis
-                    </h3>
 
-                </div>
-
-            </div>
 
         </div>
 
