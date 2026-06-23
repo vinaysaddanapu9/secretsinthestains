@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ domain.replace('_',' ').title() }} Quiz</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body{
+            background: linear-gradient(
+                135deg,
+                #050505,
+                #0f172a,
+                #111827
+            );
+        }
+    </style>
+</head>
+<body class="min-h-screen text-white">
+
+<div class="max-w-5xl mx-auto px-4 py-10">
+
+    <!-- Header -->
+
+    <div class="bg-gray-900/70 backdrop-blur-lg border border-red-900 rounded-3xl p-8 mb-8">
+
+        <h1 class="text-4xl font-bold mb-3">
+            🔬 Forensic Science Quiz
+        </h1>
+
+        <div class="flex flex-wrap gap-3">
+
+            <span class="bg-red-900 px-4 py-2 rounded-full">
+                {{ domain.replace('_',' ').title() }}
+            </span>
+
+            <span class="bg-blue-900 px-4 py-2 rounded-full">
+                {{ level.title() }} Level
+            </span>
+
+            <span class="bg-green-900 px-4 py-2 rounded-full">
+                Passing Score: 60%
+            </span>
+
+        </div>
+
+    </div>
+
+    <form method="POST" action="/submit_quiz">
+
+        <input type="hidden" name="domain" value="{{ domain }}">
+        <input type="hidden" name="level" value="{{ level }}">
+
+        <!-- Student Details -->
+
+        <div class="bg-gray-900/70 backdrop-blur-lg border border-gray-800 rounded-3xl p-8 mb-8">
+
+            <h2 class="text-2xl font-semibold mb-6">
+                Candidate Information
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+
+                <div>
+                    <label class="block mb-2 text-gray-300">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        required
+                        class="w-full bg-gray-800 border border-gray-700 rounded-xl p-3 focus:outline-none focus:border-red-700"
+                    >
+                </div>
+
+                <div>
+                    <label class="block mb-2 text-gray-300">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        required
+                        class="w-full bg-gray-800 border border-gray-700 rounded-xl p-3 focus:outline-none focus:border-red-700"
+                    >
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Questions -->
+
+        {% for q in questions %}
+
+        <div class="bg-gray-900/70 backdrop-blur-lg border border-gray-800 rounded-3xl p-8 mb-6">
+
+            <div class="flex items-center mb-5">
+
+                <div class="w-10 h-10 rounded-full bg-red-800 flex items-center justify-center font-bold">
+                    {{ loop.index }}
+                </div>
+
+                <h3 class="ml-4 text-xl font-semibold">
+                    {{ q.question }}
+                </h3>
+
+            </div>
+
+            <div class="space-y-3">
+
+                <label class="block">
+                    <input type="radio" name="q{{ q.id }}" value="A" required>
+                    <span class="ml-2">{{ q.option_a }}</span>
+                </label>
+
+                <label class="block">
+                    <input type="radio" name="q{{ q.id }}" value="B">
+                    <span class="ml-2">{{ q.option_b }}</span>
+                </label>
+
+                <label class="block">
+                    <input type="radio" name="q{{ q.id }}" value="C">
+                    <span class="ml-2">{{ q.option_c }}</span>
+                </label>
+
+                <label class="block">
+                    <input type="radio" name="q{{ q.id }}" value="D">
+                    <span class="ml-2">{{ q.option_d }}</span>
+                </label>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+        <!-- Submit -->
+
+        <button
+            type="submit"
+            class="w-full bg-gradient-to-r from-red-800 to-red-600 hover:from-red-700 hover:to-red-500 py-4 rounded-2xl text-xl font-bold shadow-lg transition">
+
+            Submit Quiz
+
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

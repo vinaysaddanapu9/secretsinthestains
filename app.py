@@ -1,8 +1,11 @@
-from flask import Flask, render_template, request, redirect, session, url_for
-from routes import internship
+from flask import Flask, render_template, request, redirect, session, url_for,make_response
+from routes import internship, quiz
 from database.db import get_all_applications, save_message, backup_db, get_messages
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
+from reportlab.pdfgen import canvas
+from io import BytesIO
+from routes.quiz import quiz_bp
 
 #backup_db()
 
@@ -11,6 +14,8 @@ ADMIN_PASSWORD_HASH = generate_password_hash("KanDukuri@98")
 
 app = Flask(__name__)
 app.secret_key = "SecretsInTheStains_AdminPanel_2026@SecureKey"
+
+app.register_blueprint(quiz_bp)
 
 app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
@@ -87,7 +92,7 @@ def blogs():
 
 
 @app.route("/certificate-verification")
-def certificate():
+def certificate_verification():
     return render_template("verify_certificate.html")
 
 
@@ -125,6 +130,6 @@ def contact():
     success = request.args.get('sent')
     return render_template("contact.html", success=success)
 
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download Certificate</title>
+
+    <script>
+        window.onload = function () {
+            window.print();
+        }
+    </script>
+
+    <style>
+        body{
+            margin:0;
+            padding:40px;
+        }
+
+        @media print {
+
+            .no-print{
+                display:none;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+    {% include 'certificate.html' %}
+
+</body>
+</html>

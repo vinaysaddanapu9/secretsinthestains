@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Certificate</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body{
+    background:#0f172a;
+}
+</style>
+
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-8">
+
+<div class="max-w-6xl w-full">
+
+    <!-- Download Button -->
+
+    <div class="text-right mb-6">
+
+        <button
+        onclick="window.print()"
+        class="bg-red-700 hover:bg-red-600 text-white px-6 py-3 rounded-xl">
+
+        📥 Download Certificate
+
+    </button>
+
+    </div>
+
+    <!-- Certificate -->
+
+    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+
+        <!-- Top Bar -->
+
+        <div class="bg-gradient-to-r from-red-900 via-red-800 to-red-900 h-6"></div>
+
+        <div class="p-12">
+
+            <!-- Logo + Title -->
+
+            <div class="text-center">
+
+                <h2 class="text-red-900 text-xl font-semibold tracking-widest uppercase">
+                    Secrets in the Stains
+                </h2>
+
+                <h1 class="text-6xl font-bold mt-4 text-gray-900">
+                    Certificate
+                </h1>
+
+                <p class="text-gray-500 text-lg mt-2">
+                    of Achievement
+                </p>
+
+            </div>
+
+            <!-- Main Text -->
+
+            <div class="text-center mt-12">
+
+                <p class="text-xl text-gray-600">
+                    This certificate is proudly presented to
+                </p>
+
+                <h2 class="text-5xl font-bold text-gray-900 mt-6 border-b-2 border-gray-300 inline-block px-8 pb-3">
+                    {{ name }}
+                </h2>
+
+                <p class="text-xl text-gray-600 mt-8">
+                    for successfully completing
+                </p>
+
+                <h3 class="text-3xl font-bold text-red-900 mt-4">
+                    {{ domain.replace('_',' ').title() }}
+                </h3>
+
+                <p class="mt-4 text-lg text-gray-600">
+                    Difficulty Level:
+                    <span class="font-bold">
+                        {{ level.title() }}
+                    </span>
+                </p>
+
+                <p class="mt-3 text-lg text-gray-600">
+                    Score:
+                    <span class="font-bold text-green-700">
+                        {{ percentage }}%
+                    </span>
+                </p>
+
+            </div>
+
+            <!-- Bottom Section -->
+
+            <div class="grid md:grid-cols-3 gap-10 mt-16">
+
+                <!-- Signature -->
+
+                <div class="text-center">
+
+                    <div class="border-t-2 border-gray-400 pt-3">
+                        <h4 class="font-bold">
+                            Founder
+                        </h4>
+
+                        <p class="text-gray-500">
+                            Secrets in the Stains
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Seal -->
+
+                <div class="flex justify-center">
+
+                    <div class="w-36 h-36 rounded-full border-8 border-yellow-500 flex items-center justify-center">
+
+                        <div class="text-center">
+
+                            <div class="text-4xl">
+                                🏅
+                            </div>
+
+                            <div class="font-bold text-sm">
+                                VERIFIED
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Details -->
+
+                <div class="text-center">
+
+                    <p class="font-semibold">
+                        Certificate ID
+                    </p>
+
+                    <p class="text-gray-600">
+                        {{ certificate_id }}
+                    </p>
+
+                    <p class="font-semibold mt-4">
+                        Date Issued
+                    </p>
+
+                    <p class="text-gray-600">
+                        {{ date }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Verification -->
+
+            <div class="mt-12 text-center">
+
+                <p class="text-gray-500">
+                    Verify this certificate at
+                </p>
+
+                <p class="font-bold text-red-900">
+                    secretsinthestains.in/certificate-verification
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="bg-gradient-to-r from-red-900 via-red-800 to-red-900 h-6"></div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

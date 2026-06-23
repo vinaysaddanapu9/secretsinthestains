@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Difficulty Level</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body{
+            background:#080808;
+        }
+
+        .glass{
+            background:rgba(255,255,255,0.05);
+            backdrop-filter:blur(12px);
+        }
+    </style>
+</head>
+<body>
+
+<section class="min-h-screen flex items-center justify-center px-6 py-16">
+
+    <div class="max-w-6xl w-full">
+
+        <div class="text-center mb-12">
+
+            <h1 class="text-5xl font-bold text-white mb-4">
+                Select Difficulty Level
+            </h1>
+
+            <p class="text-gray-400 text-lg">
+                Domain:
+                <span class="text-red-500 font-semibold">
+                    {{ domain.replace('_',' ').title() }}
+                </span>
+            </p>
+
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- Easy -->
+
+            <a href="/quiz/{{ domain }}/easy"
+               class="glass border border-green-700 rounded-3xl p-8 text-center hover:scale-105 transition duration-300">
+
+                <div class="text-6xl mb-4">
+                    🟢
+                </div>
+
+                <h2 class="text-3xl font-bold text-white mb-3">
+                    Easy
+                </h2>
+
+                <p class="text-gray-400 mb-6">
+                    Basic concepts and introductory forensic science questions.
+                </p>
+
+                <div class="bg-green-700 text-white py-2 rounded-xl">
+                    10 Questions
+                </div>
+
+            </a>
+
+            <!-- Medium -->
+
+            <a href="/quiz/{{ domain }}/medium"
+               class="glass border border-yellow-600 rounded-3xl p-8 text-center hover:scale-105 transition duration-300">
+
+                <div class="text-6xl mb-4">
+                    🟡
+                </div>
+
+                <h2 class="text-3xl font-bold text-white mb-3">
+                    Medium
+                </h2>
+
+                <p class="text-gray-400 mb-6">
+                    Intermediate questions requiring deeper forensic knowledge.
+                </p>
+
+                <div class="bg-yellow-600 text-white py-2 rounded-xl">
+                    10 Questions
+                </div>
+
+            </a>
+
+            <!-- Hard -->
+
+            <a href="/quiz/{{ domain }}/hard"
+               class="glass border border-red-700 rounded-3xl p-8 text-center hover:scale-105 transition duration-300">
+
+                <div class="text-6xl mb-4">
+                    🔴
+                </div>
+
+                <h2 class="text-3xl font-bold text-white mb-3">
+                    Hard
+                </h2>
+
+                <p class="text-gray-400 mb-6">
+                    Advanced forensic science and case-based questions.
+                </p>
+
+                <div class="bg-red-700 text-white py-2 rounded-xl">
+                    10 Questions
+                </div>
+
+            </a>
+
+        </div>
+
+        <div class="text-center mt-10">
+
+            <a href="/quizzes"
+               class="inline-block bg-red-800 hover:bg-red-700 text-white px-8 py-3 rounded-xl transition">
+                ← Back to Domains
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>
