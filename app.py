@@ -7,7 +7,7 @@ from reportlab.pdfgen import canvas
 from io import BytesIO
 from routes.quiz import quiz_bp
 
-#backup_db()
+backup_db()
 
 ADMIN_USERNAME = "admin"
 ADMIN_PASSWORD_HASH = generate_password_hash("KanDukuri@98")
