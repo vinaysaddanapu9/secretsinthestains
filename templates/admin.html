@@ -56,7 +56,7 @@
 
 </div>
 
-
+<!-- Messages -->
 <h2 class="text-xl font-bold mb-4">Contact Messages</h2>
 
 {% for msg in messages %}
@@ -66,6 +66,64 @@
     <p><b>Email:</b> {{ msg[2] }}</p>
     <p class="mt-2 text-gray-700">{{ msg[3] }}</p>
     <small class="text-gray-400">{{ msg[4] }}</small>
+
+</div>
+
+<!-- Webinar Registrations -->
+
+<div class="p-6">
+
+    <h2 class="text-xl font-bold mb-4 text-[#3b0a0f]">
+        Webinar Registrations
+    </h2>
+
+    <div class="bg-white shadow rounded-xl overflow-x-auto">
+
+        <table class="w-full text-left">
+
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="p-3">ID</th>
+                    <th class="p-3">Name</th>
+                    <th class="p-3">Email</th>
+                    <th class="p-3">Mobile</th>
+                    <th class="p-3">Gender</th>
+                    <th class="p-3">Qualification</th>
+                    <th class="p-3">Organization</th>
+                    <th class="p-3">Department</th>
+                    <th class="p-3">City & State</th>
+                    <th class="p-3">Question</th>
+                    <th class="p-3">Registered On</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            {% for reg in webinar_registrations %}
+
+                <tr class="border-b hover:bg-gray-50">
+
+                    <td class="p-3">{{ reg[0] }}</td>
+                    <td class="p-3">{{ reg[1] }}</td>
+                    <td class="p-3">{{ reg[2] }}</td>
+                    <td class="p-3">{{ reg[3] }}</td>
+                    <td class="p-3">{{ reg[4] }}</td>
+                    <td class="p-3">{{ reg[5] }}</td>
+                    <td class="p-3">{{ reg[6] }}</td>
+                    <td class="p-3">{{ reg[7] }}</td>
+                    <td class="p-3">{{ reg[8] }}</td>
+                    <td class="p-3">{{ reg[9] }}</td>
+                    <td class="p-3">{{ reg[11] }}</td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
 
 </div>
 {% endfor %}

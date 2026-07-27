@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for, make_response
 from routes import internship, quiz
-from database.db import get_all_applications, save_message, get_messages
-from database.init_db import init_db
+from database.db import get_all_applications, save_message, get_messages,get_webinar_registrations
+from routes.webinar import webinar_bp
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
 from reportlab.pdfgen import canvas
@@ -18,6 +18,7 @@ app = Flask(__name__)
 app.secret_key = "SecretsInTheStains_AdminPanel_2026@SecureKey"
 
 app.register_blueprint(quiz_bp)
+app.register_blueprint(webinar_bp)
 
 app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
@@ -65,11 +66,13 @@ def admin_required(f):
 def admin():
     applications = get_all_applications()
     messages = get_messages()
+    webinar_registrations = get_webinar_registrations()
 
     return render_template(
         "admin.html",
         applications=applications,
-        messages=messages
+        messages=messages,
+        webinar_registrations=webinar_registrations
     )
 
 # LOGOUT

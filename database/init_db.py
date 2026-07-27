@@ -40,6 +40,23 @@ def init_db():
             );
             """)
 
+            cur.execute("""
+            CREATE TABLE IF NOT EXISTS webinar_registrations (
+                id SERIAL PRIMARY KEY,
+                full_name TEXT NOT NULL,
+                email TEXT NOT NULL,
+                phone TEXT NOT NULL UNIQUE,
+                gender TEXT NOT NULL,
+                qualification TEXT NOT NULL,
+                organization TEXT NOT NULL,
+                department TEXT NOT NULL,
+                city_state TEXT NOT NULL,
+                question TEXT,
+                consent BOOLEAN NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+            """)
+
         conn.commit()
 
 

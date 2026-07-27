@@ -30,3 +30,27 @@ def get_messages():
         with conn.cursor() as cur:
             cur.execute("SELECT * FROM messages ORDER BY id DESC")
             return cur.fetchall()
+
+
+def get_webinar_registrations():
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+
+            cur.execute("""
+                SELECT
+                    id,
+                    full_name,
+                    email,
+                    phone,
+                    gender,
+                    qualification,
+                    organization,
+                    department,
+                    city_state,
+                    question,
+                    created_at
+                FROM webinar_registrations
+                ORDER BY created_at DESC
+            """)
+
+            return cur.fetchall()

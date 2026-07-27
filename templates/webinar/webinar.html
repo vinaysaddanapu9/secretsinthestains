@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinar Registration | Secrets In The Stains</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 via-white to-indigo-100 min-h-screen">
+
+<!-- Hero -->
+<section class="relative overflow-hidden bg-gradient-to-r from-[#4A0D1F] via-[#6D1A36] to-[#8B1E3F] text-white">
+
+    <!-- Decorative circles -->
+    <div class="absolute -top-16 -left-16 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-20 -right-16 w-80 h-80 bg-yellow-300/10 rounded-full blur-3xl"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 py-20">
+
+        <div class="text-center">
+
+            <span class="inline-block px-4 py-2 rounded-full bg-white/20 text-sm font-medium tracking-wide backdrop-blur">
+                🎓 LIVE WEBINAR
+            </span>
+
+            <h1 class="mt-6 text-5xl md:text-6xl font-extrabold leading-tight">
+                Live Webinar
+            </h1>
+
+            <p class="mt-5 text-xl text-red-100 max-w-2xl mx-auto">
+                Learn • Grow • Transform Your Career
+            </p>
+
+        </div>
+
+        <!-- Upcoming Events -->
+<div class="mt-12">
+
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold text-white">
+            📅 Upcoming Events
+        </h2>
+
+        <a href="#" class="text-red-100 hover:text-white text-sm">
+            View All →
+        </a>
+    </div>
+
+    <div class="space-y-4">
+
+        <!-- Event 1 -->
+        <div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 flex items-center justify-between hover:bg-white/20 transition">
+
+            <div>
+                <h3 class="font-semibold text-lg">
+                    Crime Scene Investigation Basics
+                </h3>
+
+                <p class="text-red-100 text-sm mt-1">
+                    📅 15 Aug 2026 • 🕖 7:00 PM • 💻 Google Meet
+                </p>
+            </div>
+
+            <!-- <a href="#registration"
+               class="bg-white text-[#8B1E3F] px-4 py-2 rounded-lg font-semibold hover:bg-red-100">
+                Register
+            </a> -->
+
+        </div>
+
+        <!-- Event 2 -->
+        <div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 flex items-center justify-between hover:bg-white/20 transition">
+
+            <div>
+                <h3 class="font-semibold text-lg">
+                    Bloodstain Pattern Analysis
+                </h3>
+
+                <p class="text-red-100 text-sm mt-1">
+                    📅 22 Aug 2026 • 🕖 6:30 PM • 💻 Google Meet
+                </p>
+            </div>
+
+            <!--<a href="#registration"
+               class="bg-white text-[#8B1E3F] px-4 py-2 rounded-lg font-semibold hover:bg-red-100">
+                Register
+            </a>-->
+
+        </div>
+
+        <!-- Event 3 -->
+        <div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 flex items-center justify-between hover:bg-white/20 transition">
+
+            <div>
+                <h3 class="font-semibold text-lg">
+                    DNA Fingerprinting in Forensics
+                </h3>
+
+                <p class="text-red-100 text-sm mt-1">
+                    📅 29 Aug 2026 • 🕖 7:00 PM • 💻 Google Meet
+                </p>
+            </div>
+
+            <!--<a href="#registration"
+               class="bg-white text-[#8B1E3F] px-4 py-2 rounded-lg font-semibold hover:bg-red-100">
+                Register
+            </a>-->
+
+        </div>
+
+    </div>
+
+</div>
+    </div>
+
+</section>
+
+<!-- Registration Form -->
+
+<section class="max-w-5xl mx-auto px-6 py-14">
+
+<div class="bg-white rounded-3xl shadow-2xl p-8">
+
+<h2 class="text-3xl font-bold text-center text-gray-800">
+Webinar Registration
+</h2>
+
+<p class="text-center text-gray-500 mt-3">
+Reserve your seat by filling out the registration form below.
+</p>
+
+<form action="/webinar" method="POST" class="mt-10 space-y-6">
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div>
+<label class="font-medium text-gray-700">
+Full Name *
+</label>
+
+<input
+type="text"
+name="full_name"
+required
+class="mt-2 w-full border rounded-xl p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+</div>
+
+<div>
+<label class="font-medium text-gray-700">
+Email Address *
+</label>
+
+<input
+type="email"
+name="email"
+required
+class="mt-2 w-full border rounded-xl p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+</div>
+
+<div>
+<label class="font-medium text-gray-700">
+WhatsApp Number *
+</label>
+
+<input
+type="tel"
+name="phone"
+required
+maxlength="10"
+pattern="[0-9]{10}"
+placeholder="9876543210"
+class="mt-2 w-full border rounded-xl p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+</div>
+
+<div>
+
+<label class="font-medium text-gray-700">
+Gender *
+</label>
+
+<div class="flex gap-6 mt-4">
+
+<label class="flex items-center gap-2">
+<input type="radio" name="gender" value="Male" required>
+Male
+</label>
+
+<label class="flex items-center gap-2">
+<input type="radio" name="gender" value="Female">
+Female
+</label>
+
+<label class="flex items-center gap-2">
+<input type="radio" name="gender" value="Prefer not to say">
+Prefer not to say
+</label>
+
+</div>
+
+</div>
+
+<div>
+
+<label class="font-medium text-gray-700">
+Educational Qualification *
+</label>
+
+<select
+name="qualification"
+required
+class="mt-2 w-full border rounded-xl p-3">
+
+<option value="">Select Qualification</option>
+<option>Diploma</option>
+<option>Undergraduate</option>
+<option>Graduate</option>
+<option>Post Graduate</option>
+<option>Ph.D.</option>
+<option>Working Professional</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+<div>
+
+<label class="font-medium text-gray-700">
+Institution / Organization *
+</label>
+
+<input
+type="text"
+name="organization"
+required
+class="mt-2 w-full border rounded-xl p-3">
+
+</div>
+
+<div>
+
+<label class="font-medium text-gray-700">
+Department / Course *
+</label>
+
+<input
+type="text"
+name="department"
+required
+class="mt-2 w-full border rounded-xl p-3">
+
+</div>
+
+<div>
+
+<label class="font-medium text-gray-700">
+City & State *
+</label>
+
+<input
+type="text"
+name="city_state"
+required
+class="mt-2 w-full border rounded-xl p-3">
+
+</div>
+
+</div>
+
+<div>
+
+<label class="font-medium text-gray-700">
+Any Questions for the Speaker
+</label>
+
+<textarea
+name="question"
+rows="5"
+class="mt-2 w-full border rounded-xl p-3"
+placeholder="Write your questions here..."></textarea>
+
+</div>
+
+<div class="flex items-start gap-3">
+
+<input
+type="checkbox"
+name="consent"
+required
+class="mt-1">
+
+<p class="text-gray-600 text-sm">
+I agree to receive webinar updates and reminders via Email and WhatsApp.
+</p>
+
+</div>
+
+<button
+type="submit"
+class="w-full bg-indigo-600 hover:bg-indigo-700 transition text-white py-4 rounded-xl text-lg font-semibold shadow-lg">
+
+Register Now →
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer class="text-center py-8 text-gray-500">
+
+© 2026 Secrets In The Stains. All Rights Reserved.
+
+</footer>
+
+</body>
+</html>
