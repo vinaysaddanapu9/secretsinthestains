@@ -12,25 +12,27 @@ webinar_bp = Blueprint("webinar", __name__)
 def get_connection():
     return psycopg.connect(DATABASE_URL)
 
-@webinar_bp.route("/webinar", methods=["GET", "POST"])
+@webinar_bp.route("/webinar")
 def webinar():
-    if request.method == "POST":
-        save_webinar_registration(
-            request.form["full_name"],
-            request.form["email"],
-            request.form["phone"],
-            request.form["gender"],
-            request.form["qualification"],
-            request.form["organization"],
-            request.form["department"],
-            request.form["city_state"],
-            request.form.get("question", ""),
-            True if request.form.get("consent") else False
-        )
-
-        return redirect(url_for("webinar.success"))
-
     return render_template("webinar/webinar.html")
+
+@webinar_bp.route("/webinar-registration", methods=["POST"])
+def webinar_registration():
+
+    save_webinar_registration(
+        request.form["full_name"],
+        request.form["email"],
+        request.form["phone"],
+        request.form["gender"],
+        request.form["qualification"],
+        request.form["organization"],
+        request.form["department"],
+        request.form["city_state"],
+        request.form.get("question", ""),
+        bool(request.form.get("consent"))
+    )
+
+    return redirect(url_for("webinar.webinar", success=1))
 
 
 @webinar_bp.route("/webinar-success")
