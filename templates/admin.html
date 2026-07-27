@@ -1,131 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Admin Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secrets In The Stains - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
-
 <body class="bg-gray-100">
+<div class="flex min-h-screen">
+<aside class="w-64 bg-[#4A0D1F] text-white">
+<div class="p-6 border-b border-white/20">
+<h1 class="text-2xl font-bold">Secrets In The Stains</h1>
+<p class="text-sm text-red-100">Admin Dashboard</p>
+</div>
+<nav class="p-4 space-y-2">
+<a class="block px-4 py-3 rounded bg-white/10 hover:bg-white/20" href="#">🏠 Dashboard</a>
+<a class="block px-4 py-3 rounded hover:bg-white/20" href="/admin/webinars">🎥 Webinars</a>
+<a class="block px-4 py-3 rounded hover:bg-white/20" href="#">👥 Registrations</a>
+<a class="block px-4 py-3 rounded hover:bg-white/20" href="#">🎓 Internships</a>
+<a class="block px-4 py-3 rounded hover:bg-white/20" href="#">📩 Messages</a>
+<a class="block px-4 py-3 rounded bg-red-700 hover:bg-red-800 mt-8" href="/logout">Logout</a>
+</nav>
+</aside>
 
-<!-- TOP BAR -->
-<div class="bg-[#3b0a0f] text-white p-5 flex justify-between items-center">
-    <h1 class="text-xl font-bold">Internship Applications</h1>
+<main class="flex-1 p-8">
+<h2 class="text-3xl font-bold text-gray-800 mb-6">Dashboard</h2>
 
-    <a href="/logout" class="bg-white text-[#3b0a0f] px-4 py-2 rounded font-semibold">
-        Logout
-    </a>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="bg-white rounded-xl shadow p-6"><p class="text-gray-500">Internships</p><h3 class="text-3xl font-bold">{{ applications|length }}</h3></div>
+<div class="bg-white rounded-xl shadow p-6"><p class="text-gray-500">Messages</p><h3 class="text-3xl font-bold">{{ messages|length }}</h3></div>
+<div class="bg-white rounded-xl shadow p-6"><p class="text-gray-500">Webinars</p><h3 class="text-3xl font-bold">{{ webinars|length if webinars is defined else 0 }}</h3></div>
+<div class="bg-white rounded-xl shadow p-6"><p class="text-gray-500">Registrations</p><h3 class="text-3xl font-bold">{{ webinar_registrations|length }}</h3></div>
 </div>
 
-<!-- CONTENT -->
-<div class="p-6">
-
-    <div class="bg-white shadow rounded-xl overflow-x-auto">
-
-        <table class="w-full text-left">
-
-            <thead class="bg-gray-200">
-                <tr>
-                    <th class="p-3">ID</th>
-                    <th class="p-3">Name</th>
-                    <th class="p-3">Email</th>
-                    <th class="p-3">College</th>
-                    <th class="p-3">Domain</th>
-                    <th class="p-3">Mobile Number</th>
-                </tr>
-            </thead>
-
-            <tbody>
-
-                {% for app in applications %}
-                <tr class="border-b hover:bg-gray-50">
-                    <td class="p-3">{{ app[0] }}</td>
-                    <td class="p-3">{{ app[1] }}</td>
-                    <td class="p-3">{{ app[2] }}</td>
-                    <td class="p-3">{{ app[3] }}</td>
-                    <td class="p-3">{{ app[4] }}</td>
-                    <td class="p-3">{{ app[5] }}</td>
-                </tr>
-                {% endfor %}
-
-            </tbody>
-
-        </table>
-
-    </div>
-
+<div class="bg-white rounded-xl shadow p-6 mb-8">
+<h3 class="text-2xl font-bold text-[#4A0D1F] mb-4">Create Webinar</h3>
+<form action="/admin/create-webinar" method="POST" class="grid md:grid-cols-2 gap-4">
+<input name="title" placeholder="Webinar Title" class="border rounded-lg p-3">
+<input name="speaker" placeholder="Speaker Name" class="border rounded-lg p-3">
+<input type="date" name="date" class="border rounded-lg p-3">
+<input type="time" name="time" class="border rounded-lg p-3">
+<input name="duration" placeholder="Duration" class="border rounded-lg p-3">
+<select name="platform" class="border rounded-lg p-3">
+<option>Google Meet</option><option>Zoom</option><option>Microsoft Teams</option>
+</select>
+<textarea name="description" placeholder="Description" class="border rounded-lg p-3 md:col-span-2"></textarea>
+<input name="meeting_link" placeholder="Meeting Link" class="border rounded-lg p-3 md:col-span-2">
+<button class="bg-[#8B1E3F] text-white rounded-lg py-3 md:col-span-2 hover:bg-[#6D1A36]">Create Webinar</button>
+</form>
 </div>
 
-<!-- Messages -->
-<h2 class="text-xl font-bold mb-4">Contact Messages</h2>
+<div class="bg-white rounded-xl shadow p-6 mb-8">
+<h3 class="text-xl font-bold mb-4">Webinar Registrations</h3>
+<table class="w-full">
+<thead class="bg-gray-100"><tr><th class="p-2">Name</th><th>Email</th><th>Phone</th><th>Date</th></tr></thead>
+<tbody>
+{% for reg in webinar_registrations %}
+<tr class="border-t"><td class="p-2">{{ reg[1] }}</td><td>{{ reg[2] }}</td><td>{{ reg[3] }}</td><td>{{ reg[11] }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
 
+<div class="bg-white rounded-xl shadow p-6 mb-8">
+<h3 class="text-xl font-bold mb-4">Internship Applications</h3>
+<table class="w-full">
+<thead class="bg-gray-100"><tr><th class="p-2">Name</th><th>Email</th><th>College</th><th>Domain</th></tr></thead>
+<tbody>
+{% for app in applications %}
+<tr class="border-t"><td class="p-2">{{ app[1] }}</td><td>{{ app[2] }}</td><td>{{ app[3] }}</td><td>{{ app[4] }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6">
+<h3 class="text-xl font-bold mb-4">Contact Messages</h3>
 {% for msg in messages %}
-<div class="bg-white p-4 rounded shadow mb-3 border-l-4 border-[#6b1a2e]">
-
-    <p><b>Name:</b> {{ msg[1] }}</p>
-    <p><b>Email:</b> {{ msg[2] }}</p>
-    <p class="mt-2 text-gray-700">{{ msg[3] }}</p>
-    <small class="text-gray-400">{{ msg[4] }}</small>
-
-</div>
-
-<!-- Webinar Registrations -->
-<div class="p-6">
-
-    <h2 class="text-xl font-bold mb-4 text-[#3b0a0f]">
-        Webinar Registrations
-    </h2>
-
-    <div class="bg-white shadow rounded-xl overflow-x-auto">
-
-        <table class="w-full text-left">
-
-            <thead class="bg-gray-200">
-                <tr>
-                    <th class="p-3">ID</th>
-                    <th class="p-3">Name</th>
-                    <th class="p-3">Email</th>
-                    <th class="p-3">Mobile</th>
-                    <th class="p-3">Gender</th>
-                    <th class="p-3">Qualification</th>
-                    <th class="p-3">Organization</th>
-                    <th class="p-3">Department</th>
-                    <th class="p-3">City & State</th>
-                    <th class="p-3">Question</th>
-                    <th class="p-3">Registered On</th>
-                </tr>
-            </thead>
-
-            <tbody>
-
-            {% for reg in webinar_registrations %}
-
-                <tr class="border-b hover:bg-gray-50">
-
-                    <td class="p-3">{{ reg[0] }}</td>
-                    <td class="p-3">{{ reg[1] }}</td>
-                    <td class="p-3">{{ reg[2] }}</td>
-                    <td class="p-3">{{ reg[3] }}</td>
-                    <td class="p-3">{{ reg[4] }}</td>
-                    <td class="p-3">{{ reg[5] }}</td>
-                    <td class="p-3">{{ reg[6] }}</td>
-                    <td class="p-3">{{ reg[7] }}</td>
-                    <td class="p-3">{{ reg[8] }}</td>
-                    <td class="p-3">{{ reg[9] }}</td>
-                    <td class="p-3">{{ reg[11] }}</td>
-
-                </tr>
-
-            {% endfor %}
-
-            </tbody>
-
-        </table>
-
-    </div>
-
+<div class="border-l-4 border-[#8B1E3F] bg-gray-50 p-4 mb-3 rounded">
+<p><b>{{ msg[1] }}</b> ({{ msg[2] }})</p>
+<p class="text-gray-700">{{ msg[3] }}</p>
 </div>
 {% endfor %}
+</div>
 
+</main>
+</div>
 </body>
 </html>

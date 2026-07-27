@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from dotenv import load_dotenv
+from datetime import date
 import psycopg
 import os
 
@@ -14,7 +15,12 @@ def get_connection():
 
 @webinar_bp.route("/webinar")
 def webinar():
-    return render_template("webinar/webinar.html")
+    update_expired_webinars()
+    webinars = get_active_webinars()
+    return render_template(
+        "webinar/webinar.html",
+        webinars=webinars
+    )
 
 @webinar_bp.route("/webinar-registration", methods=["POST"])
 def webinar_registration():
@@ -71,3 +77,40 @@ def save_webinar_registration(
                 consent
             ))
         conn.commit()
+
+def get_active_webinars():
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+
+            cur.execute("""
+                SELECT *
+                FROM webinars
+                WHERE status='Active'
+                ORDER BY webinar_date ASC
+            """)
+
+            return cur.fetchall()
+
+def update_expired_webinars():
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                UPDATE webinars
+                SET status = 'Expired'
+                WHERE webinar_date < CURRENT_DATE
+                  AND status = 'Active'
+            """)
+        conn.commit()
+
+def get_all_webinars():
+
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+
+            cur.execute("""
+                SELECT *
+                FROM webinars
+                ORDER BY webinar_date DESC, webinar_time DESC
+            """)
+
+            return cur.fetchall()

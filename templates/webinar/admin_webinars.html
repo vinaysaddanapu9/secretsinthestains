@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Webinars | Secrets In The Stains</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Top Navigation -->
+<header class="bg-[#4A0D1F] text-white shadow-lg">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-5">
+
+        <div>
+            <h1 class="text-3xl font-bold">
+                🎥 Manage Webinars
+            </h1>
+
+            <p class="text-red-100">
+                Secrets In The Stains - Admin Panel
+            </p>
+        </div>
+
+        <div class="space-x-3">
+
+            <a href="/admin#"
+               class="bg-white text-[#4A0D1F] px-5 py-2 rounded-lg font-semibold hover:bg-gray-200">
+                Dashboard
+            </a>
+
+            <a href="/logout"
+               class="bg-red-600 px-5 py-2 rounded-lg hover:bg-red-700">
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+</header>
+
+
+<div class="max-w-7xl mx-auto px-8 py-10">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-8">
+
+        <div>
+
+            <h2 class="text-3xl font-bold text-gray-800">
+                Webinar Management
+            </h2>
+
+            <p class="text-gray-500 mt-1">
+                View, edit and manage all webinars.
+            </p>
+
+        </div>
+
+        <a href="/admin"
+           class="bg-[#8B1E3F] hover:bg-[#6D1A36] text-white px-6 py-3 rounded-xl shadow-lg">
+            + Create Webinar
+        </a>
+
+    </div>
+
+
+    <!-- Webinar Table -->
+
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+
+        <table class="min-w-full">
+
+            <thead class="bg-[#4A0D1F] text-white">
+
+            <tr>
+
+                <th class="p-4 text-left">Title</th>
+                <th class="p-4 text-left">Speaker</th>
+                <th class="p-4 text-left">Date</th>
+                <th class="p-4 text-left">Time</th>
+                <th class="p-4 text-left">Platform</th>
+                <th class="p-4 text-center">Status</th>
+                <th class="p-4 text-center">Actions</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for webinar in webinars %}
+
+            <tr class="border-b hover:bg-gray-50">
+
+                <td class="p-4 font-semibold">
+                    {{ webinar[1] }}
+                </td>
+
+                <td class="p-4">
+                    {{ webinar[2] }}
+                </td>
+
+                <td class="p-4">
+                    {{ webinar[4] }}
+                </td>
+
+                <td class="p-4">
+                    {{ webinar[5] }}
+                </td>
+
+                <td class="p-4">
+                    {{ webinar[7] }}
+                </td>
+
+                <td class="p-4 text-center">
+
+                    {% if webinar[9] == "Active" %}
+
+                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        Active
+                    </span>
+
+                    {% elif webinar[9] == "Expired" %}
+
+                    <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        Expired
+                    </span>
+
+                    {% elif webinar[9] == "Cancelled" %}
+
+                    <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        Cancelled
+                    </span>
+
+                    {% else %}
+
+                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        {{ webinar[9] }}
+                    </span>
+
+                    {% endif %}
+
+                </td>
+
+                <td class="p-4">
+
+                    <div class="flex justify-center gap-3">
+
+                        <a href="/admin/edit-webinar/{{ webinar[0] }}"
+                           class="bg-yellow-400 hover:bg-yellow-500 text-white px-4 py-2 rounded-lg">
+                            Edit
+                        </a>
+
+                        <a href="/admin/delete-webinar/{{ webinar[0] }}"
+                           onclick="return confirm('Delete this webinar?')"
+                           class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg">
+                            Delete
+                        </a>
+
+                        <a href="/admin/webinar-registrations/{{ webinar[0] }}"
+                           class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+                            Registrations
+                        </a>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            {% else %}
+
+            <tr>
+
+                <td colspan="7" class="text-center py-12 text-gray-500">
+
+                    <div class="text-6xl mb-4">
+                        📅
+                    </div>
+
+                    <h3 class="text-xl font-semibold">
+                        No webinars found
+                    </h3>
+
+                    <p class="mt-2">
+                        Create your first webinar from the admin dashboard.
+                    </p>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

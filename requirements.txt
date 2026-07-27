@@ -10,3 +10,4 @@ Werkzeug==3.1.8
 reportlab
 psycopg[binary]
 python-dotenv
+APScheduler==3.11.0

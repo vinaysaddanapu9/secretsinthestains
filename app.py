@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request, redirect, session, url_for, make_response
 from routes import internship, quiz
 from database.db import get_all_applications, save_message, get_messages,get_webinar_registrations
-from routes.webinar import webinar_bp
+from routes.webinar import webinar_bp,get_all_webinars
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
 from reportlab.pdfgen import canvas
-from io import BytesIO
+from scheduler import start_scheduler
 from routes.quiz import quiz_bp
 from dotenv import load_dotenv
 
@@ -143,6 +143,14 @@ def contact():
     success = request.args.get('sent')
     return render_template("contact.html", success=success)
 
+@app.route("/admin/webinars")
+def admin_webinars():
+    webinars = get_all_webinars()
+    return render_template(
+        "/webinar/admin_webinars.html",
+        webinars=webinars
+    )
 
 if __name__ == "__main__":
+    start_scheduler()
     app.run(host="0.0.0.0", port=5000, debug=True)

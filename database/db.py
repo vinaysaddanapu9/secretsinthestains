@@ -54,3 +54,4 @@ def get_webinar_registrations():
             """)
 
             return cur.fetchall()
+

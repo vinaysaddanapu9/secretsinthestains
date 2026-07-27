@@ -50,69 +50,36 @@
 
     <div class="space-y-4">
 
-        <!-- Event 1 -->
-        <div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 flex items-center justify-between hover:bg-white/20 transition">
+{% for webinar in webinars %}
 
-            <div>
-                <h3 class="font-semibold text-lg">
-                    Crime Scene Investigation Basics
-                </h3>
+<div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 flex items-center justify-between hover:bg-white/20 transition">
 
-                <p class="text-red-100 text-sm mt-1">
-                    📅 15 Aug 2026 • 🕖 7:00 PM • 💻 Google Meet
-                </p>
-            </div>
+    <div>
+        <h3 class="font-semibold text-lg">
+            {{ webinar[1] }}
+        </h3>
 
-            <!-- <a href="#registration"
-               class="bg-white text-[#8B1E3F] px-4 py-2 rounded-lg font-semibold hover:bg-red-100">
-                Register
-            </a> -->
-
-        </div>
-
-        <!-- Event 2 -->
-        <div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 flex items-center justify-between hover:bg-white/20 transition">
-
-            <div>
-                <h3 class="font-semibold text-lg">
-                    Bloodstain Pattern Analysis
-                </h3>
-
-                <p class="text-red-100 text-sm mt-1">
-                    📅 22 Aug 2026 • 🕖 6:30 PM • 💻 Google Meet
-                </p>
-            </div>
-
-            <!--<a href="#registration"
-               class="bg-white text-[#8B1E3F] px-4 py-2 rounded-lg font-semibold hover:bg-red-100">
-                Register
-            </a>-->
-
-        </div>
-
-        <!-- Event 3 -->
-        <div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 flex items-center justify-between hover:bg-white/20 transition">
-
-            <div>
-                <h3 class="font-semibold text-lg">
-                    DNA Fingerprinting in Forensics
-                </h3>
-
-                <p class="text-red-100 text-sm mt-1">
-                    📅 29 Aug 2026 • 🕖 7:00 PM • 💻 Google Meet
-                </p>
-            </div>
-
-            <!--<a href="#registration"
-               class="bg-white text-[#8B1E3F] px-4 py-2 rounded-lg font-semibold hover:bg-red-100">
-                Register
-            </a>-->
-
-        </div>
-
+        <p class="text-red-100 text-sm mt-1">
+            📅 {{ webinar[4] }}
+            • 🕖 {{ webinar[5] }}
+            • 💻 {{ webinar[7] }}
+        </p>
     </div>
 
 </div>
+
+{% else %}
+
+<div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 text-center">
+    <p class="text-white">No upcoming webinars available.</p>
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
     </div>
 
 </section>

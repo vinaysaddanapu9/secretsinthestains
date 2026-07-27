@@ -57,6 +57,22 @@ def init_db():
             );
             """)
 
+            cur.execute("""
+            CREATE TABLE IF NOT EXISTS webinars (
+            id SERIAL PRIMARY KEY,
+            title VARCHAR(200) NOT NULL,
+            speaker VARCHAR(100),
+            description TEXT,
+            webinar_date DATE,
+            webinar_time TIME,
+            duration VARCHAR(50),
+            platform VARCHAR(50),
+            meeting_link TEXT,
+            status VARCHAR(20) DEFAULT 'Active',
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+         );
+            """)
+
         conn.commit()
 
 
