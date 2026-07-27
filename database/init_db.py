@@ -1,36 +1,48 @@
-import sqlite3
 import os
+import psycopg
+from dotenv import load_dotenv
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "database.db")
+load_dotenv()
+
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+def get_connection():
+    print("DATABASE_URL:", DATABASE_URL)
+    return psycopg.connect(DATABASE_URL)
+
+'''def get_connection():
+    return psycopg.connect(DATABASE_URL)'''
+
 
 def init_db():
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
+    with get_connection() as conn:
+        with conn.cursor() as cur:
 
-    c.execute("""
-    CREATE TABLE IF NOT EXISTS internships (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
-        email TEXT,
-        college TEXT,
-        domain TEXT,
-        phone TEXT
-    )
-    """)
+            cur.execute("""
+            CREATE TABLE IF NOT EXISTS internships (
+                id SERIAL PRIMARY KEY,
+                name TEXT NOT NULL,
+                email TEXT,
+                college TEXT,
+                domain TEXT,
+                phone TEXT NOT NULL UNIQUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+            """)
 
-    c.execute("""
-    CREATE TABLE IF NOT EXISTS messages (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
-        email TEXT,
-        message TEXT,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )
-    """)
+            cur.execute("""
+            CREATE TABLE IF NOT EXISTS messages (
+                id SERIAL PRIMARY KEY,
+                name TEXT NOT NULL,
+                email TEXT,
+                message TEXT NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+            """)
 
-    conn.commit()
-    conn.close()
+        conn.commit()
+
 
 if __name__ == "__main__":
     init_db()
-    print("Database initialized")
+    print("Neon PostgreSQL database initialized successfully.")

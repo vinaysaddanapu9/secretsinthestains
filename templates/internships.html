@@ -150,5 +150,29 @@
     © 2026 Secrets in the Stains | Forensic Science Training Program
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+{% if success %}
+<script>
+Swal.fire({
+    icon: 'success',
+    title: 'Application Submitted!',
+    text: 'Thank you for applying. We will contact you soon.',
+    confirmButtonText: 'OK'
+});
+</script>
+{% endif %}
+
+{% if error %}
+<script>
+Swal.fire({
+    icon: 'error',
+    title: 'Submission Failed',
+    text: '{{ error }}',
+    confirmButtonText: 'OK'
+});
+</script>
+{% endif %}
+
 </body>
 </html>

@@ -1,13 +1,15 @@
-from flask import Flask, render_template, request, redirect, session, url_for,make_response
+from flask import Flask, render_template, request, redirect, session, url_for, make_response
 from routes import internship, quiz
-from database.db import get_all_applications, save_message, backup_db, get_messages
+from database.db import get_all_applications, save_message, get_messages
+from database.init_db import init_db
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
 from reportlab.pdfgen import canvas
 from io import BytesIO
 from routes.quiz import quiz_bp
+from dotenv import load_dotenv
 
-backup_db()
+load_dotenv()   # Loads DATABASE_URL from .env (ignored on Render)
 
 ADMIN_USERNAME = "admin"
 ADMIN_PASSWORD_HASH = generate_password_hash("KanDukuri@98")
@@ -102,7 +104,13 @@ def about():
 
 @app.route('/internships')
 def internships():
-    return render_template('internships.html')
+    success = request.args.get("success")
+    error = request.args.get("error")
+    return render_template(
+        "internships.html",
+        success=success,
+        error=error
+    )
 
 @app.route('/submit-internship', methods=['POST'])
 def submit_internship():
@@ -112,9 +120,11 @@ def submit_internship():
     domain = request.form['domain']
     phone = request.form['phone']
 
-    internship.save_application(name, email, college, domain, phone)
-
-    return "Application submitted successfully"
+    try:
+        internship.save_application(name, email, college, domain, phone)
+        return redirect(url_for('internships', success=1))
+    except Exception as e:
+        return redirect(url_for('internships', error=str(e)))
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
