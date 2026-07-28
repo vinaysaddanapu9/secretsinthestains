@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for, make_response
 from routes import internship, quiz
 from database.db import get_all_applications, save_message, get_messages,get_webinar_registrations
-from routes.webinar import webinar_bp,get_all_webinars
+from routes.webinar import webinar_bp,get_all_webinars, get_past_webinars
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
 from reportlab.pdfgen import canvas
@@ -163,6 +163,11 @@ def admin_webinars():
         "/webinar/admin_webinars.html",
         webinars=webinars
     )
+
+@app.route('/webinars')
+def all_webinars():
+    webinars = get_past_webinars()
+    return render_template('/webinar/all_webinars.html', webinars=webinars)
 
 if __name__ == "__main__":
     start_scheduler()

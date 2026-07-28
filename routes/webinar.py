@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from dotenv import load_dotenv
+from datetime import date
 import psycopg
 import os
 
@@ -173,3 +174,46 @@ def get_all_webinars():
             """)
 
             return cur.fetchall()
+
+def get_past_webinars():
+    today = date.today()
+
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                SELECT
+                    id,
+                    title,
+                    speaker,
+                    description,
+                    webinar_date,
+                    webinar_time,
+                    meeting_link
+                FROM webinars
+                WHERE webinar_date < %s
+                ORDER BY webinar_date DESC, webinar_time DESC
+            """, (today,))
+
+            return cur.fetchall()
+
+@webinar_bp.route("/admin/delete-webinar/<int:webinar_id>")
+def delete_webinar(webinar_id):
+
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+
+            # Delete registrations first (important because of foreign key)
+            cur.execute(
+                "DELETE FROM webinar_registrations WHERE webinar_id = %s",
+                (webinar_id,)
+            )
+
+            # Delete webinar
+            cur.execute(
+                "DELETE FROM webinars WHERE id = %s",
+                (webinar_id,)
+            )
+
+        conn.commit()
+
+    return redirect(url_for("webinar.admin_webinars", deleted=1))

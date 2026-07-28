@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Webinars</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+    <div class="max-w-5xl mx-auto py-10 px-4">
+
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">
+                Past Webinars
+            </h1>
+
+            <a href="/"
+               class="text-blue-600 hover:text-blue-800 font-semibold">
+               ← Back Home
+            </a>
+        </div>
+
+        {% if webinars %}
+
+            <div class="grid gap-6">
+                {% for webinar in webinars %}
+
+                <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-200">
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">
+                        {{ webinar[1] }}
+                    </h2>
+
+                    <p class="text-gray-600 mb-2">
+                        <strong>Speaker:</strong> {{ webinar[2] }}
+                    </p>
+
+                    <p class="text-gray-600 mb-4">
+                        <strong>Date:</strong> {{ webinar[4] }}
+                        <span class="mx-2">•</span>
+                        <strong>Time:</strong> {{ webinar[5] }}
+                    </p>
+
+                    <p class="text-gray-700 leading-relaxed">
+                        {{ webinar[3] }}
+                    </p>
+
+                    <div class="mt-4">
+                        <span class="inline-block bg-red-100 text-red-700 text-sm font-medium px-3 py-1 rounded-full">
+                            Expired Webinar
+                        </span>
+                    </div>
+
+                </div>
+
+                {% endfor %}
+            </div>
+
+        {% else %}
+
+            <div class="bg-white rounded-xl shadow-sm p-10 text-center text-gray-500">
+                No past webinars available.
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
