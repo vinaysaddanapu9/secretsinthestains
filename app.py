@@ -27,6 +27,13 @@ app.config.update(
 
 from flask import send_from_directory
 
+@app.after_request
+def add_header(response):
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '-1'
+    return response
+
 @app.route('/sitemap.xml')
 def sitemap():
     return send_from_directory('static', 'sitemap.xml')
@@ -82,6 +89,7 @@ def admin():
 @app.route('/logout')
 def logout():
     session.pop('admin', None)
+    session.clear()
     return redirect('/admin-login')
 
 
