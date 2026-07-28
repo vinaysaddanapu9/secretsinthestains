@@ -38,20 +38,15 @@ def get_webinar_registrations():
 
             cur.execute("""
                 SELECT
-                    id,
-                    full_name,
-                    email,
-                    phone,
-                    gender,
-                    qualification,
-                    organization,
-                    department,
-                    city_state,
-                    question,
-                    created_at
-                FROM webinar_registrations
-                ORDER BY created_at DESC
+                    wr.id,
+                    w.title,
+                    wr.full_name,
+                    wr.email,
+                    wr.phone,
+                    wr.created_at
+                FROM webinar_registrations wr
+                JOIN webinars w
+                    ON wr.webinar_id = w.id
+                ORDER BY wr.created_at DESC
             """)
-
             return cur.fetchall()
-

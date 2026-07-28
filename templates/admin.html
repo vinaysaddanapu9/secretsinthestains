@@ -50,31 +50,110 @@
 </form>
 </div>
 
-<div class="bg-white rounded-xl shadow p-6 mb-8">
-<h3 class="text-xl font-bold mb-4">Webinar Registrations</h3>
-<table class="w-full">
-<thead class="bg-gray-100"><tr><th class="p-2">Name</th><th>Email</th><th>Phone</th><th>Date</th></tr></thead>
-<tbody>
-{% for reg in webinar_registrations %}
-<tr class="border-t"><td class="p-2">{{ reg[1] }}</td><td>{{ reg[2] }}</td><td>{{ reg[3] }}</td><td>{{ reg[11] }}</td></tr>
-{% endfor %}
-</tbody>
-</table>
+
+<div class="bg-white rounded-2xl shadow-lg p-6 mt-8">
+
+    <h3 class="text-xl font-bold text-[#4A0D1F] mb-4">
+        👥 Webinar Registrations
+    </h3>
+
+    <div class="overflow-x-auto">
+
+        <table class="min-w-full text-sm text-left">
+
+            <thead class="bg-gray-100 text-gray-700 uppercase">
+                <tr>
+                    <th class="p-3">Webinar</th>
+                    <th class="p-3">Name</th>
+                    <th class="p-3">Email</th>
+                    <th class="p-3">Phone</th>
+                    <th class="p-3">Registered On</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for reg in webinar_registrations %}
+
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="p-3 font-medium">{{ reg[1] }}</td>
+                    <td class="p-3">{{ reg[2] }}</td>
+                    <td class="p-3">{{ reg[3] }}</td>
+                    <td class="p-3">{{ reg[4] }}</td>
+                    <td class="p-3 text-gray-600">
+                        {{ reg[5].strftime('%d-%b-%Y %I:%M %p') if reg[5] else '-' }}
+                    </td>
+                </tr>
+
+            {% else %}
+
+                <tr>
+                    <td colspan="5" class="text-center p-6 text-gray-500">
+                        No webinar registrations yet.
+                    </td>
+                </tr>
+
+            {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
 </div>
 
-<div class="bg-white rounded-xl shadow p-6 mb-8">
-<h3 class="text-xl font-bold mb-4">Internship Applications</h3>
-<table class="w-full">
-<thead class="bg-gray-100"><tr><th class="p-2">Name</th><th>Email</th><th>College</th><th>Domain</th></tr></thead>
-<tbody>
-{% for app in applications %}
-<tr class="border-t"><td class="p-2">{{ app[1] }}</td><td>{{ app[2] }}</td><td>{{ app[3] }}</td><td>{{ app[4] }}</td></tr>
-{% endfor %}
-</tbody>
-</table>
+
+<!-- Internship Applications -->
+<div class="bg-white rounded-2xl shadow-lg p-6 mt-8">
+
+    <h3 class="text-xl font-bold text-[#4A0D1F] mb-4">
+        🎓 Internship Applications
+    </h3>
+
+    <div class="overflow-x-auto">
+
+        <table class="min-w-full text-sm text-left">
+
+            <thead class="bg-gray-100 text-gray-700 uppercase">
+                <tr>
+                    <th class="p-3">Name</th>
+                    <th class="p-3">Email</th>
+                    <th class="p-3">College</th>
+                    <th class="p-3">Domain</th>
+                    <th class="p-3">Mobile Number</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            {% for app in applications %}
+
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="p-3 font-medium">{{ app[1] }}</td>
+                    <td class="p-3">{{ app[2] }}</td>
+                    <td class="p-3">{{ app[3] }}</td>
+                    <td class="p-3">{{ app[4] }}</td>
+                    <td class="p-3">{{ app[5] }}</td>
+                </tr>
+
+            {% else %}
+
+                <tr>
+                    <td colspan="5" class="text-center p-6 text-gray-500">
+                        No internship applications found.
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
 </div>
 
-<div class="bg-white rounded-xl shadow p-6">
+
+<div class="bg-white rounded-2xl shadow-lg p-6 mt-8">
 <h3 class="text-xl font-bold mb-4">Contact Messages</h3>
 {% for msg in messages %}
 <div class="border-l-4 border-[#8B1E3F] bg-gray-50 p-4 mb-3 rounded">

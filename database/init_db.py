@@ -42,19 +42,21 @@ def init_db():
 
             cur.execute("""
             CREATE TABLE IF NOT EXISTS webinar_registrations (
-                id SERIAL PRIMARY KEY,
-                full_name TEXT NOT NULL,
-                email TEXT NOT NULL,
-                phone TEXT NOT NULL UNIQUE,
-                gender TEXT NOT NULL,
-                qualification TEXT NOT NULL,
-                organization TEXT NOT NULL,
-                department TEXT NOT NULL,
-                city_state TEXT NOT NULL,
-                question TEXT,
-                consent BOOLEAN NOT NULL,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            );
+            id SERIAL PRIMARY KEY,
+            webinar_id INTEGER NOT NULL REFERENCES webinars(id) ON DELETE CASCADE,
+            full_name VARCHAR(150) NOT NULL,
+            email VARCHAR(150) NOT NULL,
+            phone VARCHAR(15) NOT NULL,
+            gender VARCHAR(20),
+            qualification VARCHAR(100),
+            organization VARCHAR(200),
+            department VARCHAR(150),
+            city_state VARCHAR(150),
+            question TEXT,
+            consent BOOLEAN DEFAULT FALSE,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+           );
+           
             """)
 
             cur.execute("""

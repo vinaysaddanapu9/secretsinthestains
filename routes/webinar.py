@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from dotenv import load_dotenv
-from datetime import date
 import psycopg
 import os
 
@@ -25,7 +24,9 @@ def webinar():
 @webinar_bp.route("/webinar-registration", methods=["POST"])
 def webinar_registration():
 
+    webinar_id = request.form["webinar_id"]
     save_webinar_registration(
+        webinar_id,
         request.form["full_name"],
         request.form["email"],
         request.form["phone"],
@@ -46,6 +47,7 @@ def success():
     return render_template("webinar_success.html")
 
 def save_webinar_registration(
+    webinar_id,
     full_name,
     email,
     phone,
@@ -57,14 +59,28 @@ def save_webinar_registration(
     question,
     consent
 ):
+
     with get_connection() as conn:
         with conn.cursor() as cur:
+
             cur.execute("""
                 INSERT INTO webinar_registrations
-                (full_name,email,phone,gender,qualification,
-                 organization,department,city_state,question,consent)
-                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                (
+                    webinar_id,
+                    full_name,
+                    email,
+                    phone,
+                    gender,
+                    qualification,
+                    organization,
+                    department,
+                    city_state,
+                    question,
+                    consent
+                )
+                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
             """, (
+                webinar_id,
                 full_name,
                 email,
                 phone,
@@ -76,6 +92,7 @@ def save_webinar_registration(
                 question,
                 consent
             ))
+
         conn.commit()
 
 def get_active_webinars():
