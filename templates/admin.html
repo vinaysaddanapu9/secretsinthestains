@@ -35,18 +35,84 @@
 
 <div class="bg-white rounded-xl shadow p-6 mb-8">
 <h3 class="text-2xl font-bold text-[#4A0D1F] mb-4">Create Webinar</h3>
-<form action="/admin/create-webinar" method="POST" class="grid md:grid-cols-2 gap-4">
-<input name="title" placeholder="Webinar Title" class="border rounded-lg p-3">
-<input name="speaker" placeholder="Speaker Name" class="border rounded-lg p-3">
-<input type="date" name="date" class="border rounded-lg p-3">
-<input type="time" name="time" class="border rounded-lg p-3">
-<input name="duration" placeholder="Duration" class="border rounded-lg p-3">
-<select name="platform" class="border rounded-lg p-3">
-<option>Google Meet</option><option>Zoom</option><option>Microsoft Teams</option>
-</select>
-<textarea name="description" placeholder="Description" class="border rounded-lg p-3 md:col-span-2"></textarea>
-<input name="meeting_link" placeholder="Meeting Link" class="border rounded-lg p-3 md:col-span-2">
-<button class="bg-[#8B1E3F] text-white rounded-lg py-3 md:col-span-2 hover:bg-[#6D1A36]">Create Webinar</button>
+<form action="/admin/create-webinar" method="POST" class="space-y-4">
+
+    <div>
+        <label class="font-medium text-gray-700">Webinar Title</label>
+        <input type="text"
+               name="title"
+               required
+               class="mt-2 w-full border rounded-xl p-3">
+    </div>
+
+    <div>
+        <label class="font-medium text-gray-700">Speaker</label>
+        <input type="text"
+               name="speaker"
+               required
+               class="mt-2 w-full border rounded-xl p-3">
+    </div>
+
+    <div>
+        <label class="font-medium text-gray-700">Description</label>
+        <textarea name="description"
+                  rows="3"
+                  class="mt-2 w-full border rounded-xl p-3"></textarea>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+
+        <div>
+            <label class="font-medium text-gray-700">Date</label>
+            <input type="date"
+                   name="webinar_date"
+                   required
+                   class="mt-2 w-full border rounded-xl p-3">
+        </div>
+
+        <div>
+            <label class="font-medium text-gray-700">Time</label>
+            <input type="time"
+                   name="webinar_time"
+                   required
+                   class="mt-2 w-full border rounded-xl p-3">
+        </div>
+
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+
+        <div>
+            <label class="font-medium text-gray-700">Duration</label>
+            <input type="text"
+                   name="duration"
+                   placeholder="90 Minutes"
+                   class="mt-2 w-full border rounded-xl p-3">
+        </div>
+
+        <div>
+            <label class="font-medium text-gray-700">Platform</label>
+            <input type="text"
+                   name="platform"
+                   value="Google Meet"
+                   class="mt-2 w-full border rounded-xl p-3">
+        </div>
+
+    </div>
+
+    <div>
+        <label class="font-medium text-gray-700">Meeting Link</label>
+        <input type="url"
+               name="meeting_link"
+               placeholder="https://meet.google.com/..."
+               class="mt-2 w-full border rounded-xl p-3">
+    </div>
+
+    <button type="submit"
+            class="w-full bg-[#8B1E3F] hover:bg-[#6D1A36] text-white py-3 rounded-xl font-semibold">
+        Create Webinar
+    </button>
+
 </form>
 </div>
 
@@ -165,5 +231,20 @@
 
 </main>
 </div>
+
+{% if webinar_success %}
+<div id="webinarPopup"
+     class="fixed top-6 right-6 bg-green-600 text-white px-6 py-4 rounded-xl shadow-2xl z-50 transition-all duration-500">
+    ✅ Webinar created successfully!
+</div>
+
+<script>
+setTimeout(() => {
+    const popup = document.getElementById("webinarPopup");
+    if (popup) popup.remove();
+}, 4000);
+</script>
+{% endif %}
+
 </body>
 </html>

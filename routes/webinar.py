@@ -15,14 +15,21 @@ def get_connection():
 @webinar_bp.route("/webinar")
 def webinar():
     update_expired_webinars()
+
+    # This is required for popup
+    success = request.args.get("success")
+
     webinars = get_active_webinars()
     return render_template(
         "webinar/webinar.html",
-        webinars=webinars
+        webinars=webinars,
+        success = success
     )
 
 @webinar_bp.route("/webinar-registration", methods=["POST"])
 def webinar_registration():
+
+    consent = "consent" in request.form
 
     webinar_id = request.form["webinar_id"]
     save_webinar_registration(
@@ -36,11 +43,46 @@ def webinar_registration():
         request.form["department"],
         request.form["city_state"],
         request.form.get("question", ""),
-        bool(request.form.get("consent"))
+        consent
     )
 
     return redirect(url_for("webinar.webinar", success=1))
 
+@webinar_bp.route("/admin/create-webinar", methods=["POST"])
+def create_webinar():
+
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+
+            cur.execute("""
+                INSERT INTO webinars
+                (
+                    title,
+                    speaker,
+                    description,
+                    webinar_date,
+                    webinar_time,
+                    duration,
+                    platform,
+                    meeting_link,
+                    status
+                )
+                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)
+            """, (
+                request.form["title"],
+                request.form["speaker"],
+                request.form.get("description", ""),
+                request.form["webinar_date"],
+                request.form["webinar_time"],
+                request.form.get("duration", ""),
+                request.form.get("platform", "Google Meet"),
+                request.form.get("meeting_link", ""),
+                "Active"
+            ))
+
+        conn.commit()
+
+    return redirect(url_for("admin", webinar_success=1))
 
 @webinar_bp.route("/webinar-success")
 def success():

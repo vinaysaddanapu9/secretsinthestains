@@ -68,11 +68,14 @@ def admin():
     messages = get_messages()
     webinar_registrations = get_webinar_registrations()
 
+    webinar_success = request.args.get("webinar_success")
+
     return render_template(
         "admin.html",
         applications=applications,
         messages=messages,
-        webinar_registrations=webinar_registrations
+        webinar_registrations=webinar_registrations,
+        webinar_success=webinar_success
     )
 
 # LOGOUT
