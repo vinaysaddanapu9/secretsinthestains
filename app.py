@@ -27,11 +27,12 @@ app.config.update(
 
 from flask import send_from_directory
 
+# Prevent browser cache
 @app.after_request
 def add_header(response):
-    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
-    response.headers['Pragma'] = 'no-cache'
-    response.headers['Expires'] = '-1'
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
     return response
 
 @app.route('/sitemap.xml')
@@ -88,8 +89,8 @@ def admin():
 # LOGOUT
 @app.route('/logout')
 def logout():
-    session.pop('admin', None)
     session.clear()
+    session.pop('admin', None)
     return redirect('/admin-login')
 
 
@@ -155,6 +156,7 @@ def contact():
     return render_template("contact.html", success=success)
 
 @app.route("/admin/webinars")
+@admin_required
 def admin_webinars():
     webinars = get_all_webinars()
     return render_template(
