@@ -75,6 +75,7 @@
 
                     <button
                         type="submit"
+                        onclick="this.disabled=true; this.innerText='Verifying...'; this.form.submit();"
                         class="w-full bg-gradient-to-r from-[#6d1f2b] to-[#8b2d3c] hover:from-[#541620] hover:to-[#6d1f2b] text-white font-semibold py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
                         Verify Certificate
                     </button>

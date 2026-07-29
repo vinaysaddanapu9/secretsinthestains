@@ -1,19 +1,9 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-import psycopg
 from routes.auth_utils import admin_required
-from dotenv import load_dotenv
-import random
-from datetime import date
-import os
+from database.db import get_connection
+import secrets
 
 certificate_bp = Blueprint('certificate', __name__)
-
-load_dotenv()
-
-DATABASE_URL = os.getenv("DATABASE_URL")
-
-def get_connection():
-    return psycopg.connect(DATABASE_URL)
 
 # ------------------------------------------------
 # Verify certificate using URL
@@ -75,8 +65,7 @@ def certificate_verification_page():
     )
 
 def generate_certificate_id():
-    number = random.randint(10000, 99999)
-    return f"CERT-{date.today().year}-{number}"
+    return f"SITS-{secrets.token_hex(4).upper()}"
 
 # -------------------------------
 # Admin - Certificate Management

@@ -135,7 +135,9 @@
                 <option>Ballistics & Firearm Evidence</option>
             </select>
 
-            <button type="submit" class="w-full bg-white text-[#3b0a0f] py-4 rounded-xl font-bold hover:bg-gray-200 transition">
+            <button type="submit"
+                    onclick="this.disabled=true; this.innerText='Submitting...'; this.form.submit();"
+                    class="w-full bg-white text-[#3b0a0f] py-4 rounded-xl font-bold hover:bg-gray-200 transition">
                 Submit Application
             </button>
 

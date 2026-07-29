@@ -1,17 +1,9 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from dotenv import load_dotenv
+from routes.auth_utils import admin_required
 from datetime import date
-import psycopg
-import os
-
-load_dotenv()
-
-DATABASE_URL = os.getenv("DATABASE_URL")
+from database.db import get_connection
 
 webinar_bp = Blueprint("webinar", __name__)
-
-def get_connection():
-    return psycopg.connect(DATABASE_URL)
 
 @webinar_bp.route("/webinar")
 def webinar():
@@ -197,6 +189,7 @@ def get_past_webinars():
             return cur.fetchall()
 
 @webinar_bp.route("/admin/delete-webinar/<int:webinar_id>")
+@admin_required
 def delete_webinar(webinar_id):
 
     with get_connection() as conn:
@@ -217,3 +210,22 @@ def delete_webinar(webinar_id):
         conn.commit()
 
     return redirect(url_for("webinar.admin_webinars", deleted=1))
+
+def get_webinar_registrations():
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+
+            cur.execute("""
+                SELECT
+                    wr.id,
+                    w.title,
+                    wr.full_name,
+                    wr.email,
+                    wr.phone,
+                    wr.created_at
+                FROM webinar_registrations wr
+                JOIN webinars w
+                    ON wr.webinar_id = w.id
+                ORDER BY wr.created_at DESC
+            """)
+            return cur.fetchall()
