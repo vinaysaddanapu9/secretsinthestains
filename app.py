@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, redirect, session, url_for, make_response
+from flask import Flask, render_template, request, redirect, session, url_for
 from routes import internship, quiz
 from database.db import get_all_applications, save_message, get_messages,get_webinar_registrations
 from routes.webinar import webinar_bp,get_all_webinars, get_past_webinars
 from werkzeug.security import generate_password_hash, check_password_hash
-from functools import wraps
+from routes.auth_utils import admin_required
+from routes.certificate import certificate_bp
 from reportlab.pdfgen import canvas
 from scheduler import start_scheduler
 from routes.quiz import quiz_bp
@@ -19,6 +20,7 @@ app.secret_key = "SecretsInTheStains_AdminPanel_2026@SecureKey"
 
 app.register_blueprint(quiz_bp)
 app.register_blueprint(webinar_bp)
+app.register_blueprint(certificate_bp)
 
 app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
@@ -60,14 +62,6 @@ def admin_login():
 
     return render_template("admin_login.html")
 
-def admin_required(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if not session.get('admin'):
-            return redirect('/admin-login')
-        return f(*args, **kwargs)
-    return decorated_function
-
 # ADMIN DASHBOARD (protected)
 @app.route('/admin')
 @admin_required
@@ -98,7 +92,6 @@ def logout():
 def home():
     return render_template("index.html")
 
-
 @app.route("/programs")
 def programs():
     return render_template("programs.html")
@@ -106,12 +99,6 @@ def programs():
 @app.route("/blogs")
 def blogs():
     return render_template("blogs.html")
-
-
-@app.route("/certificate-verification")
-def certificate_verification():
-    return render_template("verify_certificate.html")
-
 
 @app.route("/about")
 def about():
@@ -168,6 +155,7 @@ def admin_webinars():
 def all_webinars():
     webinars = get_past_webinars()
     return render_template('/webinar/all_webinars.html', webinars=webinars)
+
 
 if __name__ == "__main__":
     start_scheduler()

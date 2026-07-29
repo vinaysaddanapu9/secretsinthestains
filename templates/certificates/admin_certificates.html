@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Certificates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+    <div class="max-w-6xl mx-auto py-10 px-4">
+
+        <div class="flex items-center justify-between mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">Certificate Management</h1>
+
+            <a href="/admin"
+               class="text-blue-600 hover:text-blue-800 font-medium">
+                ← Back to Admin
+            </a>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-md p-6 mb-8">
+            <h2 class="text-xl font-semibold mb-4">Create Certificate</h2>
+
+            <form method="POST"
+                  action="{{ url_for('certificate.create_certificate') }}"
+                  class="grid md:grid-cols-3 gap-4">
+
+                <input type="text"
+                       name="name"
+                       placeholder="Student Name"
+                       required
+                       class="border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <input type="text"
+                       name="program"
+                       placeholder="Program / Internship"
+                       required
+                       class="border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <button type="submit"
+                        class="bg-blue-600 text-white rounded-xl px-6 py-3 hover:bg-blue-700 transition-colors duration-200 font-medium">
+                    Generate
+                </button>
+            </form>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="text-left px-6 py-4 font-semibold text-gray-700">Certificate ID</th>
+                            <th class="text-left px-6 py-4 font-semibold text-gray-700">Name</th>
+                            <th class="text-left px-6 py-4 font-semibold text-gray-700">Program</th>
+                            <th class="text-left px-6 py-4 font-semibold text-gray-700">Issue Date</th>
+                            <th class="text-left px-6 py-4 font-semibold text-gray-700">Verify</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="divide-y divide-gray-200">
+                        {% for cert in certificates %}
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 font-mono text-sm text-gray-800">{{ cert[0] }}</td>
+                            <td class="px-6 py-4 text-gray-800">{{ cert[1] }}</td>
+                            <td class="px-6 py-4 text-gray-600">{{ cert[2] }}</td>
+                            <td class="px-6 py-4 text-gray-600">{{ cert[3] }}</td>
+                            <td class="px-6 py-4">
+                                <a href="/verify/{{ cert[0] }}"
+                                   target="_blank"
+                                   class="text-blue-600 hover:text-blue-800 font-medium">
+                                    Verify
+                                </a>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center px-6 py-10 text-gray-500">
+                                No certificates generated yet.
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

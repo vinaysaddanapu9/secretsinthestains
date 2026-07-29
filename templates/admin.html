@@ -18,7 +18,10 @@
 <a class="block px-4 py-3 rounded hover:bg-white/20" href="/admin/webinars">🎥 Webinars</a>
 <a class="block px-4 py-3 rounded hover:bg-white/20" href="#">👥 Registrations</a>
 <a class="block px-4 py-3 rounded hover:bg-white/20" href="#">🎓 Internships</a>
-<a class="block px-4 py-3 rounded hover:bg-white/20" href="#">📩 Messages</a>
+<a href="{{ url_for('certificate.admin_certificates') }}"
+   class="block px-4 py-3 rounded hover:bg-white/20">
+   🎓 Certificates
+</a>
 <a class="block px-4 py-3 rounded bg-red-700 hover:bg-red-800 mt-8" href="/logout">Logout</a>
 </nav>
 </aside>

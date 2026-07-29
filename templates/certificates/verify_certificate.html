@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secrets In The Stains | Certificate Verification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-[#f8f1f1] via-[#f3e7e7] to-[#e8d7d7] flex items-center justify-center px-4 py-10">
+
+    <div class="w-full max-w-2xl">
+
+        <!-- Back Button -->
+        <div class="mb-4">
+            <a href="/"
+               class="inline-flex items-center gap-2 text-[#6d1f2b] hover:text-[#541620] font-medium transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-5 w-5"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 19l-7-7 7-7" />
+                </svg>
+                Back to Home
+            </a>
+        </div>
+
+        <!-- Main Card -->
+        <div class="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-[#e5d4d4] overflow-hidden">
+
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-[#6d1f2b] via-[#7d2735] to-[#8b2d3c] px-8 py-10 text-center">
+                <!-- Logo -->
+<div class="flex justify-center mb-6">
+    <img src="{{ url_for('static', filename='images/logo.jpg') }}"
+         alt="Secrets In The Stains Logo"
+         class="w-28 md:w-32 h-auto drop-shadow-2xl">
+</div>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+                    Secrets In The Stains
+                </h1>
+
+                <p class="text-white/85 mt-3 text-lg">
+                    Certificate Verification Portal
+                </p>
+            </div>
+
+            <!-- Content -->
+            <div class="p-8 md:p-10">
+
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800">Verify Your Certificate</h2>
+                    <p class="text-gray-600 mt-2">
+                        Enter your certificate ID to check its authenticity and view the certificate details.
+                    </p>
+                </div>
+
+                <form method="POST" class="space-y-5">
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            Certificate ID
+                        </label>
+
+                        <input
+                            type="text"
+                            name="certificate_id"
+                            placeholder="Example: CERT-2026-00001"
+                            required
+                            class="w-full rounded-2xl border border-[#d8c3c3] px-5 py-4 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-[#8b2d3c]/20 focus:border-[#8b2d3c] transition-all duration-200 shadow-sm">
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="w-full bg-gradient-to-r from-[#6d1f2b] to-[#8b2d3c] hover:from-[#541620] hover:to-[#6d1f2b] text-white font-semibold py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+                        Verify Certificate
+                    </button>
+                </form>
+
+                <!-- Valid Certificate -->
+                {% if certificate %}
+                <div class="mt-8 rounded-2xl border border-green-200 bg-gradient-to-br from-green-50 to-green-100 p-6 shadow-sm">
+
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="h-6 w-6 text-white"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke="currentColor">
+                                <path stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-green-800">Certificate Verified</h3>
+                            <p class="text-green-700 text-sm">This certificate is authentic and valid.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-white rounded-xl p-4 border border-green-100">
+                            <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Certificate ID</p>
+                            <p class="font-mono text-sm font-bold text-gray-800">{{ certificate[0] }}</p>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-4 border border-green-100">
+                            <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Candidate Name</p>
+                            <p class="font-semibold text-gray-800">{{ certificate[1] }}</p>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-4 border border-green-100 md:col-span-2">
+                            <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Program</p>
+                            <p class="font-semibold text-gray-800">{{ certificate[2] }}</p>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-4 border border-green-100">
+                            <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Issue Date</p>
+                            <p class="font-semibold text-gray-800">{{ certificate[3] }}</p>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-4 border border-green-100">
+                            <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Status</p>
+                            <span class="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-700 border border-green-200">
+                                {{ certificate[4] }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Invalid Certificate -->
+                {% elif certificate is not none %}
+                <div class="mt-8 rounded-2xl border border-red-200 bg-gradient-to-br from-red-50 to-red-100 p-6 shadow-sm">
+
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="h-6 w-6 text-white"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke="currentColor">
+                                <path stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-red-800">Invalid Certificate</h3>
+                            <p class="text-red-700 text-sm">We could not find a certificate with the provided ID.</p>
+                        </div>
+                    </div>
+
+                    <p class="text-red-700 text-sm">
+                        Please check the certificate ID and try again. If you believe this is an error, contact the Secrets In The Stains support team.
+                    </p>
+                </div>
+                {% endif %}
+
+                <!-- Footer -->
+                <div class="mt-8 pt-6 border-t border-gray-200 text-center">
+                    <p class="text-sm text-gray-500">
+                        © 2026 <span class="font-semibold text-[#6d1f2b]">Secrets In The Stains</span> · Secure Certificate Verification System
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

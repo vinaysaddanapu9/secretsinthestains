@@ -10,10 +10,6 @@ def get_connection():
     print("DATABASE_URL:", DATABASE_URL)
     return psycopg.connect(DATABASE_URL)
 
-'''def get_connection():
-    return psycopg.connect(DATABASE_URL)'''
-
-
 def init_db():
     with get_connection() as conn:
         with conn.cursor() as cur:
@@ -74,6 +70,17 @@ def init_db():
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
          );
             """)
+
+            cur.execute("""
+                        CREATE TABLE IF NOT EXISTS certificates (
+                            id SERIAL PRIMARY KEY,
+                            certificate_id VARCHAR(50) UNIQUE NOT NULL,
+                            name VARCHAR(100) NOT NULL,
+                            program VARCHAR(200) NOT NULL,
+                            issue_date DATE DEFAULT CURRENT_DATE,
+                            status VARCHAR(20) DEFAULT 'VALID'
+                        );
+                        """)
 
         conn.commit()
 

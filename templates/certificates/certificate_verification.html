@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Certificate Verification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+    <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-lg">
+
+        <h1 class="text-3xl font-bold text-center mb-6">
+            Certificate Verification
+        </h1>
+
+        <form method="POST" class="space-y-4">
+            <input
+                type="text"
+                name="certificate_id"
+                placeholder="Enter Certificate ID"
+                required
+                class="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+            <button
+                type="submit"
+                class="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition">
+                Verify Certificate
+            </button>
+        </form>
+
+        {% if certificate %}
+        <div class="mt-8 bg-green-50 border border-green-200 rounded-xl p-5 space-y-2">
+            <h2 class="text-xl font-semibold text-green-700">✅ Certificate Valid</h2>
+
+            <p><strong>Certificate ID:</strong> {{ certificate[0] }}</p>
+            <p><strong>Name:</strong> {{ certificate[1] }}</p>
+            <p><strong>Program:</strong> {{ certificate[2] }}</p>
+            <p><strong>Issue Date:</strong> {{ certificate[3] }}</p>
+            <p><strong>Status:</strong> {{ certificate[4] }}</p>
+        </div>
+        {% elif certificate is not none %}
+        <div class="mt-8 bg-red-50 border border-red-200 rounded-xl p-5 text-red-700">
+            <h2 class="text-xl font-semibold">❌ Invalid Certificate</h2>
+            <p>Certificate not found.</p>
+        </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
