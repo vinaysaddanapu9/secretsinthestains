@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, flash, render_template, request, redirect, session, url_for
+from flask_wtf.csrf import CSRFProtect
 from routes import internship
 from routes.message import save_message, get_messages
 from routes.webinar import webinar_bp,get_all_webinars, get_past_webinars, get_webinar_registrations
@@ -26,6 +27,8 @@ app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE="Lax",
 )
+
+csrf = CSRFProtect(app)
 
 from flask import send_from_directory
 

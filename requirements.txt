@@ -12,3 +12,4 @@ psycopg[binary]
 python-dotenv
 APScheduler==3.11.0
 psycopg_pool
+Flask-WTF

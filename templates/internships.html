@@ -18,7 +18,7 @@
 
 <nav class="p-4">
   <a href="/" class="text-2xl text-white-600 hover:text-white">
-    ← Back
+    ←
   </a>
 </nav>
 
@@ -118,6 +118,7 @@
 
         <form action="/submit-internship" method="POST" class="mt-10 space-y-5">
 
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <input name="name" class="w-full p-4 rounded-xl text-black" placeholder="Full Name">
             <input name="email" class="w-full p-4 rounded-xl text-black" placeholder="Email">
             <input name="phone" class="w-full p-4 rounded-xl text-black" placeholder="Mobile Number">
