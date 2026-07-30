@@ -50,7 +50,6 @@ def robots():
 
 # ADMIN LOGIN (basic version)
 @app.route('/admin-login', methods=['GET', 'POST'])
-@login_required
 def admin_login():
     if request.method == 'POST':
         username = request.form['username']
