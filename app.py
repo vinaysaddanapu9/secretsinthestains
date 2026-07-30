@@ -4,7 +4,7 @@ from routes import internship
 from routes.message import save_message, get_messages
 from routes.webinar import webinar_bp,get_all_webinars, get_past_webinars, get_webinar_registrations
 from werkzeug.security import generate_password_hash, check_password_hash
-from routes.auth_utils import admin_required, login_required
+from routes.auth_utils import admin_required
 from routes.certificate import certificate_bp
 from reportlab.pdfgen import canvas
 from scheduler import start_scheduler
@@ -68,7 +68,6 @@ def admin_login():
 # ADMIN DASHBOARD (protected)
 @app.route('/admin')
 @admin_required
-@login_required
 def admin():
     applications = internship.get_all_applications()
     messages = get_messages()
@@ -147,7 +146,6 @@ def contact():
     return render_template("contact.html", success=success)
 
 @app.route("/admin/webinars")
-@login_required
 @admin_required
 def admin_webinars():
     webinars = get_all_webinars()
