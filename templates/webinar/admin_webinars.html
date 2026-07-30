@@ -36,11 +36,11 @@
         {{ webinar[1] }}
     </h3>
     {% if webinar[9]=='Active' %}
-    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs">
+    <span class="inline-flex items-center bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-xs font-semibold border border-green-200">
         Active
     </span>
     {% elif webinar[9]=='Expired' %}
-    <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs">
+    <span class="inline-flex items-center bg-[#fde7ea] text-red-700 px-4 py-1.5 rounded-full text-xs font-semibold border border-[#f8d2d8]">
         Expired
     </span>
     {% else %}
