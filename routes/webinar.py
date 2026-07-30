@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from routes.auth_utils import admin_required
+from routes.auth_utils import admin_required,login_required
 from datetime import date
 from database.db import get_connection
 
@@ -42,6 +42,8 @@ def webinar_registration():
     return redirect(url_for("webinar.webinar", success=1))
 
 @webinar_bp.route("/admin/create-webinar", methods=["POST"])
+@admin_required
+@login_required
 def create_webinar():
 
     with get_connection() as conn:

@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from routes.auth_utils import admin_required
+from routes.auth_utils import admin_required,login_required
 from database.db import get_connection
 import secrets
 
@@ -72,6 +72,7 @@ def generate_certificate_id():
 # -------------------------------
 @certificate_bp.route('/admin/certificates')
 @admin_required
+@login_required
 def admin_certificates():
 
     with get_connection() as conn:
@@ -99,6 +100,7 @@ def admin_certificates():
 # -------------------------------
 @certificate_bp.route('/admin/certificates/create', methods=['POST'])
 @admin_required
+@login_required
 def create_certificate():
 
     name = request.form.get('name')
