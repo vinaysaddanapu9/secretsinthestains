@@ -119,17 +119,34 @@ def internships():
 
 @app.route('/submit-internship', methods=['POST'])
 def submit_internship():
-    name = request.form['name']
-    email = request.form['email']
-    college = request.form['college']
-    domain = request.form['domain']
-    phone = request.form['phone']
+    # Get values safely
+    name = request.form.get('name', '').strip()
+    email = request.form.get('email', '').strip()
+    college = request.form.get('college', '').strip()
+    domain = request.form.get('domain', '').strip()
+    phone = request.form.get('phone', '').strip()
+
+    # Server-side validation
+    if not name or not email or not college or not domain or not phone:
+        return redirect(url_for(
+            'internships',
+            error='Please fill all required fields.'
+        ))
+
+    # Optional: prevent default option submission
+    if domain == 'Choose a domain' or domain == 'Select Domain':
+        return redirect(url_for(
+            'internships',
+            error='Please select a valid internship domain.'
+        ))
 
     try:
         internship.save_application(name, email, college, domain, phone)
         return redirect(url_for('internships', success=1))
+
     except Exception as e:
         return redirect(url_for('internships', error=str(e)))
+
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -158,6 +175,10 @@ def admin_webinars():
 def all_webinars():
     webinars = get_past_webinars()
     return render_template('/webinar/all_webinars.html', webinars=webinars)
+
+@app.route("/alumni")
+def alumni():
+    return render_template("alumni.html")
 
 
 if __name__ == "__main__":
