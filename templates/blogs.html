@@ -4,6 +4,7 @@
 
 <div class="overflow-x-hidden bg-[#fff7f8]">
 
+```
 <!-- HERO SECTION -->
 <section class="relative overflow-hidden bg-gradient-to-br from-[#2b0b12] via-[#4a0f1f] to-[#6b1a2e] text-white">
 
@@ -56,14 +57,14 @@
 </section>
 
 <!-- BLOG CONTAINER -->
-<section class="py-16 px-6 bg-gray-50">
+<section class="py-16 md:py-24 px-4 sm:px-6">
 
-<div class="max-w-6xl mx-auto space-y-16">
+    <div class="max-w-6xl mx-auto space-y-16">
 
-<!-- BLOG 1 -->
-<div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg">
+        <!-- BLOG 1 -->
+<div class="bg-white p-6 md:p-10 rounded-[2rem] shadow-xl border border-[#f1d9df] hover:shadow-2xl hover:-translate-y-1 transition duration-300">
 
-<h2 class="text-2xl font-bold text-[#6b1a2e] mb-4">
+<h2 class="text-2xl md:text-3xl font-bold text-[#6b1a2e] leading-tight">
 1. Catching a Digital Ghost: How Forensic Scientists Detect AI Deepfakes in Court
 </h2>
 
@@ -95,9 +96,9 @@ The challenge for digital forensics moving forward is scale. While a single vide
 </div>
 
 <!-- BLOG 2 -->
-<div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg">
+<div class="bg-white p-6 md:p-10 rounded-[2rem] shadow-xl border border-[#f1d9df] hover:shadow-2xl hover:-translate-y-1 transition duration-300">
 
-<h2 class="text-2xl font-bold text-[#6b1a2e] mb-4">
+<h2 class="text-2xl md:text-3xl font-bold text-[#6b1a2e] leading-tight">
 2. Scalpels to Scans: The Rise of the AI-Enhanced Virtual Autopsy
 </h2>
 
@@ -127,9 +128,9 @@ The future of forensics will likely see the virtual autopsy become the default s
 </div>
 
 <!-- BLOG 3 -->
-<div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg">
+<div class="bg-white p-6 md:p-10 rounded-[2rem] shadow-xl border border-[#f1d9df] hover:shadow-2xl hover:-translate-y-1 transition duration-300">
 
-<h2 class="text-2xl font-bold text-[#6b1a2e] mb-4">
+<h2 class="text-2xl md:text-3xl font-bold text-[#6b1a2e] leading-tight">
 3. The Silent Witnesses: How Dirt and Pollen Crack Cold Cases
 </h2>
 
@@ -157,9 +158,9 @@ From the stomach contents of a victim (proving where their last meal was grown) 
 </div>
 
 <!-- BLOG 4 -->
-<div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg">
+<div class="bg-white p-6 md:p-10 rounded-[2rem] shadow-xl border border-[#f1d9df] hover:shadow-2xl hover:-translate-y-1 transition duration-300">
 
-<h2 class="text-2xl font-bold text-[#6b1a2e] mb-4">
+<h2 class="text-2xl md:text-3xl font-bold text-[#6b1a2e] leading-tight">
 4. Molecules of Time: Predicting Age and Faces from a Single Drop of Blood
 </h2>
 
@@ -188,9 +189,9 @@ While phenotyping provides a prediction, not a 100% guarantee, it is an unpreced
 </div>
 
 <!-- BLOG 5 -->
-<div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg">
+<div class="bg-white p-6 md:p-10 rounded-[2rem] shadow-xl border border-[#f1d9df] hover:shadow-2xl hover:-translate-y-1 transition duration-300">
 
-<h2 class="text-2xl font-bold text-[#6b1a2e] mb-4">
+<h2 class="text-2xl md:text-3xl font-bold text-[#6b1a2e] leading-tight">
 Stepping Into the Crime: How Laser Scanners Recreate Tragedies in VR
 </h2>
 
@@ -219,7 +220,12 @@ By digitizing the environment, 3D reconstruction ensures that the scene never cl
 
 </div>
 
-</div>
+
+        <!-- Keep ALL your remaining blog sections exactly the same content-wise -->
+        <!-- BLOG 2, BLOG 3, BLOG 4, BLOG 5 -->
+        <!-- Only wrap each with the same modern card styling used above -->
+
+    </div>
 
 </section>
 
@@ -243,7 +249,9 @@ By digitizing the environment, 3D reconstruction ensures that the scene never cl
     </div>
 
 </section>
- </div>
+```
+
+</div>
 
 <script>
 function toggleReadMore(btn) {
@@ -260,4 +268,3 @@ function toggleReadMore(btn) {
 </script>
 
 {% endblock %}
-
