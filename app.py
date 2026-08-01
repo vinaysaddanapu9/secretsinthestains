@@ -26,6 +26,7 @@ app.register_blueprint(certificate_bp)
 app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE="Lax",
+    SESSION_COOKIE_SECURE=True
 )
 
 csrf = CSRFProtect(app)
@@ -69,9 +70,6 @@ def admin_login():
 @app.route('/admin')
 @admin_required
 def admin():
-    # Extra protection
-    if not session.get("admin_logged_in"):
-        return redirect(url_for("admin_login"))
 
     applications = internship.get_all_applications()
     messages = get_messages()
