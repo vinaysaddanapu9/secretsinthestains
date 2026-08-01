@@ -93,7 +93,6 @@ def admin():
 @app.route('/logout')
 def logout():
     session.clear()
-    session.pop('admin', None)
     return redirect('/admin-login')
 
 
