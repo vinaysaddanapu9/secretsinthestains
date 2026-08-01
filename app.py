@@ -1,4 +1,4 @@
-from flask import Flask, flash, render_template, request, redirect, session, url_for
+from flask import Flask, render_template, request, redirect, session, url_for,make_response
 from flask_wtf.csrf import CSRFProtect
 from routes import internship
 from routes.message import save_message, get_messages
@@ -32,10 +32,10 @@ csrf = CSRFProtect(app)
 
 from flask import send_from_directory
 
-# Prevent browser cache
+# Prevent browser caching
 @app.after_request
-def add_header(response):
-    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+def add_no_cache_headers(response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "0"
     return response
@@ -69,19 +69,25 @@ def admin_login():
 @app.route('/admin')
 @admin_required
 def admin():
+    # Extra protection
+    if not session.get("admin_logged_in"):
+        return redirect(url_for("admin_login"))
+
     applications = internship.get_all_applications()
     messages = get_messages()
     webinar_registrations = get_webinar_registrations()
 
     webinar_success = request.args.get("webinar_success")
 
-    return render_template(
+    response = make_response(render_template(
         "admin.html",
         applications=applications,
         messages=messages,
         webinar_registrations=webinar_registrations,
         webinar_success=webinar_success
-    )
+    ))
+
+    return response
 
 # LOGOUT
 @app.route('/logout')
