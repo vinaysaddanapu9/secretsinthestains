@@ -2,51 +2,233 @@
 
 {% block content %}
 
-<!-- HERO -->
-<section class="bg-gradient-to-r from-[#4a0f1f] via-[#6b1a2e] to-[#2b0b12] text-white py-24 text-center px-6">
+<div class="overflow-x-hidden bg-[#fff7f8]">
 
-    <h1 class="text-4xl md:text-5xl font-bold">Programs</h1>
+```
+<!-- HERO SECTION -->
+<section class="relative overflow-hidden bg-gradient-to-br from-[#2b0b12] via-[#4a0f1f] to-[#6b1a2e] text-white">
 
-    <p class="text-gray-200 mt-3">
-        Our training programs are currently under development.
-    </p>
+    <!-- Background Glow -->
+    <div class="absolute inset-0 opacity-20">
+        <div class="absolute -top-24 -left-24 w-80 h-80 bg-[#b33654] rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-[26rem] h-[26rem] bg-[#8a203d] rounded-full blur-3xl"></div>
+    </div>
 
-</section>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24">
 
-<!-- MAIN -->
-<section class="py-24 bg-gray-50 px-6">
+        <!-- Back Button -->
+        <div class="mb-8">
+            <a href="/"
+               class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-full text-sm shadow-md hover:bg-white hover:text-[#6b1a2e] transition-all duration-300 hover:scale-105">
 
-    <div class="max-w-3xl mx-auto text-center">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="w-4 h-4"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 19l-7-7 7-7" />
+                </svg>
 
-        <!-- ICON -->
-        <div class="text-6xl mb-6">🚧</div>
+                <span class="font-medium">Back to Home</span>
+            </a>
+        </div>
 
-        <!-- MESSAGE -->
-        <h2 class="text-3xl font-bold text-[#6b1a2e] mb-4">
-            Programs Under Progress
-        </h2>
+        <div class="text-center">
 
-        <p class="text-gray-600 leading-relaxed">
-            We are currently building advanced forensic science training modules including
-            fingerprint analysis, crime scene investigation, digital forensics, and research-based learning programs.
-        </p>
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 text-sm mb-6">
+                🎓 Secrets in the Stains
+            </div>
 
-        <!-- STATUS BADGE -->
-        <div class="mt-8 inline-block bg-yellow-100 text-yellow-700 px-5 py-2 rounded-full font-semibold">
-            ⏳ Under Development
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+                Forensic Science Programs
+            </h1>
+
+            <p class="mt-5 max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-white/85 leading-relaxed">
+                We are designing comprehensive forensic science learning programs that combine
+                theoretical foundations with practical investigative training for aspiring forensic professionals.
+            </p>
+
         </div>
 
     </div>
 
 </section>
 
-<!-- FOOTER -->
-<section class="py-10 bg-[#2b0b12] text-center text-white">
+<!-- MAIN CONTENT -->
+<section class="py-16 md:py-24 px-4 sm:px-6">
 
-    <p class="text-gray-300">
-        New programs will be launched soon with practical forensic training.
-    </p>
+    <div class="max-w-6xl mx-auto">
+
+        <!-- Coming Soon Card -->
+        <div class="bg-white rounded-[2rem] shadow-2xl border border-[#f1d9df] p-8 md:p-12 text-center relative overflow-hidden">
+
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-[#6b1a2e]/5 rounded-full blur-2xl"></div>
+            <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-[#b33654]/5 rounded-full blur-2xl"></div>
+
+            <div class="relative">
+
+                <div class="w-24 h-24 mx-auto rounded-3xl bg-gradient-to-br from-[#4a0f1f] to-[#6b1a2e] flex items-center justify-center text-white text-5xl shadow-xl mb-8">
+                    🚧
+                </div>
+
+                <div class="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                    ⏳ Under Development
+                </div>
+
+                <h2 class="text-3xl md:text-4xl font-bold text-[#6b1a2e] mb-6">
+                    Programs Under Progress
+                </h2>
+
+                <p class="text-gray-600 leading-relaxed text-base md:text-lg max-w-3xl mx-auto">
+                    We are currently developing advanced forensic science training modules that will provide
+                    structured learning, practical exercises, case-based analysis, and professional guidance
+                    for students and forensic enthusiasts.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Upcoming Programs Grid -->
+        <div class="mt-16">
+
+            <div class="text-center mb-10">
+
+                <div class="inline-flex items-center gap-2 bg-[#6b1a2e]/10 text-[#6b1a2e] px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    🔬 Upcoming Modules
+                </div>
+
+                <h3 class="text-3xl md:text-4xl font-bold text-[#6b1a2e]">
+                    Planned Training Areas
+                </h3>
+
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div class="group bg-white rounded-3xl p-6 border border-[#f1d9df] shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#4a0f1f] to-[#6b1a2e] flex items-center justify-center text-white text-2xl shadow-lg mb-4">
+                        🧬
+                    </div>
+
+                    <h4 class="font-bold text-[#6b1a2e] text-lg mb-2">
+                        Fingerprint Analysis
+                    </h4>
+
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Ridge pattern examination, classification, and identification techniques.
+                    </p>
+                </div>
+
+                <div class="group bg-white rounded-3xl p-6 border border-[#f1d9df] shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#4a0f1f] to-[#6b1a2e] flex items-center justify-center text-white text-2xl shadow-lg mb-4">
+                        🕵️
+                    </div>
+
+                    <h4 class="font-bold text-[#6b1a2e] text-lg mb-2">
+                        Crime Scene Investigation
+                    </h4>
+
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Evidence collection, documentation, and forensic scene reconstruction.
+                    </p>
+                </div>
+
+                <div class="group bg-white rounded-3xl p-6 border border-[#f1d9df] shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#4a0f1f] to-[#6b1a2e] flex items-center justify-center text-white text-2xl shadow-lg mb-4">
+                        💻
+                    </div>
+
+                    <h4 class="font-bold text-[#6b1a2e] text-lg mb-2">
+                        Digital Forensics
+                    </h4>
+
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Introduction to cyber evidence, multimedia analysis, and digital investigations.
+                    </p>
+                </div>
+
+                <div class="group bg-white rounded-3xl p-6 border border-[#f1d9df] shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#4a0f1f] to-[#6b1a2e] flex items-center justify-center text-white text-2xl shadow-lg mb-4">
+                        📚
+                    </div>
+
+                    <h4 class="font-bold text-[#6b1a2e] text-lg mb-2">
+                        Research-Based Learning
+                    </h4>
+
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Analytical thinking, case interpretation, and forensic research methodologies.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Timeline / Status Section -->
+        <div class="mt-16 bg-gradient-to-br from-[#2b0b12] via-[#4a0f1f] to-[#6b1a2e] rounded-[2rem] p-8 md:p-10 text-white shadow-2xl relative overflow-hidden">
+
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="relative text-center">
+
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 text-sm mb-4">
+                    🚀 Development Status
+                </div>
+
+                <h3 class="text-3xl md:text-4xl font-bold mb-4">
+                    Exciting Programs Are Coming Soon
+                </h3>
+
+                <p class="text-white/80 max-w-3xl mx-auto text-base md:text-lg leading-relaxed mb-8">
+                    We are carefully preparing high-quality learning content, practical demonstrations,
+                    interactive case studies, and certificate-oriented forensic science programs to provide
+                    a meaningful and professional training experience.
+                </p>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+
+                    <a href="/internships"
+                       class="bg-white text-[#6b1a2e] px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition duration-300 shadow-lg">
+                        Explore Internships
+                    </a>
+
+                    <a href="/contact"
+                       class="border border-white/30 bg-white/10 backdrop-blur-md px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-[#6b1a2e] transition duration-300">
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
+
+<!-- FOOTER STRIP -->
+<section class="py-10 bg-[#2b0b12] text-center text-white">
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+        <p class="text-white/80 text-sm md:text-base leading-relaxed">
+            New forensic science programs will be launched soon with practical training,
+            case-based learning, workshops, and professional certification opportunities.
+        </p>
+
+    </div>
+
+</section>
+```
+
+</div>
 
 {% endblock %}
