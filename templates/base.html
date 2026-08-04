@@ -2,126 +2,298 @@
 <html lang="en">
 <head>
     <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}?v=99">
+
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-     content="Forensic science internships, fingerprint analysis training, crime scene investigation learning, forensic blogs and certificate programs.">
+          content="Forensic science internships, fingerprint analysis training, crime scene investigation learning, forensic blogs and certificate programs.">
 
-     <meta name="keywords"
-     content="forensic science, forensic internship, fingerprint analysis, crime scene investigation, forensic education">
+    <meta name="keywords"
+          content="forensic science, forensic internship, fingerprint analysis, crime scene investigation, forensic education">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Secrets in the Stains{% endblock %}</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
     <style>
         *{
             font-family: 'Poppins', sans-serif;
         }
 
+        /* LIGHT PAGE BACKGROUND */
         body{
             background:#f5f5f5;
+            min-height:100vh;
+            color:#111827;
+            overflow-x:hidden;
         }
 
+        /* Optional hero background */
         .forensic-bg{
-            background: linear-gradient(
-                rgba(0,0,0,0.75),
-                rgba(0,0,0,0.75)
-            ),
-            url("{{ url_for('static', filename='images/hero-bg.png') }}");
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.82),
+                    rgba(0,0,0,0.90)
+                ),
+                url("{{ url_for('static', filename='images/hero-bg.png') }}");
 
             background-size:cover;
             background-position:center;
+            background-attachment:fixed;
         }
 
-        .accent{
-            color:#c11244;
+        /* Modern dark glass navbar */
+        .glass{
+            background:rgba(17,24,39,0.88);
+            backdrop-filter:blur(18px);
+            -webkit-backdrop-filter:blur(18px);
+            border:1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-link{
+            position:relative;
+            transition:all 0.3s ease;
+        }
+
+        .nav-link::after{
+            content:'';
+            position:absolute;
+            left:0;
+            bottom:-6px;
+            width:0%;
+            height:2px;
+            background:#fb7185;
+            transition:0.3s ease;
+            box-shadow:0 0 10px #fb7185;
+        }
+
+        .nav-link:hover::after{
+            width:100%;
+        }
+
+        .nav-link:hover{
+            color:#fecdd3;
         }
 
         .btn-primary{
-            background:#c11244;
-            transition:0.3s;
+            background:linear-gradient(to right,#f43f5e,#e11d48);
+            transition:all 0.3s ease;
+            box-shadow:0 10px 30px rgba(244,63,94,0.35);
         }
 
         .btn-primary:hover{
-            background:#980f35;
+            transform:translateY(-2px) scale(1.03);
+            box-shadow:0 18px 45px rgba(244,63,94,0.55);
+        }
+
+        .brand-glow{
+            text-shadow:
+                0 0 10px rgba(244,63,94,0.25),
+                0 0 20px rgba(244,63,94,0.15);
         }
     </style>
 </head>
 
 <body>
 
-<nav class="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto px-6">
+<!-- ================= NAVBAR ================= -->
+<nav class="fixed top-0 left-0 w-full z-50">
 
-        <div class="flex justify-between items-center h-20">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-3 sm:pt-5">
 
-            <div class="flex items-center gap-3">
+        <div class="
+            glass
+            rounded-2xl sm:rounded-3xl
+            shadow-[0_10px_40px_rgba(0,0,0,0.35)]
+            px-4 sm:px-6
+            py-3
+            flex items-center justify-between
+        ">
 
-                <img
-                    src="{{ url_for('static', filename='images/logo.jpg') }}"
-                    alt="Secrets in the Stains"
-                    class="h-14 w-auto object-contain rounded-lg"
-                >
+            <!-- Logo + Brand -->
+            <a href="/" class="flex items-center gap-3 flex-1 min-w-0 group">
 
-                <div>
-                    <h1 class="text-white text-xl font-bold">
+                <div class="relative flex-shrink-0">
+                    <img
+                        src="{{ url_for('static', filename='images/logo.jpg') }}"
+                        alt="Secrets in the Stains"
+                        class="
+                            h-12 w-12
+                            sm:h-16 sm:w-16
+                            rounded-xl sm:rounded-2xl
+                            object-cover
+                            ring-2 ring-rose-500/40
+                            shadow-xl
+                            group-hover:scale-105
+                            transition duration-300
+                        "
+                    >
+                </div>
+
+                <div class="min-w-0">
+
+                    <h1 class="
+                        text-sm sm:text-2xl
+                        font-extrabold
+                        bg-gradient-to-r
+                        from-white
+                        via-rose-100
+                        to-rose-400
+                        bg-clip-text
+                        text-transparent
+                        tracking-wide
+                        leading-tight
+                        brand-glow
+                        truncate
+                    ">
                         Secrets in the Stains
                     </h1>
 
-                    <p class="text-gray-300 text-xs">
-                        Science. Evidence. Truth.
+                    <p class="
+                        text-[10px] sm:text-xs
+                        text-gray-400
+                        uppercase
+                        tracking-[0.18em] sm:tracking-[0.35em]
+                        font-medium
+                        truncate
+                    ">
+                        Science • Evidence • Truth
                     </p>
+
                 </div>
 
-            </div>
+            </a>
 
             <!-- Desktop Menu -->
-            <div class="hidden md:flex gap-8 text-white">
-                 <a href="/alumni">Success Stories</a>
-                 <a href="/certificate-verification">Certificate Verification</a>
-                <a href="/about">About</a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium ml-8">
+
+                <a href="/alumni" class="nav-link text-gray-200">
+                    Success Stories
+                </a>
+
+                <a href="/certificate-verification" class="nav-link text-gray-200">
+                    Certificate Verification
+                </a>
+
+                <a href="/about" class="nav-link text-gray-200">
+                    About
+                </a>
+
+                <a href="/internships"
+                   class="
+                        btn-primary
+                        text-white
+                        font-semibold
+                        px-6 py-3
+                        rounded-full
+                   ">
+                    Explore Internships
+                </a>
+
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="menu-btn" class="md:hidden text-white text-3xl">
-             ☰
+            <button id="menu-btn"
+                    class="
+                        md:hidden
+                        p-2
+                        rounded-xl
+                        text-gray-200
+                        hover:bg-white/10
+                        transition
+                        flex-shrink-0
+                        ml-2
+                    ">
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-6 w-6"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor">
+
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+
             </button>
 
         </div>
 
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+             class="
+                hidden
+                md:hidden
+                mt-3
+                glass
+                rounded-2xl
+                shadow-2xl
+                overflow-hidden
+             ">
+
+            <a href="/alumni"
+               class="block px-6 py-4 text-gray-200 hover:bg-white/5 hover:text-rose-300 transition">
+                Success Stories
+            </a>
+
+            <a href="/certificate-verification"
+               class="block px-6 py-4 text-gray-200 hover:bg-white/5 hover:text-rose-300 transition border-t border-white/5">
+                Certificate Verification
+            </a>
+
+            <a href="/about"
+               class="block px-6 py-4 text-gray-200 hover:bg-white/5 hover:text-rose-300 transition border-t border-white/5">
+                About
+            </a>
+
+            <div class="p-4 border-t border-white/5">
+                <a href="/internships"
+                   class="
+                        block
+                        text-center
+                        btn-primary
+                        text-white
+                        font-semibold
+                        px-5 py-3
+                        rounded-xl
+                   ">
+                    Explore Internships
+                </a>
+            </div>
+
+        </div>
+
     </div>
+
 </nav>
 
-<!-- Mobile menu -->
-<div id="mobile-menu"
-     class="hidden md:hidden fixed top-20 left-0 w-full bg-black/95 text-white z-40">
+<!-- ================= PAGE CONTENT ================= -->
+<main class="pt-28 sm:pt-32 min-h-screen">
 
-    <a href="/alumni" class="block px-6 py-3 border-b border-gray-700">Success Stories</a>
+    {% block content %}
+    {% endblock %}
 
-    <a href="/certificate-verification"
-       class="block px-6 py-3 border-b border-gray-700">
-        Certificate Verification
-    </a>
+</main>
 
-    <a href="/about"
-       class="block px-6 py-3 border-b border-gray-700">
-        About
-    </a>
-</div>
-
+<!-- ================= MOBILE MENU SCRIPT ================= -->
 <script>
-document.getElementById("menu-btn").addEventListener("click", function() {
-    document.getElementById("mobile-menu").classList.toggle("hidden");
-});
-</script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-{% block content %}
-{% endblock %}
+    menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
+</script>
 
 </body>
 </html>
+
