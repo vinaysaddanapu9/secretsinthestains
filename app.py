@@ -32,6 +32,17 @@ app.config.update(
 
 csrf = CSRFProtect(app)
 
+@app.before_request
+def redirect_non_www():
+    if request.host == 'secretsinthestains.in':
+        return redirect(
+            request.url.replace(
+                'https://secretsinthestains.in',
+                'https://www.secretsinthestains.in'
+            ),
+            code=301
+        )
+
 # Prevent browser caching
 @app.after_request
 def add_no_cache_headers(response):
