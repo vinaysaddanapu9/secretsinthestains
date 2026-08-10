@@ -10,6 +10,7 @@ from reportlab.pdfgen import canvas
 from scheduler import start_scheduler
 from routes.quiz import quiz_bp
 from dotenv import load_dotenv
+from flask import send_from_directory
 
 load_dotenv()   # Loads DATABASE_URL from .env (ignored on Render)
 
@@ -30,8 +31,6 @@ app.config.update(
 )
 
 csrf = CSRFProtect(app)
-
-from flask import send_from_directory
 
 # Prevent browser caching
 @app.after_request
