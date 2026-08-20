@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://secretsinthestains.in/sitemap.xml
+Sitemap: https://www.secretsinthestains.in/sitemap.xml
