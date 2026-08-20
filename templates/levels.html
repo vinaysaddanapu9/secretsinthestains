@@ -1,129 +1,1227 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select Difficulty Level</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Select Difficulty | Secrets in the Stains
+    </title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        body{
-            background:#080808;
+
+        html {
+            scroll-behavior: smooth;
         }
 
-        .glass{
-            background:rgba(255,255,255,0.05);
-            backdrop-filter:blur(12px);
+        body {
+            background:
+                radial-gradient(
+                    circle at 15% 10%,
+                    rgba(122, 0, 25, 0.25),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(76, 29, 149, 0.18),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #050507,
+                    #0b0d13,
+                    #11131a
+                );
         }
+
+
+        /* ===============================
+           FORENSIC GRID
+        ================================= */
+
+        .forensic-grid {
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 45px 45px;
+
+        }
+
+
+        /* ===============================
+           GLASS
+        ================================= */
+
+        .glass {
+
+            background:
+                rgba(255,255,255,0.045);
+
+            backdrop-filter:
+                blur(20px);
+
+            -webkit-backdrop-filter:
+                blur(20px);
+
+            border:
+                1px solid rgba(255,255,255,0.09);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.35),
+                inset 0 1px 0 rgba(255,255,255,0.04);
+
+        }
+
+
+        /* ===============================
+           DIFFICULTY CARD
+        ================================= */
+
+        .difficulty-card {
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+
+        }
+
+
+        .difficulty-card:hover {
+
+            transform:
+                translateY(-10px);
+
+        }
+
+
+        /* EASY */
+
+        .easy:hover {
+
+            border-color:
+                rgba(34,197,94,0.6);
+
+            box-shadow:
+                0 30px 80px
+                rgba(34,197,94,0.12);
+
+        }
+
+
+        /* MEDIUM */
+
+        .medium:hover {
+
+            border-color:
+                rgba(234,179,8,0.6);
+
+            box-shadow:
+                0 30px 80px
+                rgba(234,179,8,0.12);
+
+        }
+
+
+        /* HARD */
+
+        .hard:hover {
+
+            border-color:
+                rgba(239,68,68,0.65);
+
+            box-shadow:
+                0 30px 80px
+                rgba(239,68,68,0.15);
+
+        }
+
+
+        /* ===============================
+           ICON
+        ================================= */
+
+        .difficulty-icon {
+
+            transition:
+                transform 0.4s ease;
+
+        }
+
+
+        .difficulty-card:hover
+        .difficulty-icon {
+
+            transform:
+                scale(1.12)
+                rotate(3deg);
+
+        }
+
+
+        /* ===============================
+           BUTTON
+        ================================= */
+
+        .start-button {
+
+            transition:
+                all 0.3s ease;
+
+        }
+
+
+        .difficulty-card:hover
+        .start-button {
+
+            transform:
+                translateY(-1px);
+
+        }
+
     </style>
+
 </head>
-<body>
 
-<section class="min-h-screen flex items-center justify-center px-6 py-16">
 
-    <div class="max-w-6xl w-full">
+<body class="min-h-screen text-white">
 
-        <div class="text-center mb-12">
 
-            <h1 class="text-5xl font-bold text-white mb-4">
-                Select Difficulty Level
-            </h1>
+<!-- ===================================================== -->
+<!-- BACKGROUND -->
+<!-- ===================================================== -->
 
-            <p class="text-gray-400 text-lg">
-                Domain:
-                <span class="text-red-500 font-semibold">
-                    {{ domain.replace('_',' ').title() }}
-                </span>
-            </p>
+<div class="fixed inset-0 pointer-events-none">
 
-        </div>
+    <!-- Red glow -->
 
-        <div class="grid md:grid-cols-3 gap-8">
-
-            <!-- Easy -->
-
-            <a href="/quiz/{{ domain }}/easy"
-               class="glass border border-green-700 rounded-3xl p-8 text-center hover:scale-105 transition duration-300">
-
-                <div class="text-6xl mb-4">
-                    🟢
-                </div>
-
-                <h2 class="text-3xl font-bold text-white mb-3">
-                    Easy
-                </h2>
-
-                <p class="text-gray-400 mb-6">
-                    Basic concepts and introductory forensic science questions.
-                </p>
-
-                <div class="bg-green-700 text-white py-2 rounded-xl">
-                    10 Questions
-                </div>
-
-            </a>
-
-            <!-- Medium -->
-
-            <a href="/quiz/{{ domain }}/medium"
-               class="glass border border-yellow-600 rounded-3xl p-8 text-center hover:scale-105 transition duration-300">
-
-                <div class="text-6xl mb-4">
-                    🟡
-                </div>
-
-                <h2 class="text-3xl font-bold text-white mb-3">
-                    Medium
-                </h2>
-
-                <p class="text-gray-400 mb-6">
-                    Intermediate questions requiring deeper forensic knowledge.
-                </p>
-
-                <div class="bg-yellow-600 text-white py-2 rounded-xl">
-                    10 Questions
-                </div>
-
-            </a>
-
-            <!-- Hard -->
-
-            <a href="/quiz/{{ domain }}/hard"
-               class="glass border border-red-700 rounded-3xl p-8 text-center hover:scale-105 transition duration-300">
-
-                <div class="text-6xl mb-4">
-                    🔴
-                </div>
-
-                <h2 class="text-3xl font-bold text-white mb-3">
-                    Hard
-                </h2>
-
-                <p class="text-gray-400 mb-6">
-                    Advanced forensic science and case-based questions.
-                </p>
-
-                <div class="bg-red-700 text-white py-2 rounded-xl">
-                    10 Questions
-                </div>
-
-            </a>
-
-        </div>
-
-        <div class="text-center mt-10">
-
-            <a href="/quizzes"
-               class="inline-block bg-red-800 hover:bg-red-700 text-white px-8 py-3 rounded-xl transition">
-                ← Back to Domains
-            </a>
-
-        </div>
-
+    <div class="absolute
+                -top-40
+                -left-40
+                w-[28rem]
+                h-[28rem]
+                rounded-full
+                bg-red-900/20
+                blur-[120px]">
     </div>
 
-</section>
+
+    <!-- Purple glow -->
+
+    <div class="absolute
+                -bottom-40
+                -right-40
+                w-[28rem]
+                h-[28rem]
+                rounded-full
+                bg-purple-900/20
+                blur-[120px]">
+    </div>
+
+
+    <!-- Grid -->
+
+    <div class="absolute
+                inset-0
+                forensic-grid">
+    </div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- PAGE -->
+<!-- ===================================================== -->
+
+<div class="relative z-10
+            min-h-screen
+            flex
+            flex-col">
+
+
+    <!-- ================================================= -->
+    <!-- HEADER -->
+    <!-- ================================================= -->
+
+    <header class="border-b
+                   border-white/10
+                   bg-black/20
+                   backdrop-blur-xl">
+
+        <div class="max-w-6xl
+                    mx-auto
+                    px-4
+                    sm:px-6
+                    py-4">
+
+
+            <div class="flex
+                        items-center
+                        justify-between">
+
+
+                <!-- Brand -->
+
+                <a href="/"
+                   class="flex
+                          items-center
+                          gap-3
+                          group">
+
+
+                    <div class="w-10 h-10
+                                rounded-xl
+                                bg-gradient-to-br
+                                from-red-700
+                                to-red-950
+                                flex
+                                items-center
+                                justify-center
+                                shadow-lg
+                                group-hover:scale-105
+                                transition">
+
+                        🔬
+
+                    </div>
+
+
+                    <div class="hidden sm:block">
+
+                        <p class="font-bold
+                                  text-sm">
+
+                            Secrets in the Stains
+
+                        </p>
+
+                        <p class="text-xs
+                                  text-gray-500">
+
+                            Forensic Learning Platform
+
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- Back -->
+
+                <a href="/quizzes"
+                   class="flex
+                          items-center
+                          gap-2
+                          text-sm
+                          text-gray-400
+                          hover:text-white
+                          transition">
+
+                    <span>←</span>
+
+                    <span class="hidden sm:inline">
+                        All Quizzes
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================================= -->
+    <!-- MAIN -->
+    <!-- ================================================= -->
+
+    <main class="flex-1
+                 flex
+                 items-center
+                 py-12
+                 sm:py-16
+                 px-4
+                 sm:px-6">
+
+
+        <div class="max-w-6xl
+                    w-full
+                    mx-auto">
+
+
+            <!-- ================================================= -->
+            <!-- HERO -->
+            <!-- ================================================= -->
+
+            <div class="text-center
+                        max-w-3xl
+                        mx-auto
+                        mb-12">
+
+
+                <!-- Badge -->
+
+                <div class="inline-flex
+                            items-center
+                            gap-2
+                            px-4
+                            py-2
+                            rounded-full
+                            glass
+                            border-red-500/20
+                            text-xs
+                            text-gray-300
+                            mb-6">
+
+
+                    <span class="w-2
+                                 h-2
+                                 rounded-full
+                                 bg-red-500
+                                 animate-pulse">
+                    </span>
+
+
+                    FORENSIC ASSESSMENT
+
+                </div>
+
+
+                <!-- Heading -->
+
+                <h1 class="text-4xl
+                           sm:text-5xl
+                           md:text-6xl
+                           font-black
+                           tracking-tight">
+
+
+                    Choose Your
+
+                    <span class="block
+                                 mt-1
+                                 bg-gradient-to-r
+                                 from-red-400
+                                 via-rose-400
+                                 to-purple-400
+                                 bg-clip-text
+                                 text-transparent">
+
+                        Challenge
+
+                    </span>
+
+                </h1>
+
+
+                <!-- Domain -->
+
+                <p class="mt-5
+                          text-gray-400
+                          text-base
+                          sm:text-lg">
+
+                    You're about to test your knowledge in
+
+                    <span class="text-red-400
+                                 font-semibold">
+
+                        {{ domain.replace('_',' ').title() }}
+
+                    </span>
+
+                </p>
+
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- INFO BAR -->
+            <!-- ================================================= -->
+
+            <div class="glass
+                        rounded-2xl
+                        p-4
+                        sm:p-5
+                        mb-8
+                        flex
+                        flex-wrap
+                        justify-center
+                        gap-6
+                        sm:gap-10">
+
+
+                <!-- Questions -->
+
+                <div class="flex
+                            items-center
+                            gap-3">
+
+
+                    <div class="w-10 h-10
+                                rounded-xl
+                                bg-red-900/30
+                                border
+                                border-red-500/20
+                                flex
+                                items-center
+                                justify-center">
+
+                        📝
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="text-xs
+                                  text-gray-500">
+
+                            Questions
+
+                        </p>
+
+                        <p class="font-semibold">
+
+                            10 Questions
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="w-px
+                            h-8
+                            bg-white/10
+                            hidden sm:block">
+                </div>
+
+
+                <!-- Passing -->
+
+                <div class="flex
+                            items-center
+                            gap-3">
+
+
+                    <div class="w-10 h-10
+                                rounded-xl
+                                bg-green-900/20
+                                border
+                                border-green-500/20
+                                flex
+                                items-center
+                                justify-center">
+
+                        🎯
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="text-xs
+                                  text-gray-500">
+
+                            Passing Score
+
+                        </p>
+
+                        <p class="font-semibold">
+
+                            60%
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="w-px
+                            h-8
+                            bg-white/10
+                            hidden sm:block">
+                </div>
+
+
+                <!-- Certificate -->
+
+                <div class="flex
+                            items-center
+                            gap-3">
+
+
+                    <div class="w-10 h-10
+                                rounded-xl
+                                bg-purple-900/20
+                                border
+                                border-purple-500/20
+                                flex
+                                items-center
+                                justify-center">
+
+                        🏆
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="text-xs
+                                  text-gray-500">
+
+                            Achievement
+
+                        </p>
+
+                        <p class="font-semibold">
+
+                            Certificate Eligible
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- DIFFICULTY CARDS -->
+            <!-- ================================================= -->
+
+            <div class="grid
+                        md:grid-cols-3
+                        gap-6
+                        lg:gap-8">
+
+
+                <!-- ================================================= -->
+                <!-- EASY -->
+                <!-- ================================================= -->
+
+                <a href="/quiz/{{ domain }}/easy"
+                   class="difficulty-card
+                          easy
+                          glass
+                          rounded-[2rem]
+                          p-6
+                          sm:p-8
+                          border-green-500/20
+                          relative
+                          overflow-hidden
+                          group">
+
+
+                    <!-- Glow -->
+
+                    <div class="absolute
+                                -top-20
+                                -right-20
+                                w-40
+                                h-40
+                                bg-green-500/10
+                                rounded-full
+                                blur-3xl
+                                group-hover:bg-green-500/20
+                                transition">
+                    </div>
+
+
+                    <div class="relative">
+
+
+                        <!-- Icon -->
+
+                        <div class="difficulty-icon
+                                    w-20
+                                    h-20
+                                    rounded-2xl
+                                    bg-green-500/10
+                                    border
+                                    border-green-500/20
+                                    flex
+                                    items-center
+                                    justify-center
+                                    text-5xl
+                                    mb-6">
+
+                            🟢
+
+                        </div>
+
+
+                        <!-- Label -->
+
+                        <span class="text-xs
+                                     uppercase
+                                     tracking-[3px]
+                                     text-green-400
+                                     font-semibold">
+
+                            Beginner
+
+                        </span>
+
+
+                        <h2 class="text-3xl
+                                   font-bold
+                                   mt-2
+                                   mb-3">
+
+                            Easy
+
+                        </h2>
+
+
+                        <p class="text-gray-400
+                                  text-sm
+                                  leading-relaxed
+                                  min-h-[72px]">
+
+                            Build your foundation with
+                            basic concepts and introductory
+                            forensic science questions.
+
+                        </p>
+
+
+                        <!-- Divider -->
+
+                        <div class="h-px
+                                    bg-white/10
+                                    my-6">
+                        </div>
+
+
+                        <!-- Details -->
+
+                        <div class="space-y-3
+                                    text-sm">
+
+
+                            <div class="flex
+                                        justify-between">
+
+                                <span class="text-gray-500">
+                                    Difficulty
+                                </span>
+
+                                <span class="text-green-400
+                                             font-semibold">
+
+                                    ★☆☆
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="flex
+                                        justify-between">
+
+                                <span class="text-gray-500">
+                                    Questions
+                                </span>
+
+                                <span>
+                                    10
+                                </span>
+
+                            </div>
+
+
+                            <div class="flex
+                                        justify-between">
+
+                                <span class="text-gray-500">
+                                    Recommended
+                                </span>
+
+                                <span>
+                                    Beginners
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Button -->
+
+                        <div class="start-button
+                                    mt-7
+                                    bg-green-700/80
+                                    group-hover:bg-green-600
+                                    py-3
+                                    rounded-xl
+                                    text-center
+                                    font-semibold">
+
+                            Start Easy Quiz
+                            <span class="ml-2">→</span>
+
+                        </div>
+
+
+                    </div>
+
+                </a>
+
+
+                <!-- ================================================= -->
+                <!-- MEDIUM -->
+                <!-- ================================================= -->
+
+                <a href="/quiz/{{ domain }}/medium"
+                   class="difficulty-card
+                          medium
+                          glass
+                          rounded-[2rem]
+                          p-6
+                          sm:p-8
+                          border-yellow-500/20
+                          relative
+                          overflow-hidden
+                          group">
+
+
+                    <div class="absolute
+                                -top-20
+                                -right-20
+                                w-40
+                                h-40
+                                bg-yellow-500/10
+                                rounded-full
+                                blur-3xl
+                                group-hover:bg-yellow-500/20
+                                transition">
+                    </div>
+
+
+                    <div class="relative">
+
+
+                        <div class="difficulty-icon
+                                    w-20
+                                    h-20
+                                    rounded-2xl
+                                    bg-yellow-500/10
+                                    border
+                                    border-yellow-500/20
+                                    flex
+                                    items-center
+                                    justify-center
+                                    text-5xl
+                                    mb-6">
+
+                            🟡
+
+                        </div>
+
+
+                        <span class="text-xs
+                                     uppercase
+                                     tracking-[3px]
+                                     text-yellow-400
+                                     font-semibold">
+
+                            Intermediate
+
+                        </span>
+
+
+                        <h2 class="text-3xl
+                                   font-bold
+                                   mt-2
+                                   mb-3">
+
+                            Medium
+
+                        </h2>
+
+
+                        <p class="text-gray-400
+                                  text-sm
+                                  leading-relaxed
+                                  min-h-[72px]">
+
+                            Go deeper with questions that
+                            require stronger analytical and
+                            forensic knowledge.
+
+                        </p>
+
+
+                        <div class="h-px
+                                    bg-white/10
+                                    my-6">
+                        </div>
+
+
+                        <div class="space-y-3
+                                    text-sm">
+
+
+                            <div class="flex
+                                        justify-between">
+
+                                <span class="text-gray-500">
+                                    Difficulty
+                                </span>
+
+                                <span class="text-yellow-400
+                                             font-semibold">
+
+                                    ★★☆
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="flex
+                                        justify-between">
+
+                                <span class="text-gray-500">
+                                    Questions
+                                </span>
+
+                                <span>
+                                    10
+                                </span>
+
+                            </div>
+
+
+                            <div class="flex
+                                        justify-between">
+
+                                <span class="text-gray-500">
+                                    Recommended
+                                </span>
+
+                                <span>
+                                    Students
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="start-button
+                                    mt-7
+                                    bg-yellow-600/80
+                                    group-hover:bg-yellow-500
+                                    py-3
+                                    rounded-xl
+                                    text-center
+                                    font-semibold">
+
+                            Start Medium Quiz
+                            <span class="ml-2">→</span>
+
+                        </div>
+
+
+                    </div>
+
+                </a>
+
+
+                <!-- ================================================= -->
+                <!-- HARD -->
+                <!-- ================================================= -->
+
+                <a href="/quiz/{{ domain }}/hard"
+                   class="difficulty-card
+                          hard
+                          glass
+                          rounded-[2rem]
+                          p-6
+                          sm:p-8
+                          border-red-500/20
+                          relative
+                          overflow-hidden
+                          group">
+
+
+                    <div class="absolute
+                                -top-20
+                                -right-20
+                                w-40
+                                h-40
+                                bg-red-500/10
+                                rounded-full
+                                blur-3xl
+                                group-hover:bg-red-500/20
+                                transition">
+                    </div>
+
+
+                    <div class="relative">
+
+
+                        <div class="difficulty-icon
+                                    w-20
+                                    h-20
+                                    rounded-2xl
+                                    bg-red-500/10
+                                    border
+                                    border-red-500/20
+                                    flex
+                                    items-center
+                                    justify-center
+                                    text-5xl
+                                    mb-6">
+
+                            🔴
+
+                        </div>
+
+
+                        <span class="text-xs
+                                     uppercase
+                                     tracking-[3px]
+                                     text-red-400
+                                     font-semibold">
+
+                            Advanced
+
+                        </span>
+
+
+                        <h2 class="text-3xl
+                                   font-bold
+                                   mt-2
+                                   mb-3">
+
+                            Hard
+
+                        </h2>
+
+
+                        <p class="text-gray-400
+                                  text-sm
+                                  leading-relaxed
+                                  min-h-[72px]">
+
+                            Challenge yourself with advanced
+                            forensic concepts and realistic
+                            case-based questions.
+
+                        </p>
+
+
+                        <div class="h-px
+                                    bg-white/10
+                                    my-6">
+                        </div>
+
+
+                        <div class="space-y-3
+                                    text-sm">
+
+
+                            <div class="flex
+                                        justify-between">
+
+                                <span class="text-gray-500">
+                                    Difficulty
+                                </span>
+
+                                <span class="text-red-400
+                                             font-semibold">
+
+                                    ★★★
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="flex
+                                        justify-between">
+
+                                <span class="text-gray-500">
+                                    Questions
+                                </span>
+
+                                <span>
+                                    10
+                                </span>
+
+                            </div>
+
+
+                            <div class="flex
+                                        justify-between">
+
+                                <span class="text-gray-500">
+                                    Recommended
+                                </span>
+
+                                <span>
+                                    Professionals
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="start-button
+                                    mt-7
+                                    bg-gradient-to-r
+                                    from-red-800
+                                    to-red-600
+                                    group-hover:from-red-700
+                                    group-hover:to-red-500
+                                    py-3
+                                    rounded-xl
+                                    text-center
+                                    font-semibold">
+
+                            Start Hard Quiz
+                            <span class="ml-2">→</span>
+
+                        </div>
+
+
+                    </div>
+
+                </a>
+
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- TIP -->
+            <!-- ================================================= -->
+
+            <div class="glass
+                        rounded-2xl
+                        mt-8
+                        p-5
+                        flex
+                        items-start
+                        gap-4">
+
+
+                <div class="text-xl">
+                    💡
+                </div>
+
+
+                <div>
+
+                    <p class="font-semibold
+                              text-sm">
+
+                        Not sure which level to choose?
+
+                    </p>
+
+                    <p class="text-xs
+                              sm:text-sm
+                              text-gray-500
+                              mt-1">
+
+                        Start with Easy to assess your
+                        fundamentals. You can always return
+                        and challenge yourself at a higher level.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Back -->
+
+            <div class="text-center mt-8">
+
+                <a href="/quizzes"
+                   class="inline-flex
+                          items-center
+                          gap-2
+                          px-6
+                          py-3
+                          rounded-xl
+                          border
+                          border-white/10
+                          text-gray-400
+                          hover:text-white
+                          hover:bg-white/5
+                          transition">
+
+                    ← Back to Quiz Domains
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- ================================================= -->
+    <!-- FOOTER -->
+    <!-- ================================================= -->
+
+    <footer class="border-t
+                   border-white/5
+                   py-7
+                   text-center">
+
+        <p class="text-xs
+                  uppercase
+                  tracking-[3px]
+                  text-gray-600">
+
+            Secrets in the Stains
+
+        </p>
+
+        <p class="text-xs
+                  text-gray-700
+                  mt-2">
+
+            Learn • Practice • Excel
+
+        </p>
+
+    </footer>
+
+
+</div>
 
 </body>
 </html>

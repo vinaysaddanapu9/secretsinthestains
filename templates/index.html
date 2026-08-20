@@ -2,83 +2,444 @@
 
 {% block content %}
 
-<!-- HERO SECTION -->
-<section class="forensic-bg min-h-screen flex items-center pt-24 overflow-hidden">
+<!-- ========================================================= -->
+<!-- HERO -->
+<!-- ========================================================= -->
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+<section class="relative min-h-screen overflow-hidden bg-[#08090d] flex items-center">
 
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <!-- Background glow -->
+    <div class="absolute inset-0 pointer-events-none">
 
-            <!-- LEFT -->
-            <div>
+        <div class="absolute -top-40 -left-40
+                    w-[450px] h-[450px]
+                    bg-red-900/30 rounded-full
+                    blur-[120px]">
+        </div>
 
-                <span class="uppercase tracking-[4px] text-red-300 text-sm">
-                    Learn. Practice. Excel.
-                </span>
+        <div class="absolute top-1/3 -right-40
+                    w-[450px] h-[450px]
+                    bg-red-600/20 rounded-full
+                    blur-[140px]">
+        </div>
 
-                <h1 class="text-5xl lg:text-7xl font-extrabold text-white mt-5 leading-tight">
+        <div class="absolute bottom-0 left-1/2
+                    w-[500px] h-[200px]
+                    -translate-x-1/2
+                    bg-red-950/30
+                    blur-[100px]">
+        </div>
+
+    </div>
+
+    <!-- Subtle grid -->
+    <div class="absolute inset-0 opacity-[0.035]"
+         style="
+         background-image:
+         linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px),
+         linear-gradient(90deg, rgba(255,255,255,.8) 1px, transparent 1px);
+         background-size: 50px 50px;">
+    </div>
+
+
+    <div class="relative z-10 max-w-7xl mx-auto
+                px-5 sm:px-8 lg:px-10
+                pt-28 pb-20 w-full">
+
+        <div class="grid lg:grid-cols-2
+                    gap-16 lg:gap-20
+                    items-center">
+
+
+            <!-- ================================================= -->
+            <!-- LEFT CONTENT -->
+            <!-- ================================================= -->
+
+            <div class="text-center lg:text-left">
+
+                <!-- Badge -->
+
+                <div class="inline-flex items-center
+                            gap-2
+                            px-4 py-2
+                            rounded-full
+                            border border-red-500/30
+                            bg-red-500/5
+                            backdrop-blur-sm">
+
+                    <span class="relative flex h-2.5 w-2.5">
+
+                        <span class="animate-ping absolute
+                                     inline-flex h-full w-full
+                                     rounded-full bg-red-500
+                                     opacity-60">
+                        </span>
+
+                        <span class="relative
+                                     inline-flex rounded-full
+                                     h-2.5 w-2.5
+                                     bg-red-500">
+                        </span>
+
+                    </span>
+
+                    <span class="uppercase
+                                 tracking-[3px]
+                                 text-red-300
+                                 text-xs sm:text-sm
+                                 font-medium">
+
+                        Learn • Practice • Excel
+
+                    </span>
+
+                </div>
+
+
+                <!-- Heading -->
+
+                <h1 class="mt-7
+                           text-4xl
+                           sm:text-5xl
+                           lg:text-6xl
+                           xl:text-7xl
+                           font-black
+                           tracking-tight
+                           leading-[1.05]
+                           text-white">
 
                     Empowering Future
 
-                    <span class="block text-[#ff4d6d]">
+                    <span class="block mt-2
+                                 bg-gradient-to-r
+                                 from-red-400
+                                 via-rose-500
+                                 to-red-700
+                                 bg-clip-text
+                                 text-transparent">
+
                         Forensic Professionals
+
                     </span>
 
                 </h1>
 
-                <p class="text-gray-300 mt-8 text-lg max-w-xl">
+
+                <!-- Description -->
+
+                <p class="mt-7
+                          text-base
+                          sm:text-lg
+                          lg:text-xl
+                          leading-relaxed
+                          text-gray-400
+                          max-w-xl
+                          mx-auto lg:mx-0">
+
                     Explore internships, forensic learning resources,
                     certificate verification and practical forensic
-                    science education.
+                    science education designed to build
+                    <span class="text-gray-200 font-medium">
+                        real-world skills.
+                    </span>
+
                 </p>
 
-                <div class="flex flex-wrap gap-4 mt-10">
+
+                <!-- Buttons -->
+
+                <div class="flex flex-col
+                            sm:flex-row
+                            justify-center lg:justify-start
+                            gap-4
+                            mt-9">
 
                     <a href="/programs"
-                       class="bg-[#7a0019] hover:bg-[#9b1236]
-                              text-white px-8 py-4 rounded-xl
-                              transition duration-300
-                              hover:-translate-y-1">
+                       class="group
+                              inline-flex
+                              items-center
+                              justify-center
+                              gap-2
+                              px-7 py-4
+                              rounded-xl
+                              bg-gradient-to-r
+                              from-[#7a0019]
+                              to-[#a30b2f]
+                              text-white
+                              font-semibold
+                              shadow-lg shadow-red-950/40
+                              transition-all duration-300
+                              hover:-translate-y-1
+                              hover:shadow-xl
+                              hover:shadow-red-900/40">
 
-                        Explore Programs →
+                        Explore Programs
+
+                        <span class="transition-transform
+                                     duration-300
+                                     group-hover:translate-x-1">
+
+                            →
+
+                        </span>
+
                     </a>
+
 
                     <a href="/contact"
-                       class="border border-white
-                              text-white px-8 py-4 rounded-xl
-                              transition duration-300
-                              hover:bg-white hover:text-black">
+                       class="inline-flex
+                              items-center
+                              justify-center
+                              px-7 py-4
+                              rounded-xl
+                              border border-white/20
+                              bg-white/5
+                              backdrop-blur-sm
+                              text-white
+                              font-semibold
+                              transition-all duration-300
+                              hover:bg-white
+                              hover:text-black
+                              hover:-translate-y-1">
 
                         Contact Us
+
                     </a>
+
+                </div>
+
+
+                <!-- Trust indicators -->
+
+                <div class="flex flex-wrap
+                            justify-center lg:justify-start
+                            gap-x-7 gap-y-3
+                            mt-10
+                            text-sm text-gray-500">
+
+                    <span class="flex items-center gap-2">
+
+                        <span class="text-red-400">✓</span>
+                        Practical Learning
+
+                    </span>
+
+                    <span class="flex items-center gap-2">
+
+                        <span class="text-red-400">✓</span>
+                        Expert Knowledge
+
+                    </span>
+
+                    <span class="flex items-center gap-2">
+
+                        <span class="text-red-400">✓</span>
+                        Career Focused
+
+                    </span>
 
                 </div>
 
             </div>
 
-            <div class="relative flex flex-col items-center">
 
-    <!-- FINGERPRINT CARD -->
-    <div class="mt-6 lg:absolute lg:bottom-10 lg:right-0
-                bg-black/70 backdrop-blur-md
-                border border-[#7a0019]
-                rounded-3xl p-6 shadow-2xl">
+            <!-- ================================================= -->
+            <!-- RIGHT VISUAL -->
+            <!-- ================================================= -->
 
-        <img
-            src="{{ url_for('static', filename='images/fingerprint.png') }}"
-            class="w-24 md:w-32 mx-auto"
-            alt="Fingerprint Analysis"
-        >
+            <div class="relative flex
+                        justify-center
+                        lg:justify-end">
 
-        <h3 class="text-white font-bold mt-3 text-center">
-            Evidence Analysis
-        </h3>
+                <!-- Outer glow -->
 
-    </div>
-
-</div>
+                <div class="absolute
+                            w-72 h-72
+                            sm:w-96 sm:h-96
+                            rounded-full
+                            bg-red-700/20
+                            blur-[90px]">
+                </div>
 
 
+                <!-- Main evidence card -->
+
+                <div class="relative
+                            w-full
+                            max-w-md
+                            sm:max-w-lg">
+
+                    <!-- Decorative ring -->
+
+                    <div class="absolute
+                                -inset-4
+                                rounded-[2rem]
+                                border border-red-500/10
+                                rotate-3">
+                    </div>
+
+
+                    <div class="relative
+                                rounded-[2rem]
+                                overflow-hidden
+                                border border-white/10
+                                bg-white/[0.04]
+                                backdrop-blur-xl
+                                shadow-2xl
+                                shadow-black/50">
+
+
+                        <!-- Image -->
+
+                        <div class="relative
+                                    h-80
+                                    sm:h-[420px]
+                                    overflow-hidden">
+
+                            <img
+                                src="{{ url_for('static', filename='images/fingerprint.png') }}"
+                                alt="Forensic fingerprint analysis"
+                                class="w-full h-full
+                                       object-contain
+                                       p-10
+                                       sm:p-14
+                                       opacity-90
+                                       drop-shadow-[0_0_40px_rgba(255,50,80,.25)]"
+                            >
+
+                            <!-- Image overlay -->
+
+                            <div class="absolute inset-0
+                                        bg-gradient-to-t
+                                        from-[#08090d]
+                                        via-transparent
+                                        to-transparent">
+                            </div>
+
+                        </div>
+
+
+                        <!-- Evidence information -->
+
+                        <div class="px-6 pb-6">
+
+                            <div class="flex
+                                        items-center
+                                        justify-between">
+
+                                <div>
+
+                                    <p class="text-xs
+                                              uppercase
+                                              tracking-[3px]
+                                              text-red-400">
+
+                                        Forensic Lab
+
+                                    </p>
+
+                                    <h3 class="text-xl
+                                               sm:text-2xl
+                                               font-bold
+                                               text-white
+                                               mt-1">
+
+                                        Evidence Analysis
+
+                                    </h3>
+
+                                </div>
+
+
+                                <div class="w-11 h-11
+                                            rounded-full
+                                            bg-red-500/10
+                                            border border-red-500/20
+                                            flex items-center
+                                            justify-center">
+
+                                    🔬
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="mt-5
+                                        grid grid-cols-3
+                                        gap-3">
+
+                                <div class="rounded-xl
+                                            bg-black/30
+                                            border border-white/5
+                                            p-3">
+
+                                    <p class="text-xs text-gray-500">
+                                        Field
+                                    </p>
+
+                                    <p class="text-sm
+                                              text-gray-200
+                                              font-semibold
+                                              mt-1">
+
+                                        Forensics
+
+                                    </p>
+
+                                </div>
+
+
+                                <div class="rounded-xl
+                                            bg-black/30
+                                            border border-white/5
+                                            p-3">
+
+                                    <p class="text-xs text-gray-500">
+                                        Focus
+                                    </p>
+
+                                    <p class="text-sm
+                                              text-gray-200
+                                              font-semibold
+                                              mt-1">
+
+                                        Evidence
+
+                                    </p>
+
+                                </div>
+
+
+                                <div class="rounded-xl
+                                            bg-black/30
+                                            border border-white/5
+                                            p-3">
+
+                                    <p class="text-xs text-gray-500">
+                                        Learning
+                                    </p>
+
+                                    <p class="text-sm
+                                              text-gray-200
+                                              font-semibold
+                                              mt-1">
+
+                                        Practical
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -86,164 +447,420 @@
 
 </section>
 
+
+<!-- ========================================================= -->
 <!-- CURVED TRANSITION -->
+<!-- ========================================================= -->
 
-<div class="-mt-20">
-    <svg viewBox="0 0 1440 200" class="w-full">
+<div class="relative -mt-1">
 
-        <path fill="#f8f4f5"
-              d="M0,96L80,106.7C160,117,320,139,480,144C640,149,800,139,960,117.3C1120,96,1280,64,1360,48L1440,32L1440,320L0,320Z">
+    <svg
+        viewBox="0 0 1440 160"
+        class="w-full h-20 sm:h-28 lg:h-32 block"
+        preserveAspectRatio="none">
+
+        <path
+            fill="#f8f4f5"
+            d="M0,80
+               C240,150 420,150 720,90
+               C1000,30 1180,20 1440,65
+               L1440,160
+               L0,160 Z">
         </path>
 
     </svg>
+
 </div>
 
-<!-- PROGRAMS SECTION -->
 
-<section class="bg-[#f8f4f5] pb-24">
+<!-- ========================================================= -->
+<!-- PROGRAMS -->
+<!-- ========================================================= -->
 
-    <div class="max-w-7xl mx-auto px-6">
+<section class="bg-[#f8f4f5] pb-24 lg:pb-32">
 
-        <div class="text-center">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
 
-            <span class="uppercase tracking-[4px] text-[#7a0019] text-sm">
-                Our Programs
+
+        <!-- Section heading -->
+
+        <div class="text-center max-w-3xl mx-auto">
+
+            <span class="inline-block
+                         uppercase
+                         tracking-[4px]
+                         text-[#7a0019]
+                         text-xs sm:text-sm
+                         font-semibold">
+
+                What We Offer
+
             </span>
 
-            <h2 class="text-5xl font-bold mt-4">
+
+            <h2 class="text-3xl
+                       sm:text-4xl
+                       lg:text-5xl
+                       font-black
+                       text-gray-900
+                       mt-4
+                       tracking-tight">
+
                 Programs &
+
                 <span class="text-[#7a0019]">
                     Learning Opportunities
                 </span>
+
             </h2>
 
-            <p class="text-gray-600 mt-6 max-w-2xl mx-auto">
+
+            <p class="text-gray-600
+                      mt-5
+                      text-base sm:text-lg
+                      leading-relaxed">
+
                 Designed for students, researchers and aspiring
-                forensic professionals.
+                forensic professionals looking to build practical
+                knowledge and industry-ready skills.
+
             </p>
 
         </div>
 
-        <!-- CARDS -->
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+        <!-- Cards -->
 
-            <!-- Internship -->
+        <div class="grid
+                    sm:grid-cols-2
+                    lg:grid-cols-4
+                    gap-5 lg:gap-7
+                    mt-14 lg:mt-16">
 
-            <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl
-                        transition duration-300 hover:-translate-y-2 p-8">
 
-                <div class="w-20 h-20 bg-[#7a0019]
-                            rounded-full flex items-center justify-center
-                            text-white text-3xl mx-auto">
+            <!-- ===================== -->
+            <!-- INTERNSHIPS -->
+            <!-- ===================== -->
+
+            <div class="group
+                        relative
+                        bg-white
+                        rounded-3xl
+                        p-7 sm:p-8
+                        border border-gray-100
+                        shadow-sm
+                        transition-all duration-500
+                        hover:-translate-y-3
+                        hover:shadow-2xl
+                        hover:shadow-red-900/10">
+
+                <div class="absolute
+                            top-0 left-8 right-8
+                            h-1
+                            bg-[#7a0019]
+                            rounded-b-full
+                            scale-x-0
+                            group-hover:scale-x-100
+                            transition-transform
+                            duration-500">
+                </div>
+
+
+                <div class="w-16 h-16
+                            rounded-2xl
+                            bg-red-50
+                            flex items-center
+                            justify-center
+                            text-3xl
+                            group-hover:scale-110
+                            transition-transform">
 
                     💼
 
                 </div>
 
-                <h3 class="text-2xl font-bold text-center mt-6">
+
+                <h3 class="text-xl
+                           sm:text-2xl
+                           font-bold
+                           text-gray-900
+                           mt-6">
+
                     Internships
+
                 </h3>
 
-                <p class="text-gray-600 text-center mt-4">
-                    Gain practical forensic experience and career-ready skills.
+
+                <p class="text-gray-600
+                          leading-relaxed
+                          mt-3">
+
+                    Gain practical forensic experience and
+                    develop career-ready skills.
+
                 </p>
 
+
                 <a href="/internships"
-                   class="block text-center mt-8 bg-[#7a0019]
-                          text-white py-3 rounded-xl">
+                   class="inline-flex
+                          items-center
+                          gap-2
+                          mt-7
+                          text-[#7a0019]
+                          font-semibold
+                          group-hover:gap-3
+                          transition-all">
 
                     Explore
+
+                    <span>→</span>
+
                 </a>
 
             </div>
 
-            <!-- Webinar -->
 
-            <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl
-                        transition duration-300 hover:-translate-y-2 p-8">
+            <!-- ===================== -->
+            <!-- WEBINARS -->
+            <!-- ===================== -->
 
-                <div class="w-20 h-20 bg-blue-900
-                            rounded-full flex items-center justify-center
-                            text-white text-3xl mx-auto">
+            <div class="group
+                        relative
+                        bg-white
+                        rounded-3xl
+                        p-7 sm:p-8
+                        border border-gray-100
+                        shadow-sm
+                        transition-all duration-500
+                        hover:-translate-y-3
+                        hover:shadow-2xl
+                        hover:shadow-blue-900/10">
+
+                <div class="absolute
+                            top-0 left-8 right-8
+                            h-1
+                            bg-blue-900
+                            rounded-b-full
+                            scale-x-0
+                            group-hover:scale-x-100
+                            transition-transform
+                            duration-500">
+                </div>
+
+
+                <div class="w-16 h-16
+                            rounded-2xl
+                            bg-blue-50
+                            flex items-center
+                            justify-center
+                            text-3xl
+                            group-hover:scale-110
+                            transition-transform">
 
                     🎥
 
                 </div>
 
-                <h3 class="text-2xl font-bold text-center mt-6">
+
+                <h3 class="text-xl
+                           sm:text-2xl
+                           font-bold
+                           text-gray-900
+                           mt-6">
+
                     Webinars
+
                 </h3>
 
-                <p class="text-gray-600 text-center mt-4">
-                    Interactive learning with industry experts.
+
+                <p class="text-gray-600
+                          leading-relaxed
+                          mt-3">
+
+                    Learn directly from experts through
+                    interactive forensic sessions.
+
                 </p>
 
-                <a href="/webinar"
-                   class="block text-center mt-8 bg-blue-900
-                          text-white py-3 rounded-xl">
 
-                    View
+                <a href="/webinar"
+                   class="inline-flex
+                          items-center
+                          gap-2
+                          mt-7
+                          text-blue-900
+                          font-semibold
+                          group-hover:gap-3
+                          transition-all">
+
+                    View Webinars
+
+                    <span>→</span>
+
                 </a>
 
             </div>
 
-            <!-- Notes -->
 
-            <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl
-                        transition duration-300 hover:-translate-y-2 p-8">
+            <!-- ===================== -->
+            <!-- BLOGS -->
+            <!-- ===================== -->
 
-                <div class="w-20 h-20 bg-green-700
-                            rounded-full flex items-center justify-center
-                            text-white text-3xl mx-auto">
+            <div class="group
+                        relative
+                        bg-white
+                        rounded-3xl
+                        p-7 sm:p-8
+                        border border-gray-100
+                        shadow-sm
+                        transition-all duration-500
+                        hover:-translate-y-3
+                        hover:shadow-2xl
+                        hover:shadow-green-900/10">
+
+                <div class="absolute
+                            top-0 left-8 right-8
+                            h-1
+                            bg-green-700
+                            rounded-b-full
+                            scale-x-0
+                            group-hover:scale-x-100
+                            transition-transform
+                            duration-500">
+                </div>
+
+
+                <div class="w-16 h-16
+                            rounded-2xl
+                            bg-green-50
+                            flex items-center
+                            justify-center
+                            text-3xl
+                            group-hover:scale-110
+                            transition-transform">
 
                     📝
 
                 </div>
 
-                <h3 class="text-2xl font-bold text-center mt-6">
+
+                <h3 class="text-xl
+                           sm:text-2xl
+                           font-bold
+                           text-gray-900
+                           mt-6">
+
                     Blogs
+
                 </h3>
 
-                <p class="text-gray-600 text-center mt-4">
-                    Explore forensic stories and investigative insights.
+
+                <p class="text-gray-600
+                          leading-relaxed
+                          mt-3">
+
+                    Explore forensic stories, case insights
+                    and investigative knowledge.
+
                 </p>
 
-                <a href="/blogs"
-                   class="block text-center mt-8 bg-green-700
-                          text-white py-3 rounded-xl">
 
-                    Access
+                <a href="/blogs"
+                   class="inline-flex
+                          items-center
+                          gap-2
+                          mt-7
+                          text-green-700
+                          font-semibold
+                          group-hover:gap-3
+                          transition-all">
+
+                    Read Articles
+
+                    <span>→</span>
+
                 </a>
 
             </div>
 
-            <!-- Courses -->
 
-            <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl
-                        transition duration-300 hover:-translate-y-2 p-8">
+            <!-- ===================== -->
+            <!-- QUIZ -->
+            <!-- ===================== -->
 
-                <div class="w-20 h-20 bg-purple-700
-                            rounded-full flex items-center justify-center
-                            text-white text-3xl mx-auto">
+            <div class="group
+                        relative
+                        bg-white
+                        rounded-3xl
+                        p-7 sm:p-8
+                        border border-gray-100
+                        shadow-sm
+                        transition-all duration-500
+                        hover:-translate-y-3
+                        hover:shadow-2xl
+                        hover:shadow-purple-900/10">
+
+                <div class="absolute
+                            top-0 left-8 right-8
+                            h-1
+                            bg-purple-700
+                            rounded-b-full
+                            scale-x-0
+                            group-hover:scale-x-100
+                            transition-transform
+                            duration-500">
+                </div>
+
+
+                <div class="w-16 h-16
+                            rounded-2xl
+                            bg-purple-50
+                            flex items-center
+                            justify-center
+                            text-3xl
+                            group-hover:scale-110
+                            transition-transform">
 
                     🧠
 
                 </div>
 
-                <h3 class="text-2xl font-bold text-center mt-6">
+
+                <h3 class="text-xl
+                           sm:text-2xl
+                           font-bold
+                           text-gray-900
+                           mt-6">
+
                     Quiz
+
                 </h3>
 
-                <p class="text-gray-600 text-center mt-4">
-                    Challenge yourself with our quiz.
+
+                <p class="text-gray-600
+                          leading-relaxed
+                          mt-3">
+
+                    Challenge yourself and test your
+                    forensic knowledge.
+
                 </p>
 
-                <a href="/quizzes"
-                   class="block text-center mt-8 bg-purple-700
-                          text-white py-3 rounded-xl">
 
-                    Explore
+                <a href="/quizzes"
+                   class="inline-flex
+                          items-center
+                          gap-2
+                          mt-7
+                          text-purple-700
+                          font-semibold
+                          group-hover:gap-3
+                          transition-all">
+
+                    Take Quiz
+
+                    <span>→</span>
+
                 </a>
 
             </div>
@@ -254,35 +871,133 @@
 
 </section>
 
+
+<!-- ========================================================= -->
 <!-- CTA -->
+<!-- ========================================================= -->
 
-<section class="bg-[#1a0006] py-20">
+<section class="relative
+                overflow-hidden
+                bg-[#08090d]
+                py-20 sm:py-24">
 
-    <div class="max-w-6xl mx-auto px-6">
+    <!-- Glow -->
 
-        <div class="bg-gradient-to-r from-[#7a0019] to-[#3d0010]
-                    rounded-3xl p-10">
+    <div class="absolute
+                -top-32
+                right-0
+                w-96 h-96
+                bg-red-700/20
+                rounded-full
+                blur-[120px]">
+    </div>
 
-            <div class="flex flex-col lg:flex-row
-                        justify-between items-center gap-6">
 
-                <div>
+    <div class="relative
+                max-w-6xl
+                mx-auto
+                px-5 sm:px-8">
 
-                    <h2 class="text-4xl font-bold text-white">
-                        Empowering the Next Generation
+
+        <div class="relative
+                    overflow-hidden
+                    rounded-[2rem]
+                    border border-red-500/20
+                    bg-gradient-to-br
+                    from-[#7a0019]
+                    via-[#500010]
+                    to-[#220006]
+                    p-8
+                    sm:p-12
+                    lg:p-14">
+
+            <!-- Decorative circle -->
+
+            <div class="absolute
+                        -right-20
+                        -top-20
+                        w-64 h-64
+                        rounded-full
+                        border border-white/10">
+            </div>
+
+
+            <div class="relative
+                        flex flex-col
+                        lg:flex-row
+                        justify-between
+                        items-start
+                        lg:items-center
+                        gap-8">
+
+                <div class="max-w-2xl">
+
+                    <span class="uppercase
+                                 tracking-[3px]
+                                 text-red-200
+                                 text-xs sm:text-sm">
+
+                        Build Your Future
+
+                    </span>
+
+
+                    <h2 class="text-3xl
+                               sm:text-4xl
+                               lg:text-5xl
+                               font-black
+                               text-white
+                               mt-3
+                               leading-tight">
+
+                        Empowering the
+                        <span class="text-red-300">
+                            Next Generation
+                        </span>
+
                     </h2>
 
-                    <p class="text-gray-200 mt-3">
-                        Through quality education, research and practical training.
+
+                    <p class="text-gray-200
+                              mt-4
+                              text-base
+                              sm:text-lg
+                              leading-relaxed">
+
+                        Through quality education, research
+                        and practical forensic training.
+
                     </p>
 
                 </div>
 
-                <a href="/about"
-                   class="bg-white text-[#7a0019]
-                          px-8 py-4 rounded-xl font-semibold">
 
-                    Know Our Mission →
+                <a href="/about"
+                   class="group
+                          shrink-0
+                          inline-flex
+                          items-center
+                          justify-center
+                          gap-2
+                          bg-white
+                          text-[#7a0019]
+                          px-7 py-4
+                          rounded-xl
+                          font-bold
+                          shadow-xl
+                          transition-all duration-300
+                          hover:-translate-y-1
+                          hover:bg-gray-100">
+
+                    Our Mission
+
+                    <span class="transition-transform
+                                 group-hover:translate-x-1">
+
+                        →
+
+                    </span>
+
                 </a>
 
             </div>
@@ -292,5 +1007,6 @@
     </div>
 
 </section>
+
 
 {% endblock %}

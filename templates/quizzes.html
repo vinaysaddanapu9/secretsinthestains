@@ -1,137 +1,1317 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forensic Science Quizzes | Secrets in the Stains</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Forensic Science Quizzes | Secrets in the Stains
+    </title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        body{
-            background: #0b0b0b;
+
+        html {
+            scroll-behavior: smooth;
         }
 
-        .glass{
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(12px);
+        body {
+            margin: 0;
+            background: #08090d;
+            color: white;
         }
+
+        /* =====================================================
+           GLASS
+        ===================================================== */
+
+        .glass {
+            background: rgba(255, 255, 255, 0.055);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border: 1px solid rgba(255, 255, 255, 0.10);
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.30),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-hover {
+            transition:
+                transform 0.4s ease,
+                background 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+        .glass-hover:hover {
+            transform: translateY(-8px);
+
+            background: rgba(255, 255, 255, 0.085);
+
+            border-color: rgba(255, 70, 100, 0.35);
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.45),
+                0 0 35px rgba(122, 0, 25, 0.15);
+        }
+
+        /* =====================================================
+           FORENSIC GRID
+        ===================================================== */
+
+        .forensic-grid {
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 55px 55px;
+        }
+
+        /* =====================================================
+           GLOW
+        ===================================================== */
+
+        .red-glow {
+            box-shadow:
+                0 0 60px rgba(122, 0, 25, 0.18);
+        }
+
+        /* =====================================================
+           CARD ICON
+        ===================================================== */
+
+        .quiz-icon {
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+        .group:hover .quiz-icon {
+            transform: scale(1.08) rotate(-3deg);
+
+            box-shadow:
+                0 0 30px rgba(255, 60, 90, 0.18);
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
-<section class="min-h-screen py-16 px-6">
 
-    <div class="max-w-7xl mx-auto">
+<!-- ========================================================= -->
+<!-- PAGE -->
+<!-- ========================================================= -->
 
-        <!-- Header -->
-        <div class="text-center mb-14">
+<main class="relative min-h-screen overflow-hidden">
 
-            <h1 class="text-5xl font-bold text-white mb-4">
-                Forensic Science Quizzes
-            </h1>
 
-            <p class="text-gray-400 text-lg max-w-3xl mx-auto">
-                Test your knowledge in various domains of forensic science.
-                Complete quizzes, assess your understanding, and earn certificates
-                from Secrets in the Stains.
-            </p>
+    <!-- ===================================================== -->
+    <!-- BACKGROUND -->
+    <!-- ===================================================== -->
 
+    <div class="fixed inset-0 pointer-events-none">
+
+        <!-- Red glow -->
+
+        <div class="absolute
+                    -top-48
+                    -left-48
+                    w-[550px]
+                    h-[550px]
+                    rounded-full
+                    bg-red-900/30
+                    blur-[140px]">
         </div>
 
-        <!-- Domain Cards -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- Fingerprint -->
-            <a href="/quiz/fingerprint"
-               class="glass border border-red-900 rounded-3xl p-8 hover:scale-105 transition duration-300">
+        <!-- Purple glow -->
 
-                <div class="text-5xl mb-4">🖐️</div>
+        <div class="absolute
+                    top-1/3
+                    -right-48
+                    w-[600px]
+                    h-[600px]
+                    rounded-full
+                    bg-purple-900/20
+                    blur-[150px]">
+        </div>
 
-                <h2 class="text-white text-2xl font-bold mb-3">
-                    Fingerprint Examination
-                </h2>
 
-                <p class="text-gray-400">
-                    Explore fingerprint patterns, AFIS, latent print development,
-                    ridge characteristics, and identification techniques.
-                </p>
+        <!-- Bottom glow -->
 
-            </a>
+        <div class="absolute
+                    bottom-[-300px]
+                    left-1/2
+                    -translate-x-1/2
+                    w-[700px]
+                    h-[500px]
+                    rounded-full
+                    bg-red-950/30
+                    blur-[150px]">
+        </div>
 
-            <!-- Documents -->
-            <a href="/quiz/questioned_documents"
-               class="glass border border-red-900 rounded-3xl p-8 hover:scale-105 transition duration-300">
 
-                <div class="text-5xl mb-4">📄</div>
+        <!-- Grid -->
 
-                <h2 class="text-white text-2xl font-bold mb-3">
-                    Questioned Documents
-                </h2>
-
-                <p class="text-gray-400">
-                    Handwriting examination, forgery detection, signatures,
-                    alterations, and document authentication.
-                </p>
-
-            </a>
-
-            <!-- Biology -->
-            <a href="/quiz/forensic_biology_dna"
-               class="glass border border-red-900 rounded-3xl p-8 hover:scale-105 transition duration-300">
-
-                <div class="text-5xl mb-4">🧬</div>
-
-                <h2 class="text-white text-2xl font-bold mb-3">
-                    Forensic Biology & DNA
-                </h2>
-
-                <p class="text-gray-400">
-                    DNA profiling, blood evidence, biological sample collection,
-                    serology and molecular techniques.
-                </p>
-
-            </a>
-
-            <!-- Crime Scene -->
-            <a href="/quiz/crime_scene_investigation"
-               class="glass border border-red-900 rounded-3xl p-8 hover:scale-105 transition duration-300">
-
-                <div class="text-5xl mb-4">🔍</div>
-
-                <h2 class="text-white text-2xl font-bold mb-3">
-                    Crime Scene Investigation
-                </h2>
-
-                <p class="text-gray-400">
-                    Scene preservation, evidence collection, photography,
-                    chain of custody and scene processing.
-                </p>
-
-            </a>
-
-            <!-- Cyber -->
-            <a href="/quiz/cyber_forensics"
-               class="glass border border-red-900 rounded-3xl p-8 hover:scale-105 transition duration-300">
-
-                <div class="text-5xl mb-4">💻</div>
-
-                <h2 class="text-white text-2xl font-bold mb-3">
-                    Cyber Forensics
-                </h2>
-
-                <p class="text-gray-400">
-                    Digital evidence, cybercrime investigations,
-                    data recovery, mobile and network forensics.
-                </p>
-
-            </a>
-
+        <div class="absolute
+                    inset-0
+                    forensic-grid
+                    opacity-70">
         </div>
 
     </div>
 
-</section>
+
+    <!-- ===================================================== -->
+    <!-- CONTENT -->
+    <!-- ===================================================== -->
+
+    <div class="relative z-10">
+
+
+        <!-- ================================================= -->
+        <!-- HERO -->
+        <!-- ================================================= -->
+
+        <section class="px-5
+                        sm:px-8
+                        lg:px-10
+                        pt-8
+                        sm:pt-12
+                        pb-16">
+
+
+            <div class="max-w-7xl mx-auto">
+
+
+                <!-- Back -->
+
+                <a href="/"
+                   class="group
+                          inline-flex
+                          items-center
+                          gap-2
+                          px-4 py-2
+                          rounded-full
+                          glass
+                          text-gray-300
+                          text-sm
+                          hover:text-white
+                          transition-all
+                          duration-300">
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         class="w-4 h-4
+                                transition-transform
+                                group-hover:-translate-x-1"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke="currentColor">
+
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15 19l-7-7 7-7" />
+
+                    </svg>
+
+                    Back to Home
+
+                </a>
+
+
+                <!-- Hero -->
+
+                <div class="max-w-4xl
+                            mx-auto
+                            text-center
+                            mt-16">
+
+
+                    <!-- Badge -->
+
+                    <div class="inline-flex
+                                items-center
+                                gap-2
+                                px-5 py-2
+                                rounded-full
+                                glass
+                                text-sm
+                                text-gray-300">
+
+                        <span class="relative
+                                     flex
+                                     w-2.5
+                                     h-2.5">
+
+                            <span class="absolute
+                                         inline-flex
+                                         h-full
+                                         w-full
+                                         rounded-full
+                                         bg-red-500
+                                         opacity-70
+                                         animate-ping">
+                            </span>
+
+                            <span class="relative
+                                         inline-flex
+                                         h-2.5
+                                         w-2.5
+                                         rounded-full
+                                         bg-red-500">
+                            </span>
+
+                        </span>
+
+                        Test Your Forensic Knowledge
+
+                    </div>
+
+
+                    <!-- Heading -->
+
+                    <h1 class="mt-7
+                               text-4xl
+                               sm:text-5xl
+                               md:text-6xl
+                               lg:text-7xl
+                               font-black
+                               tracking-tight
+                               leading-[1.05]">
+
+                        Forensic Science
+
+                        <span class="block
+                                     mt-2
+                                     bg-gradient-to-r
+                                     from-red-400
+                                     via-rose-400
+                                     to-purple-400
+                                     bg-clip-text
+                                     text-transparent">
+
+                            Quizzes
+
+                        </span>
+
+                    </h1>
+
+
+                    <!-- Description -->
+
+                    <p class="mt-7
+                              max-w-2xl
+                              mx-auto
+                              text-gray-400
+                              text-base
+                              sm:text-lg
+                              leading-relaxed">
+
+                        Challenge your knowledge, explore different
+                        forensic disciplines, and test your understanding
+                        through interactive assessments.
+
+                    </p>
+
+
+                    <!-- Stats -->
+
+                    <div class="grid
+                                grid-cols-2
+                                sm:grid-cols-4
+                                gap-3
+                                max-w-3xl
+                                mx-auto
+                                mt-10">
+
+
+                        <div class="glass rounded-2xl p-4">
+
+                            <div class="text-2xl
+                                        sm:text-3xl
+                                        font-black
+                                        text-white">
+
+                                05
+
+                            </div>
+
+                            <p class="text-xs
+                                      sm:text-sm
+                                      text-gray-500
+                                      mt-1">
+
+                                Domains
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="glass rounded-2xl p-4">
+
+                            <div class="text-2xl
+                                        sm:text-3xl
+                                        font-black
+                                        text-white">
+
+                                🧠
+
+                            </div>
+
+                            <p class="text-xs
+                                      sm:text-sm
+                                      text-gray-500
+                                      mt-1">
+
+                                Knowledge
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="glass rounded-2xl p-4">
+
+                            <div class="text-2xl
+                                        sm:text-3xl
+                                        font-black
+                                        text-white">
+
+                                🎯
+
+                            </div>
+
+                            <p class="text-xs
+                                      sm:text-sm
+                                      text-gray-500
+                                      mt-1">
+
+                                Skill Test
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="glass rounded-2xl p-4">
+
+                            <div class="text-2xl
+                                        sm:text-3xl
+                                        font-black
+                                        text-white">
+
+                                🏆
+
+                            </div>
+
+                            <p class="text-xs
+                                      sm:text-sm
+                                      text-gray-500
+                                      mt-1">
+
+                                Certificate
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- QUIZ SECTION -->
+        <!-- ================================================= -->
+
+        <section class="px-5
+                        sm:px-8
+                        lg:px-10
+                        pb-24">
+
+
+            <div class="max-w-7xl mx-auto">
+
+
+                <!-- Section title -->
+
+                <div class="flex
+                            flex-col
+                            sm:flex-row
+                            sm:items-end
+                            justify-between
+                            gap-5
+                            mb-10">
+
+                    <div>
+
+                        <p class="uppercase
+                                  tracking-[4px]
+                                  text-red-400
+                                  text-xs
+                                  font-bold">
+
+                            Explore Domains
+
+                        </p>
+
+                        <h2 class="text-3xl
+                                   sm:text-4xl
+                                   font-black
+                                   text-white
+                                   mt-2">
+
+                            Choose Your Challenge
+
+                        </h2>
+
+                    </div>
+
+
+                    <p class="text-gray-500
+                              text-sm
+                              max-w-md">
+
+                        Select a forensic discipline below
+                        and begin testing your knowledge.
+
+                    </p>
+
+                </div>
+
+
+                <!-- ================================================= -->
+                <!-- CARDS -->
+                <!-- ================================================= -->
+
+                <div class="grid
+                            sm:grid-cols-2
+                            lg:grid-cols-3
+                            gap-5
+                            lg:gap-7">
+
+
+                    <!-- =========================================== -->
+                    <!-- FINGERPRINT -->
+                    <!-- =========================================== -->
+
+                    <a href="/quiz/fingerprint"
+                       class="group
+                              glass
+                              glass-hover
+                              red-glow
+                              rounded-[2rem]
+                              p-7
+                              sm:p-8
+                              relative
+                              overflow-hidden">
+
+
+                        <!-- Glow -->
+
+                        <div class="absolute
+                                    -right-16
+                                    -top-16
+                                    w-40
+                                    h-40
+                                    rounded-full
+                                    bg-red-600/10
+                                    blur-3xl
+                                    transition-all
+                                    group-hover:bg-red-500/20">
+                        </div>
+
+
+                        <!-- Icon -->
+
+                        <div class="quiz-icon
+                                    relative
+                                    w-16
+                                    h-16
+                                    rounded-2xl
+                                    bg-gradient-to-br
+                                    from-red-500/20
+                                    to-red-900/30
+                                    border border-red-400/20
+                                    flex items-center
+                                    justify-center
+                                    text-3xl">
+
+                            🖐️
+
+                        </div>
+
+
+                        <!-- Badge -->
+
+                        <div class="flex
+                                    items-center
+                                    justify-between
+                                    mt-7">
+
+                            <span class="text-xs
+                                         uppercase
+                                         tracking-[2px]
+                                         text-red-400
+                                         font-semibold">
+
+                                Identification
+
+                            </span>
+
+                            <span class="text-xs
+                                         text-gray-500">
+
+                                Quiz 01
+
+                            </span>
+
+                        </div>
+
+
+                        <h2 class="text-xl
+                                   sm:text-2xl
+                                   font-bold
+                                   text-white
+                                   mt-3">
+
+                            Fingerprint Examination
+
+                        </h2>
+
+
+                        <p class="text-gray-400
+                                  leading-relaxed
+                                  mt-3
+                                  text-sm
+                                  sm:text-base">
+
+                            Explore fingerprint patterns,
+                            AFIS, latent print development,
+                            ridge characteristics and
+                            identification techniques.
+
+                        </p>
+
+
+                        <!-- Footer -->
+
+                        <div class="flex
+                                    items-center
+                                    justify-between
+                                    mt-7
+                                    pt-5
+                                    border-t
+                                    border-white/10">
+
+                            <span class="text-xs
+                                         text-gray-500">
+
+                                🧠 Knowledge Test
+
+                            </span>
+
+                            <span class="text-red-400
+                                         text-xl
+                                         transition-transform
+                                         group-hover:translate-x-1">
+
+                                →
+
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- =========================================== -->
+                    <!-- DOCUMENTS -->
+                    <!-- =========================================== -->
+
+                    <a href="/quiz/questioned_documents"
+                       class="group
+                              glass
+                              glass-hover
+                              rounded-[2rem]
+                              p-7
+                              sm:p-8
+                              relative
+                              overflow-hidden">
+
+
+                        <div class="absolute
+                                    -right-16
+                                    -top-16
+                                    w-40
+                                    h-40
+                                    rounded-full
+                                    bg-blue-600/10
+                                    blur-3xl
+                                    group-hover:bg-blue-500/20">
+                        </div>
+
+
+                        <div class="quiz-icon
+                                    relative
+                                    w-16
+                                    h-16
+                                    rounded-2xl
+                                    bg-blue-500/10
+                                    border border-blue-400/20
+                                    flex items-center
+                                    justify-center
+                                    text-3xl">
+
+                            📄
+
+                        </div>
+
+
+                        <div class="flex
+                                    items-center
+                                    justify-between
+                                    mt-7">
+
+                            <span class="text-xs
+                                         uppercase
+                                         tracking-[2px]
+                                         text-blue-400
+                                         font-semibold">
+
+                                Document Analysis
+
+                            </span>
+
+                            <span class="text-xs text-gray-500">
+                                Quiz 02
+                            </span>
+
+                        </div>
+
+
+                        <h2 class="text-xl
+                                   sm:text-2xl
+                                   font-bold
+                                   text-white
+                                   mt-3">
+
+                            Questioned Documents
+
+                        </h2>
+
+
+                        <p class="text-gray-400
+                                  leading-relaxed
+                                  mt-3
+                                  text-sm
+                                  sm:text-base">
+
+                            Test your knowledge of handwriting,
+                            forgery detection, signatures,
+                            alterations and authentication.
+
+                        </p>
+
+
+                        <div class="flex
+                                    items-center
+                                    justify-between
+                                    mt-7
+                                    pt-5
+                                    border-t
+                                    border-white/10">
+
+                            <span class="text-xs text-gray-500">
+                                🧠 Knowledge Test
+                            </span>
+
+                            <span class="text-blue-400
+                                         text-xl
+                                         transition-transform
+                                         group-hover:translate-x-1">
+
+                                →
+
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- =========================================== -->
+                    <!-- DNA -->
+                    <!-- =========================================== -->
+
+                    <a href="/quiz/forensic_biology_dna"
+                       class="group
+                              glass
+                              glass-hover
+                              rounded-[2rem]
+                              p-7
+                              sm:p-8
+                              relative
+                              overflow-hidden">
+
+
+                        <div class="absolute
+                                    -right-16
+                                    -top-16
+                                    w-40
+                                    h-40
+                                    rounded-full
+                                    bg-green-600/10
+                                    blur-3xl
+                                    group-hover:bg-green-500/20">
+                        </div>
+
+
+                        <div class="quiz-icon
+                                    relative
+                                    w-16
+                                    h-16
+                                    rounded-2xl
+                                    bg-green-500/10
+                                    border border-green-400/20
+                                    flex items-center
+                                    justify-center
+                                    text-3xl">
+
+                            🧬
+
+                        </div>
+
+
+                        <div class="flex
+                                    items-center
+                                    justify-between
+                                    mt-7">
+
+                            <span class="text-xs
+                                         uppercase
+                                         tracking-[2px]
+                                         text-green-400
+                                         font-semibold">
+
+                                Molecular Forensics
+
+                            </span>
+
+                            <span class="text-xs text-gray-500">
+                                Quiz 03
+                            </span>
+
+                        </div>
+
+
+                        <h2 class="text-xl
+                                   sm:text-2xl
+                                   font-bold
+                                   text-white
+                                   mt-3">
+
+                            Forensic Biology & DNA
+
+                        </h2>
+
+
+                        <p class="text-gray-400
+                                  leading-relaxed
+                                  mt-3
+                                  text-sm
+                                  sm:text-base">
+
+                            DNA profiling, blood evidence,
+                            biological samples, serology
+                            and molecular techniques.
+
+                        </p>
+
+
+                        <div class="flex
+                                    items-center
+                                    justify-between
+                                    mt-7
+                                    pt-5
+                                    border-t
+                                    border-white/10">
+
+                            <span class="text-xs text-gray-500">
+                                🧠 Knowledge Test
+                            </span>
+
+                            <span class="text-green-400
+                                         text-xl
+                                         transition-transform
+                                         group-hover:translate-x-1">
+
+                                →
+
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- =========================================== -->
+                    <!-- CRIME SCENE -->
+                    <!-- =========================================== -->
+
+                    <a href="/quiz/crime_scene_investigation"
+                       class="group
+                              glass
+                              glass-hover
+                              rounded-[2rem]
+                              p-7
+                              sm:p-8
+                              relative
+                              overflow-hidden">
+
+
+                        <div class="absolute
+                                    -right-16
+                                    -top-16
+                                    w-40
+                                    h-40
+                                    rounded-full
+                                    bg-yellow-600/10
+                                    blur-3xl
+                                    group-hover:bg-yellow-500/20">
+                        </div>
+
+
+                        <div class="quiz-icon
+                                    relative
+                                    w-16
+                                    h-16
+                                    rounded-2xl
+                                    bg-yellow-500/10
+                                    border border-yellow-400/20
+                                    flex items-center
+                                    justify-center
+                                    text-3xl">
+
+                            🔍
+
+                        </div>
+
+
+                        <div class="flex
+                                    items-center
+                                    justify-between
+                                    mt-7">
+
+                            <span class="text-xs
+                                         uppercase
+                                         tracking-[2px]
+                                         text-yellow-400
+                                         font-semibold">
+
+                                Investigation
+
+                            </span>
+
+                            <span class="text-xs text-gray-500">
+                                Quiz 04
+                            </span>
+
+                        </div>
+
+
+                        <h2 class="text-xl
+                                   sm:text-2xl
+                                   font-bold
+                                   text-white
+                                   mt-3">
+
+                            Crime Scene Investigation
+
+                        </h2>
+
+
+                        <p class="text-gray-400
+                                  leading-relaxed
+                                  mt-3
+                                  text-sm
+                                  sm:text-base">
+
+                            Scene preservation, evidence
+                            collection, photography,
+                            chain of custody and processing.
+
+                        </p>
+
+
+                        <div class="flex
+                                    items-center
+                                    justify-between
+                                    mt-7
+                                    pt-5
+                                    border-t
+                                    border-white/10">
+
+                            <span class="text-xs text-gray-500">
+                                🧠 Knowledge Test
+                            </span>
+
+                            <span class="text-yellow-400
+                                         text-xl
+                                         transition-transform
+                                         group-hover:translate-x-1">
+
+                                →
+
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- =========================================== -->
+                    <!-- CYBER -->
+                    <!-- =========================================== -->
+
+                    <a href="/quiz/cyber_forensics"
+                       class="group
+                              glass
+                              glass-hover
+                              rounded-[2rem]
+                              p-7
+                              sm:p-8
+                              relative
+                              overflow-hidden">
+
+
+                        <div class="absolute
+                                    -right-16
+                                    -top-16
+                                    w-40
+                                    h-40
+                                    rounded-full
+                                    bg-purple-600/10
+                                    blur-3xl
+                                    group-hover:bg-purple-500/20">
+                        </div>
+
+
+                        <div class="quiz-icon
+                                    relative
+                                    w-16
+                                    h-16
+                                    rounded-2xl
+                                    bg-purple-500/10
+                                    border border-purple-400/20
+                                    flex items-center
+                                    justify-center
+                                    text-3xl">
+
+                            💻
+
+                        </div>
+
+
+                        <div class="flex
+                                    items-center
+                                    justify-between
+                                    mt-7">
+
+                            <span class="text-xs
+                                         uppercase
+                                         tracking-[2px]
+                                         text-purple-400
+                                         font-semibold">
+
+                                Digital Forensics
+
+                            </span>
+
+                            <span class="text-xs text-gray-500">
+                                Quiz 05
+                            </span>
+
+                        </div>
+
+
+                        <h2 class="text-xl
+                                   sm:text-2xl
+                                   font-bold
+                                   text-white
+                                   mt-3">
+
+                            Cyber Forensics
+
+                        </h2>
+
+
+                        <p class="text-gray-400
+                                  leading-relaxed
+                                  mt-3
+                                  text-sm
+                                  sm:text-base">
+
+                            Digital evidence, cybercrime
+                            investigation, data recovery,
+                            mobile and network forensics.
+
+                        </p>
+
+
+                        <div class="flex
+                                    items-center
+                                    justify-between
+                                    mt-7
+                                    pt-5
+                                    border-t
+                                    border-white/10">
+
+                            <span class="text-xs text-gray-500">
+                                🧠 Knowledge Test
+                            </span>
+
+                            <span class="text-purple-400
+                                         text-xl
+                                         transition-transform
+                                         group-hover:translate-x-1">
+
+                                →
+
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- =========================================== -->
+                    <!-- COMING SOON -->
+                    <!-- =========================================== -->
+
+                    <div class="glass
+                                rounded-[2rem]
+                                p-7
+                                sm:p-8
+                                border-dashed
+                                border-white/10
+                                opacity-70">
+
+                        <div class="w-16 h-16
+                                    rounded-2xl
+                                    bg-white/5
+                                    border border-white/10
+                                    flex items-center
+                                    justify-center
+                                    text-3xl">
+
+                            🔬
+
+                        </div>
+
+
+                        <span class="inline-block
+                                     mt-7
+                                     text-xs
+                                     uppercase
+                                     tracking-[2px]
+                                     text-gray-500">
+
+                            Coming Soon
+
+                        </span>
+
+
+                        <h2 class="text-xl
+                                   sm:text-2xl
+                                   font-bold
+                                   text-gray-300
+                                   mt-2">
+
+                            More Forensic Domains
+
+                        </h2>
+
+
+                        <p class="text-gray-500
+                                  leading-relaxed
+                                  mt-3
+                                  text-sm">
+
+                            Toxicology, forensic anthropology,
+                            ballistics, digital evidence and
+                            more learning challenges are coming.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CTA -->
+        <!-- ================================================= -->
+
+        <section class="px-5
+                        sm:px-8
+                        lg:px-10
+                        pb-20">
+
+
+            <div class="max-w-6xl mx-auto">
+
+
+                <div class="relative
+                            overflow-hidden
+                            rounded-[2rem]
+                            glass
+                            border-red-500/20
+                            p-8
+                            sm:p-12
+                            text-center">
+
+
+                    <!-- Glow -->
+
+                    <div class="absolute
+                                -top-32
+                                left-1/2
+                                -translate-x-1/2
+                                w-80
+                                h-80
+                                rounded-full
+                                bg-red-600/10
+                                blur-[100px]">
+                    </div>
+
+
+                    <div class="relative">
+
+                        <div class="text-4xl mb-4">
+                            🏆
+                        </div>
+
+
+                        <h2 class="text-3xl
+                                   sm:text-4xl
+                                   font-black
+                                   text-white">
+
+                            Ready to Test Yourself?
+
+                        </h2>
+
+
+                        <p class="max-w-xl
+                                  mx-auto
+                                  mt-4
+                                  text-gray-400
+                                  leading-relaxed">
+
+                            Choose a forensic domain, challenge
+                            your knowledge and take the next
+                            step toward becoming a better
+                            forensic professional.
+
+                        </p>
+
+
+                        <a href="/"
+                           class="inline-flex
+                                  items-center
+                                  gap-2
+                                  mt-7
+                                  px-7 py-3.5
+                                  rounded-xl
+                                  bg-gradient-to-r
+                                  from-[#7a0019]
+                                  to-[#a30b2f]
+                                  text-white
+                                  font-semibold
+                                  shadow-lg
+                                  shadow-red-950/40
+                                  hover:-translate-y-1
+                                  hover:shadow-xl
+                                  transition-all">
+
+                            Explore More
+
+                            <span>
+                                →
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- FOOTER -->
+        <!-- ================================================= -->
+
+        <footer class="border-t
+                       border-white/5
+                       py-8
+                       text-center">
+
+            <p class="text-xs
+                      text-gray-600
+                      uppercase
+                      tracking-[3px]">
+
+                Secrets in the Stains
+
+            </p>
+
+            <p class="text-gray-600
+                      text-xs
+                      mt-2">
+
+                Learn • Practice • Excel
+
+            </p>
+
+        </footer>
+
+
+    </div>
+
+</main>
 
 </body>
 </html>
