@@ -11,6 +11,9 @@ def get_all_applications():
 def save_application(name, email, college, domain, phone):
     print("Application received")
 
+    # -----------------------------
+    # Save application to database
+    # -----------------------------
     try:
         with get_connection() as conn:
             with conn.cursor() as cur:
@@ -18,28 +21,44 @@ def save_application(name, email, college, domain, phone):
                     INSERT INTO internships
                     (name, email, college, domain, phone)
                     VALUES (%s, %s, %s, %s, %s)
-                """, (name, email, college, domain, phone))
+                """, (
+                    name,
+                    email,
+                    college,
+                    domain,
+                    phone
+                ))
 
             conn.commit()
 
-            # Send email only after successful registration
-            try:
-                details = f"""
-    College: {college}
-    Domain: {domain}
-    Phone: {phone}
-    """
-
-                send_registration_email(
-                    to_email=email,
-                    name=name,
-                    registration_type="Internship",
-                    title=domain,
-                    details=details
-                )
-
-            except Exception as e:
-                print("Email sending failed:", e)
+        print("Internship application saved successfully")
 
     except UniqueViolation:
         raise Exception("Mobile number already exists.")
+
+    # -----------------------------
+    # Send confirmation email
+    # -----------------------------
+    try:
+        details = f"""
+College: {college}
+Domain: {domain}
+Phone: {phone}
+"""
+
+        send_registration_email(
+            to_email=email,
+            name=name,
+            registration_type="Internship",
+            title=domain,
+            details=details
+        )
+
+        print("Internship confirmation email sent")
+
+    except Exception as e:
+        print("Internship email sending failed:", e)
+
+    return True
+
+

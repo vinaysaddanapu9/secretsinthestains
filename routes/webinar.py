@@ -97,9 +97,11 @@ def save_webinar_registration(
     consent
 ):
 
+    # -----------------------------
+    # Save registration to database
+    # -----------------------------
     with get_connection() as conn:
         with conn.cursor() as cur:
-
             cur.execute("""
                 INSERT INTO webinar_registrations
                 (
@@ -132,7 +134,11 @@ def save_webinar_registration(
 
         conn.commit()
 
-    # Send email after successful registration
+    print("Webinar registration saved successfully")
+
+    # -----------------------------
+    # Send confirmation email
+    # -----------------------------
     try:
         details = f"""
 Webinar ID: {webinar_id}
@@ -151,8 +157,13 @@ Location: {city_state}
             details=details
         )
 
+        print("Webinar confirmation email sent")
+
     except Exception as e:
+        # Email failure should NOT fail registration
         print("Webinar email sending failed:", e)
+
+    return True
 
 
 def get_active_webinars():
