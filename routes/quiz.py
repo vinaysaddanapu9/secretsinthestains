@@ -35,22 +35,6 @@ def levels(domain):
 def get_questions(domain, level):
     return QUIZ_QUESTIONS.get(domain, {}).get(level, [])
 
-'''
-@quiz_bp.route('/quiz/<domain>/<level>')
-def start_quiz(domain, level):
-
-    questions = get_questions(
-        domain,
-        level
-    )
-
-    return render_template(
-        'quiz.html',
-        domain=domain,
-        level=level,
-        questions=questions
-    )'''
-
 @quiz_bp.route('/quiz/<domain>/<level>')
 def start_quiz(domain, level):
 
