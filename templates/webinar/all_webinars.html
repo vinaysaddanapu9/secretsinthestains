@@ -1,71 +1,702 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Past Webinars</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+<title>Past Webinars | Secrets in the Stains</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    body {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+                     BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .webinar-card {
+        transition: all 0.3s ease;
+    }
+
+    .webinar-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-glow {
+        animation: pulseGlow 5s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+        0%, 100% {
+            opacity: 0.45;
+        }
+
+        50% {
+            opacity: 0.7;
+        }
+    }
+</style>
+
 </head>
-<body class="bg-gray-100 min-h-screen">
 
-    <div class="max-w-5xl mx-auto py-10 px-4">
+<body class="min-h-screen bg-gradient-to-br from-slate-50 via-white to-red-50">
 
-        <div class="flex justify-between items-center mb-8">
-            <h1 class="text-3xl font-bold text-gray-800">
-                Past Webinars
-            </h1>
+<!-- ========================================= -->
+<!-- HEADER -->
+<!-- ========================================= -->
 
-            <a href="/"
-               class="text-blue-600 hover:text-blue-800 font-semibold">
-               ← Back Home
+<header class="sticky top-0 z-50
+               bg-white/90 backdrop-blur-md
+               border-b border-gray-200">
+
+    <div class="max-w-6xl mx-auto px-5 py-4">
+
+        <div class="flex items-center justify-between">
+
+            <!-- BRAND -->
+            <a href="/" class="flex items-center gap-3">
+
+                <div class="w-11 h-11
+                            rounded-xl
+                            bg-gradient-to-br
+                            from-red-900 to-red-700
+                            flex items-center justify-center
+                            text-white
+                            font-extrabold
+                            text-sm
+                            shadow-md">
+
+                    SITS
+
+                </div>
+
+                <div>
+
+                    <h1 class="font-bold
+                               text-gray-900
+                               text-lg
+                               leading-tight">
+
+                        Secrets in the Stains
+
+                    </h1>
+
+                    <p class="text-xs text-gray-500">
+
+                        Forensic Science Learning
+
+                    </p>
+
+                </div>
+
             </a>
+
+
+            <!-- BACK HOME -->
+            <a href="/"
+               class="inline-flex
+                      items-center
+                      gap-2
+                      px-4
+                      py-2
+                      rounded-xl
+                      text-sm
+                      font-semibold
+                      text-gray-700
+                      border
+                      border-gray-200
+                      hover:border-red-300
+                      hover:text-red-800
+                      hover:bg-red-50
+                      transition">
+
+                <span class="text-lg">←</span>
+
+                Back Home
+
+            </a>
+
         </div>
 
-        {% if webinars %}
+    </div>
 
-            <div class="grid gap-6">
-                {% for webinar in webinars %}
+</header>
 
-                <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-200">
 
-                    <h2 class="text-2xl font-bold text-gray-800 mb-2">
-                        {{ webinar[1] }}
-                    </h2>
+<!-- ========================================= -->
+<!-- HERO SECTION -->
+<!-- ========================================= -->
 
-                    <p class="text-gray-600 mb-2">
-                        <strong>Speaker:</strong> {{ webinar[2] }}
-                    </p>
+<section class="relative overflow-hidden">
 
-                    <p class="text-gray-600 mb-4">
-                        <strong>Date:</strong> {{ webinar[4] }}
-                        <span class="mx-2">•</span>
-                        <strong>Time:</strong> {{ webinar[5] }}
-                    </p>
+    <!-- Decorative background circles -->
 
-                    <p class="text-gray-700 leading-relaxed">
-                        {{ webinar[3] }}
-                    </p>
+    <div class="absolute inset-0 pointer-events-none">
 
-                    <div class="mt-4">
-                        <span class="inline-block bg-red-100 text-red-700 text-sm font-medium px-3 py-1 rounded-full">
-                            Expired Webinar
+        <div class="hero-glow
+                    absolute
+                    -top-32
+                    -right-24
+                    w-80
+                    h-80
+                    bg-red-100
+                    rounded-full
+                    blur-3xl">
+        </div>
+
+        <div class="absolute
+                    -bottom-40
+                    -left-32
+                    w-96
+                    h-96
+                    bg-slate-200
+                    rounded-full
+                    blur-3xl
+                    opacity-60">
+        </div>
+
+    </div>
+
+
+    <div class="relative
+                max-w-6xl
+                mx-auto
+                px-5
+                pt-16
+                pb-12">
+
+        <!-- Small badge -->
+
+        <div class="inline-flex
+                    items-center
+                    gap-2
+                    px-3
+                    py-1.5
+                    rounded-full
+                    bg-red-50
+                    border
+                    border-red-100
+                    text-red-800
+                    text-xs
+                    font-bold
+                    uppercase
+                    tracking-wider
+                    mb-5">
+
+            <span class="w-2 h-2
+                         rounded-full
+                         bg-red-700">
+            </span>
+
+            Webinar Archive
+
+        </div>
+
+
+        <!-- Main heading -->
+
+        <h2 class="text-4xl
+                   md:text-5xl
+                   font-extrabold
+                   tracking-tight
+                   text-gray-900
+                   leading-tight">
+
+            Explore Our
+
+            <span class="text-red-800">
+                Past Webinars
+            </span>
+
+        </h2>
+
+
+        <!-- Description -->
+
+        <p class="mt-5
+                  text-lg
+                  text-gray-600
+                  leading-relaxed
+                  max-w-2xl">
+
+            Revisit our previous forensic science sessions,
+            expert discussions, and educational webinars.
+
+            <span class="font-semibold text-gray-800">
+                Learn. Investigate. Discover.
+            </span>
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================= -->
+<!-- MAIN CONTENT -->
+<!-- ========================================= -->
+
+<main class="max-w-6xl
+             mx-auto
+             px-5
+             pb-20">
+
+
+    {% if webinars %}
+
+
+    <!-- SECTION HEADER -->
+
+    <div class="flex
+                items-center
+                justify-between
+                mb-7">
+
+        <div>
+
+            <h3 class="text-2xl
+                       font-bold
+                       text-gray-900">
+
+                Previous Sessions
+
+            </h3>
+
+            <p class="text-sm
+                      text-gray-500
+                      mt-1">
+
+                {{ webinars|length }}
+
+                webinar{% if webinars|length != 1 %}s{% endif %}
+
+                available
+
+            </p>
+
+        </div>
+
+
+        <div class="hidden sm:flex
+                    items-center
+                    gap-2
+                    text-sm
+                    text-gray-500">
+
+            <span class="w-2 h-2
+                         bg-gray-400
+                         rounded-full">
+            </span>
+
+            Archive
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================= -->
+    <!-- WEBINAR CARDS -->
+    <!-- ========================================= -->
+
+    <div class="grid
+                md:grid-cols-2
+                gap-6">
+
+
+        {% for webinar in webinars %}
+
+
+        <article class="webinar-card
+                        bg-white
+                        rounded-3xl
+                        border
+                        border-gray-200
+                        overflow-hidden
+                        shadow-sm">
+
+
+            <!-- TOP ACCENT -->
+
+            <div class="h-2
+                        bg-gradient-to-r
+                        from-red-950
+                        via-red-800
+                        to-red-500">
+            </div>
+
+
+            <div class="p-7">
+
+
+                <!-- STATUS -->
+
+                <div class="flex
+                            items-center
+                            justify-between
+                            mb-5">
+
+
+                    <span class="inline-flex
+                                 items-center
+                                 gap-2
+                                 px-3
+                                 py-1.5
+                                 rounded-full
+                                 bg-gray-100
+                                 text-gray-600
+                                 text-xs
+                                 font-semibold">
+
+                        <span class="w-2 h-2
+                                     rounded-full
+                                     bg-gray-400">
                         </span>
+
+                        Past Webinar
+
+                    </span>
+
+
+                    <span class="text-xs
+                                 font-medium
+                                 text-gray-400">
+
+                        Archived
+
+                    </span>
+
+                </div>
+
+
+                <!-- TITLE -->
+
+                <h2 class="text-2xl
+                           font-bold
+                           text-gray-900
+                           leading-snug
+                           mb-5">
+
+                    {{ webinar[1] }}
+
+                </h2>
+
+
+                <!-- SPEAKER -->
+
+                <div class="flex
+                            items-center
+                            gap-3
+                            mb-5">
+
+
+                    <div class="w-11
+                                h-11
+                                rounded-xl
+                                bg-red-50
+                                flex
+                                items-center
+                                justify-center
+                                text-red-800">
+
+                        <span class="text-xl">
+                            👤
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="text-xs
+                                  uppercase
+                                  tracking-wide
+                                  text-gray-400
+                                  font-semibold">
+
+                            Speaker
+
+                        </p>
+
+                        <p class="font-semibold
+                                  text-gray-800">
+
+                            {{ webinar[2] }}
+
+                        </p>
+
                     </div>
 
                 </div>
 
-                {% endfor %}
+
+                <!-- DATE + TIME -->
+
+                <div class="flex
+                            flex-wrap
+                            gap-3
+                            mb-6">
+
+
+                    <!-- DATE -->
+
+                    <div class="inline-flex
+                                items-center
+                                gap-2
+                                bg-gray-50
+                                border
+                                border-gray-100
+                                rounded-xl
+                                px-3
+                                py-2">
+
+                        <span class="text-base">
+                            📅
+                        </span>
+
+                        <span class="text-sm
+                                     font-medium
+                                     text-gray-700">
+
+                            {{ webinar[4] }}
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- TIME -->
+
+                    <div class="inline-flex
+                                items-center
+                                gap-2
+                                bg-gray-50
+                                border
+                                border-gray-100
+                                rounded-xl
+                                px-3
+                                py-2">
+
+                        <span class="text-base">
+                            🕒
+                        </span>
+
+                        <span class="text-sm
+                                     font-medium
+                                     text-gray-700">
+
+                            {{ webinar[5] }}
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="border-t
+                            border-gray-100
+                            pt-5">
+
+                    <p class="text-gray-600
+                              leading-7
+                              text-sm">
+
+                        {{ webinar[3] }}
+
+                    </p>
+
+                </div>
+
+
+                <!-- CARD FOOTER -->
+
+                <div class="mt-6
+                            pt-5
+                            border-t
+                            border-gray-100
+                            flex
+                            items-center
+                            justify-between
+                            gap-4">
+
+
+                    <span class="text-xs
+                                 text-gray-400">
+
+                        This webinar has ended
+
+                    </span>
+
+
+                    <span class="inline-flex
+                                 items-center
+                                 gap-1.5
+                                 bg-red-50
+                                 text-red-700
+                                 px-3
+                                 py-1.5
+                                 rounded-full
+                                 text-xs
+                                 font-semibold">
+
+                        <span>●</span>
+
+                        Expired
+
+                    </span>
+
+                </div>
+
+
             </div>
 
-        {% else %}
+        </article>
 
-            <div class="bg-white rounded-xl shadow-sm p-10 text-center text-gray-500">
-                No past webinars available.
-            </div>
 
-        {% endif %}
+        {% endfor %}
+
 
     </div>
+
+
+    {% else %}
+
+
+    <!-- ========================================= -->
+    <!-- EMPTY STATE -->
+    <!-- ========================================= -->
+
+    <div class="max-w-xl
+                mx-auto">
+
+        <div class="bg-white
+                    rounded-3xl
+                    border
+                    border-gray-200
+                    shadow-sm
+                    p-12
+                    text-center">
+
+
+            <div class="w-16
+                        h-16
+                        mx-auto
+                        rounded-2xl
+                        bg-red-50
+                        flex
+                        items-center
+                        justify-center
+                        text-3xl
+                        mb-5">
+
+                🎓
+
+            </div>
+
+
+            <h3 class="text-xl
+                       font-bold
+                       text-gray-900">
+
+                No Past Webinars Yet
+
+            </h3>
+
+
+            <p class="mt-2
+                      text-gray-500
+                      leading-relaxed">
+
+                Our webinar archive will appear here
+                once previous sessions are available.
+
+            </p>
+
+
+            <a href="/"
+               class="inline-flex
+                      items-center
+                      mt-6
+                      px-5
+                      py-2.5
+                      rounded-xl
+                      bg-red-800
+                      text-white
+                      font-semibold
+                      text-sm
+                      hover:bg-red-900
+                      transition">
+
+                ← Return Home
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    {% endif %}
+
+
+</main>
+
+
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+
+<footer class="border-t
+               border-gray-200
+               bg-white">
+
+    <div class="max-w-6xl
+                mx-auto
+                px-5
+                py-7">
+
+
+        <div class="flex
+                    flex-col
+                    sm:flex-row
+                    items-center
+                    justify-between
+                    gap-3">
+
+
+            <p class="text-sm
+                      text-gray-500">
+
+                © {{ current_year if current_year else "2026" }}
+
+                Secrets in the Stains
+
+            </p>
+
+
+            <p class="text-xs
+                      text-gray-400">
+
+                Forensic Science
+                •
+                Learning
+                •
+                Discovery
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+</footer>
+
 
 </body>
 </html>
