@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from routes.auth_utils import admin_required
 from datetime import date
 from database.db import get_connection
+from routes.email_service import send_registration_email
 
 webinar_bp = Blueprint("webinar", __name__)
 
@@ -130,6 +131,29 @@ def save_webinar_registration(
             ))
 
         conn.commit()
+
+    # Send email after successful registration
+    try:
+        details = f"""
+Webinar ID: {webinar_id}
+Phone: {phone}
+Qualification: {qualification}
+Organization: {organization}
+Department: {department}
+Location: {city_state}
+"""
+
+        send_registration_email(
+            to_email=email,
+            name=full_name,
+            registration_type="Webinar",
+            title="Webinar Registration",
+            details=details
+        )
+
+    except Exception as e:
+        print("Webinar email sending failed:", e)
+
 
 def get_active_webinars():
     with get_connection() as conn:
