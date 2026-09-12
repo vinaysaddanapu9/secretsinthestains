@@ -1,6 +1,5 @@
 from psycopg.errors import UniqueViolation
 from database.db import get_connection
-from routes.email_service import send_registration_email
 
 def get_all_applications():
     with get_connection() as conn:
@@ -35,30 +34,3 @@ def save_application(name, email, college, domain, phone):
 
     except UniqueViolation:
         raise Exception("Mobile number already exists.")
-
-    # -----------------------------
-    # Send confirmation email
-    # -----------------------------
-    try:
-        details = f"""
-College: {college}
-Domain: {domain}
-Phone: {phone}
-"""
-
-        send_registration_email(
-            to_email=email,
-            name=name,
-            registration_type="Internship",
-            title=domain,
-            details=details
-        )
-
-        print("Internship confirmation email sent")
-
-    except Exception as e:
-        print("Internship email sending failed:", e)
-
-    return True
-
-

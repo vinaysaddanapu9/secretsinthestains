@@ -11,7 +11,6 @@ from scheduler import start_scheduler
 from routes.quiz import quiz_bp
 from dotenv import load_dotenv
 from flask import send_from_directory
-from routes.email_service import init_mail
 
 load_dotenv()   # Loads DATABASE_URL from .env (ignored on Render)
 
@@ -32,7 +31,7 @@ app.config.update(
 )
 
 csrf = CSRFProtect(app)
-init_mail(app)
+
 
 @app.before_request
 def redirect_non_www():
