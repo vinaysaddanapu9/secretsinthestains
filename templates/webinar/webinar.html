@@ -5,116 +5,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Webinar Registration | Secrets In The Stains</title>
+<title>Webinar Registration | Secrets In The Stains</title>
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Razorpay -->
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<!-- Razorpay -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
-        rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
 
-    <style>
+<style>
 
-        * {
-            box-sizing: border-box;
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+
+    .serif {
+        font-family: 'Playfair Display', serif;
+    }
+
+    .glass {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+    }
+
+    .soft-glow {
+        box-shadow:
+            0 25px 60px rgba(74, 13, 31, 0.12);
+    }
+
+    .input-focus:focus {
+        border-color: #8B1E3F;
+        box-shadow:
+            0 0 0 4px rgba(139, 30, 63, 0.08);
+    }
+
+    .payment-glow {
+        box-shadow:
+            0 15px 45px rgba(109, 26, 54, 0.18);
+    }
+
+    .floating {
+        animation: floating 6s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+
+        0%,
+        100% {
+            transform: translateY(0);
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .fade-up {
+        animation: fadeUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeUp {
+
+        from {
+            opacity: 0;
+            transform: translateY(20px);
         }
 
-        .serif {
-            font-family: 'Playfair Display', serif;
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
+    }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+    .loader {
+        width: 20px;
+        height: 20px;
+        border: 2px solid rgba(255,255,255,0.4);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
         }
+    }
 
-        .soft-glow {
-            box-shadow:
-                0 25px 60px rgba(74, 13, 31, 0.12);
-        }
-
-        .input-focus:focus {
-            border-color: #8B1E3F;
-            box-shadow:
-                0 0 0 4px rgba(139, 30, 63, 0.08);
-        }
-
-        .payment-glow {
-            box-shadow:
-                0 15px 45px rgba(109, 26, 54, 0.18);
-        }
-
-        .floating {
-            animation: floating 6s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .fade-up {
-            animation: fadeUp 0.8s ease forwards;
-        }
-
-        @keyframes fadeUp {
-
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .loader {
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(255,255,255,0.4);
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-    </style>
+</style>
+```
 
 </head>
 
-
 <body class="min-h-screen bg-[#faf8f7] text-gray-800">
 
-
 <!-- ========================================================= -->
+
 <!-- HERO -->
+
 <!-- ========================================================= -->
 
 <section class="relative overflow-hidden
@@ -124,1309 +125,1117 @@
                 to-[#8B1E3F]
                 text-white">
 
-    <!-- Background decorations -->
+```
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
 
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute
+                -top-32
+                -left-32
+                w-[420px]
+                h-[420px]
+                rounded-full
+                bg-pink-400/10
+                blur-3xl">
+    </div>
 
-        <div class="absolute
-                    -top-32
-                    -left-32
-                    w-[420px]
-                    h-[420px]
-                    rounded-full
-                    bg-pink-400/10
-                    blur-3xl">
+    <div class="absolute
+                top-20
+                right-[-150px]
+                w-[500px]
+                h-[500px]
+                rounded-full
+                bg-yellow-300/10
+                blur-3xl">
+    </div>
+
+    <div class="absolute
+                bottom-[-200px]
+                left-1/3
+                w-[500px]
+                h-[500px]
+                rounded-full
+                bg-purple-400/10
+                blur-3xl">
+    </div>
+
+</div>
+
+
+<div class="relative max-w-7xl mx-auto px-6 pt-16 pb-20">
+
+
+    <!-- Top navigation -->
+
+    <div class="flex items-center justify-between">
+
+        <div class="flex items-center gap-3">
+
+            <div class="w-11 h-11 rounded-xl
+                        bg-white/10
+                        border border-white/20
+                        flex items-center justify-center
+                        text-xl">
+
+                ✨
+
+            </div>
+
+            <div>
+
+                <p class="font-bold">
+                    Secrets In The Stains
+                </p>
+
+                <p class="text-xs text-white/60">
+                    Learn • Grow • Transform
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="absolute
-                    top-20
-                    right-[-150px]
-                    w-[500px]
-                    h-[500px]
+
+        <a href="{{ url_for('all_webinars') }}"
+           class="hidden sm:inline-flex
+                  items-center gap-2
+                  px-4 py-2
+                  rounded-full
+                  border border-white/20
+                  bg-white/10
+                  hover:bg-white/20
+                  transition">
+
+            All Webinars →
+
+        </a>
+
+    </div>
+
+
+    <!-- Hero content -->
+
+    <div class="max-w-4xl mx-auto text-center mt-16 fade-up">
+
+        <div class="inline-flex items-center gap-2
+                    px-4 py-2
                     rounded-full
-                    bg-yellow-300/10
-                    blur-3xl">
+                    border border-white/20
+                    bg-white/10
+                    backdrop-blur-md
+                    text-sm
+                    font-medium">
+
+            <span class="w-2 h-2 bg-green-400 rounded-full"></span>
+
+            LIVE WEBINAR
+
         </div>
 
-        <div class="absolute
-                    bottom-[-200px]
-                    left-1/3
-                    w-[500px]
-                    h-[500px]
-                    rounded-full
-                    bg-purple-400/10
-                    blur-3xl">
+
+        <h1 class="serif mt-7
+                   text-5xl
+                   md:text-7xl
+                   font-bold
+                   leading-tight">
+
+            Learn.
+            <span class="text-yellow-300">
+                Grow.
+            </span>
+            Transform.
+
+        </h1>
+
+
+        <p class="mt-6
+                  text-lg
+                  md:text-xl
+                  text-white/75
+                  max-w-2xl
+                  mx-auto
+                  leading-relaxed">
+
+            Join our upcoming webinar and gain practical insights,
+            valuable knowledge and new perspectives from industry
+            experts.
+
+        </p>
+
+
+        <div class="mt-8
+                    flex flex-wrap
+                    justify-center
+                    gap-3">
+
+            <span class="px-4 py-2
+                         rounded-full
+                         bg-white/10
+                         border border-white/10
+                         text-sm">
+
+                🎓 Expert Session
+
+            </span>
+
+            <span class="px-4 py-2
+                         rounded-full
+                         bg-white/10
+                         border border-white/10
+                         text-sm">
+
+                💬 Interactive
+
+            </span>
+
+            <span class="px-4 py-2
+                         rounded-full
+                         bg-white/10
+                         border border-white/10
+                         text-sm">
+
+                🏆 Certificate
+
+            </span>
+
         </div>
 
     </div>
 
 
-    <div class="relative max-w-7xl mx-auto px-6 pt-16 pb-20">
+    <!-- Upcoming webinars -->
 
+    <div class="mt-16">
 
-        <!-- Top navigation -->
+        <div class="flex items-center justify-between mb-5">
 
-        <div class="flex items-center justify-between">
+            <div>
 
-            <div class="flex items-center gap-3">
+                <p class="text-sm text-white/50 uppercase tracking-widest">
+                    What's coming up
+                </p>
 
-                <div class="w-11 h-11 rounded-xl
-                            bg-white/10
-                            border border-white/20
-                            flex items-center justify-center
-                            text-xl">
-
-                    ✨
-
-                </div>
-
-                <div>
-
-                    <p class="font-bold">
-                        Secrets In The Stains
-                    </p>
-
-                    <p class="text-xs text-white/60">
-                        Learn • Grow • Transform
-                    </p>
-
-                </div>
+                <h2 class="text-2xl font-bold mt-1">
+                    Upcoming Webinars
+                </h2>
 
             </div>
 
 
             <a href="{{ url_for('all_webinars') }}"
-               class="hidden sm:inline-flex
-                      items-center gap-2
-                      px-4 py-2
-                      rounded-full
-                      border border-white/20
-                      bg-white/10
-                      hover:bg-white/20
+               class="text-sm font-semibold
+                      text-yellow-300
+                      hover:text-yellow-200
                       transition">
 
-                All Webinars →
+                View all →
 
             </a>
 
         </div>
 
 
-        <!-- Hero content -->
-
-        <div class="max-w-4xl mx-auto text-center mt-16 fade-up">
-
-            <div class="inline-flex items-center gap-2
-                        px-4 py-2
-                        rounded-full
-                        border border-white/20
-                        bg-white/10
-                        backdrop-blur-md
-                        text-sm
-                        font-medium">
-
-                <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-
-                LIVE WEBINAR
-
-            </div>
-
-
-            <h1 class="serif mt-7
-                       text-5xl
-                       md:text-7xl
-                       font-bold
-                       leading-tight">
-
-                Learn.
-                <span class="text-yellow-300">
-                    Grow.
-                </span>
-                Transform.
-
-            </h1>
-
-
-            <p class="mt-6
-                      text-lg
-                      md:text-xl
-                      text-white/75
-                      max-w-2xl
-                      mx-auto
-                      leading-relaxed">
-
-                Join our upcoming webinar and gain practical insights,
-                valuable knowledge and new perspectives from industry
-                experts.
-
-            </p>
-
-
-            <!-- Trust badges -->
-
-            <div class="mt-8
-                        flex flex-wrap
-                        justify-center
-                        gap-3">
-
-                <span class="px-4 py-2
-                             rounded-full
-                             bg-white/10
-                             border border-white/10
-                             text-sm">
-
-                    🎓 Expert Session
-
-                </span>
-
-                <span class="px-4 py-2
-                             rounded-full
-                             bg-white/10
-                             border border-white/10
-                             text-sm">
-
-                    💬 Interactive
-
-                </span>
-
-                <span class="px-4 py-2
-                             rounded-full
-                             bg-white/10
-                             border border-white/10
-                             text-sm">
-
-                    🏆 Certificate
-
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- Upcoming webinars -->
-
-        <div class="mt-16">
-
-            <div class="flex items-center justify-between mb-5">
-
-                <div>
-
-                    <p class="text-sm text-white/50 uppercase tracking-widest">
-                        What's coming up
-                    </p>
-
-                    <h2 class="text-2xl font-bold mt-1">
-                        Upcoming Webinars
-                    </h2>
-
-                </div>
-
-
-                <a href="{{ url_for('all_webinars') }}"
-                   class="text-sm font-semibold
-                          text-yellow-300
-                          hover:text-yellow-200
-                          transition">
-
-                    View all →
-
-                </a>
-
-            </div>
-
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                {% for webinar in webinars %}
-
-                <div class="glass
-                            border border-white/15
-                            rounded-2xl
-                            p-5
-                            hover:bg-white/15
-                            transition
-                            duration-300">
-
-                    <div class="flex items-start gap-4">
-
-                        <div class="flex-shrink-0
-                                    w-12 h-12
-                                    rounded-xl
-                                    bg-white/10
-                                    flex items-center justify-center
-                                    text-xl">
-
-                            🎓
-
-                        </div>
-
-
-                        <div class="min-w-0">
-
-                            <h3 class="font-bold text-lg">
-                                {{ webinar[1] }}
-                            </h3>
-
-
-                            <p class="text-white/60 text-sm mt-2">
-
-                                📅 {{ webinar[4] }}
-
-                                <span class="mx-1">
-                                    •
-                                </span>
-
-                                🕖 {{ webinar[5] }}
-
-                            </p>
-
-
-                            <p class="text-white/60 text-sm mt-1">
-
-                                👤 {{ webinar[2] }}
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                {% else %}
-
-                <div class="md:col-span-2
-                            glass
-                            border border-white/15
-                            rounded-2xl
-                            p-6
-                            text-center">
-
-                    <p class="text-white/70">
-                        No upcoming webinars available.
-                    </p>
-
-                </div>
-
-                {% endfor %}
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ========================================================= -->
-<!-- REGISTRATION AREA -->
-<!-- ========================================================= -->
-
-<section class="relative max-w-6xl mx-auto px-5 sm:px-6 py-16">
-
-    <div class="grid lg:grid-cols-3 gap-8">
-
-
-        <!-- ================================================= -->
-        <!-- LEFT INFORMATION -->
-        <!-- ================================================= -->
-
-        <div class="lg:col-span-1">
-
-            <div class="lg:sticky lg:top-8">
-
-
-                <!-- PRICE CARD -->
-
-                <div class="relative
-                            overflow-hidden
-                            rounded-3xl
-                            bg-gradient-to-br
-                            from-[#4A0D1F]
-                            to-[#8B1E3F]
-                            text-white
-                            p-7
-                            payment-glow">
-
-                    <div class="absolute
-                                -top-16
-                                -right-16
-                                w-40
-                                h-40
-                                rounded-full
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            {% for webinar in webinars %}
+
+            <div class="glass
+                        border border-white/15
+                        rounded-2xl
+                        p-5
+                        hover:bg-white/15
+                        transition
+                        duration-300">
+
+                <div class="flex items-start gap-4">
+
+                    <div class="flex-shrink-0
+                                w-12 h-12
+                                rounded-xl
                                 bg-white/10
-                                blur-2xl">
+                                flex items-center justify-center
+                                text-xl">
+
+                        🎓
+
                     </div>
 
 
-                    <div class="relative">
+                    <div class="min-w-0">
 
-                        <p class="text-white/60 text-sm uppercase tracking-wider">
-                            Registration Fee
+                        <h3 class="font-bold text-lg">
+                            {{ webinar[1] }}
+                        </h3>
+
+
+                        <p class="text-white/60 text-sm mt-2">
+
+                            📅 {{ webinar[4] }}
+
+                            <span class="mx-1">
+                                •
+                            </span>
+
+                            🕖 {{ webinar[5] }}
+
                         </p>
 
 
-                        <div class="flex items-end gap-2 mt-2">
+                        <p class="text-white/60 text-sm mt-1">
 
-                            <span class="text-5xl font-extrabold">
-                                ₹39
-                            </span>
+                            👤 {{ webinar[2] }}
 
-                            <span class="text-white/60 mb-2">
-                                / seat
-                            </span>
-
-                        </div>
-
-
-                        <div class="mt-6 h-px bg-white/10"></div>
-
-
-                        <div class="mt-6 space-y-4">
-
-                            <div class="flex gap-3">
-                                <span>✓</span>
-                                <span class="text-sm text-white/80">
-                                    Live webinar access
-                                </span>
-                            </div>
-
-
-                            <div class="flex gap-3">
-                                <span>✓</span>
-                                <span class="text-sm text-white/80">
-                                    Interactive Q&A
-                                </span>
-                            </div>
-
-
-                            <div class="flex gap-3">
-                                <span>✓</span>
-                                <span class="text-sm text-white/80">
-                                    Webinar resources
-                                </span>
-                            </div>
-
-
-                            <div class="flex gap-3">
-                                <span>✓</span>
-                                <span class="text-sm text-white/80">
-                                    Certificate of participation
-                                </span>
-                            </div>
-
-                        </div>
+                        </p>
 
                     </div>
-
-                </div>
-
-
-
-                <!-- SECURE PAYMENT -->
-
-                <div class="mt-5
-                            rounded-2xl
-                            bg-white
-                            border border-gray-100
-                            p-5
-                            shadow-sm">
-
-                    <div class="flex items-center gap-3">
-
-                        <div class="w-10 h-10
-                                    rounded-xl
-                                    bg-green-50
-                                    flex items-center justify-center">
-
-                            🔒
-
-                        </div>
-
-
-                        <div>
-
-                            <p class="font-semibold text-gray-800">
-                                Secure Payment
-                            </p>
-
-                            <p class="text-xs text-gray-500 mt-1">
-                                Powered by Razorpay
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="mt-4
-                                flex flex-wrap
-                                gap-2">
-
-                        <span class="text-xs
-                                     bg-gray-50
-                                     border border-gray-100
-                                     px-3 py-1.5
-                                     rounded-full">
-                            UPI
-                        </span>
-
-                        <span class="text-xs
-                                     bg-gray-50
-                                     border border-gray-100
-                                     px-3 py-1.5
-                                     rounded-full">
-                            Cards
-                        </span>
-
-                        <span class="text-xs
-                                     bg-gray-50
-                                     border border-gray-100
-                                     px-3 py-1.5
-                                     rounded-full">
-                            Net Banking
-                        </span>
-
-                        <span class="text-xs
-                                     bg-gray-50
-                                     border border-gray-100
-                                     px-3 py-1.5
-                                     rounded-full">
-                            Wallets
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- HELP -->
-
-                <div class="mt-5
-                            rounded-2xl
-                            bg-[#fff7f8]
-                            border border-[#f5dce2]
-                            p-5">
-
-                    <p class="font-semibold text-[#6D1A36]">
-                        Need help?
-                    </p>
-
-
-                    <p class="text-sm text-gray-500 mt-2 leading-relaxed">
-
-                        Complete the registration form and click
-                        <strong>Register & Pay ₹39</strong>.
-                        You will be redirected to secure Razorpay Checkout.
-
-                    </p>
 
                 </div>
 
             </div>
 
-        </div>
 
-
-
-        <!-- ================================================= -->
-        <!-- FORM -->
-        <!-- ================================================= -->
-
-        <div class="lg:col-span-2">
-
-            <div class="bg-white
-                        rounded-3xl
-                        shadow-xl
-                        border border-gray-100
-                        overflow-hidden">
-
-
-                <!-- FORM HEADER -->
-
-                <div class="px-7 sm:px-10 py-7
-                            border-b border-gray-100
-                            bg-gradient-to-r
-                            from-white
-                            to-[#fff9fa]">
-
-                    <div class="flex items-center gap-4">
-
-                        <div class="w-12 h-12
-                                    rounded-2xl
-                                    bg-[#fff0f3]
-                                    flex items-center justify-center
-                                    text-xl">
-
-                            📝
-
-                        </div>
-
-
-                        <div>
-
-                            <h2 class="text-2xl font-bold text-gray-900">
-                                Reserve Your Seat
-                            </h2>
-
-                            <p class="text-sm text-gray-500 mt-1">
-                                Please provide your details below.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- FORM -->
-
-                <form id="webinarRegistrationForm"
-                      class="p-7 sm:p-10">
-
-
-                    <!-- CSRF -->
-
-                    <input type="hidden"
-                           id="csrf_token"
-                           name="csrf_token"
-                           value="{{ csrf_token() }}">
-
-
-
-                    <!-- ================================================= -->
-                    <!-- SECTION 1 -->
-                    <!-- ================================================= -->
-
-                    <div class="mb-10">
-
-                        <div class="flex items-center gap-3 mb-6">
-
-                            <div class="w-8 h-8
-                                        rounded-lg
-                                        bg-[#6D1A36]
-                                        text-white
-                                        flex items-center justify-center
-                                        text-sm
-                                        font-bold">
-
-                                1
-
-                            </div>
-
-
-                            <div>
-
-                                <h3 class="font-bold text-gray-900">
-                                    Webinar Details
-                                </h3>
-
-                                <p class="text-xs text-gray-500">
-                                    Choose the session you want to attend
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <label class="block text-sm font-semibold text-gray-700 mb-2">
-                            Select Webinar *
-                        </label>
-
-
-                        <select name="webinar_id"
-                                id="webinar_id"
-                                required
-                                class="input-focus
-                                       w-full
-                                       rounded-xl
-                                       border border-gray-200
-                                       bg-white
-                                       px-4 py-3.5
-                                       outline-none
-                                       transition">
-
-                            <option value="">
-                                Choose a webinar
-                            </option>
-
-
-                            {% for webinar in webinars %}
-
-                            <option value="{{ webinar[0] }}">
-
-                                {{ webinar[1] }}
-                                — {{ webinar[4] }}
-                                at {{ webinar[5] }}
-
-                            </option>
-
-                            {% endfor %}
-
-                        </select>
-
-                    </div>
-
-
-
-                    <!-- ================================================= -->
-                    <!-- SECTION 2 -->
-                    <!-- ================================================= -->
-
-                    <div class="mb-10">
-
-                        <div class="flex items-center gap-3 mb-6">
-
-                            <div class="w-8 h-8
-                                        rounded-lg
-                                        bg-[#6D1A36]
-                                        text-white
-                                        flex items-center justify-center
-                                        text-sm
-                                        font-bold">
-
-                                2
-
-                            </div>
-
-
-                            <div>
-
-                                <h3 class="font-bold text-gray-900">
-                                    Personal Information
-                                </h3>
-
-                                <p class="text-xs text-gray-500">
-                                    Tell us a little about yourself
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-
-
-                            <!-- FULL NAME -->
-
-                            <div>
-
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">
-                                    Full Name *
-                                </label>
-
-                                <input type="text"
-                                       name="full_name"
-                                       id="full_name"
-                                       required
-                                       placeholder="Enter your full name"
-                                       class="input-focus
-                                              w-full
-                                              rounded-xl
-                                              border border-gray-200
-                                              px-4 py-3.5
-                                              outline-none
-                                              transition">
-
-                            </div>
-
-
-
-                            <!-- EMAIL -->
-
-                            <div>
-
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">
-                                    Email Address *
-                                </label>
-
-                                <input type="email"
-                                       name="email"
-                                       id="email"
-                                       required
-                                       placeholder="you@example.com"
-                                       class="input-focus
-                                              w-full
-                                              rounded-xl
-                                              border border-gray-200
-                                              px-4 py-3.5
-                                              outline-none
-                                              transition">
-
-                            </div>
-
-
-
-                            <!-- PHONE -->
-
-                            <div>
-
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">
-                                    WhatsApp Number *
-                                </label>
-
-                                <div class="flex">
-
-                                    <span class="inline-flex items-center
-                                                 px-4
-                                                 rounded-l-xl
-                                                 border border-r-0
-                                                 border-gray-200
-                                                 bg-gray-50
-                                                 text-sm
-                                                 text-gray-500">
-
-                                        +91
-
-                                    </span>
-
-                                    <input type="tel"
-                                           name="phone"
-                                           id="phone"
-                                           required
-                                           maxlength="10"
-                                           pattern="[0-9]{10}"
-                                           placeholder="9876543210"
-                                           class="input-focus
-                                                  w-full
-                                                  rounded-r-xl
-                                                  border border-gray-200
-                                                  px-4 py-3.5
-                                                  outline-none
-                                                  transition">
-
-                                </div>
-
-                            </div>
-
-
-
-                            <!-- GENDER -->
-
-                            <div>
-
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">
-                                    Gender *
-                                </label>
-
-                                <select name="gender"
-                                        id="gender"
-                                        required
-                                        class="input-focus
-                                               w-full
-                                               rounded-xl
-                                               border border-gray-200
-                                               bg-white
-                                               px-4 py-3.5
-                                               outline-none
-                                               transition">
-
-                                    <option value="">
-                                        Select Gender
-                                    </option>
-
-                                    <option value="Male">
-                                        Male
-                                    </option>
-
-                                    <option value="Female">
-                                        Female
-                                    </option>
-
-                                    <option value="Prefer not to say">
-                                        Prefer not to say
-                                    </option>
-
-                                </select>
-
-                            </div>
-
-
-
-                            <!-- CITY -->
-
-                            <div class="md:col-span-2">
-
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">
-                                    City & State *
-                                </label>
-
-                                <input type="text"
-                                       name="city_state"
-                                       id="city_state"
-                                       required
-                                       placeholder="Hyderabad, Telangana"
-                                       class="input-focus
-                                              w-full
-                                              rounded-xl
-                                              border border-gray-200
-                                              px-4 py-3.5
-                                              outline-none
-                                              transition">
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- ================================================= -->
-                    <!-- SECTION 3 -->
-                    <!-- ================================================= -->
-
-                    <div class="mb-10">
-
-                        <div class="flex items-center gap-3 mb-6">
-
-                            <div class="w-8 h-8
-                                        rounded-lg
-                                        bg-[#6D1A36]
-                                        text-white
-                                        flex items-center justify-center
-                                        text-sm
-                                        font-bold">
-
-                                3
-
-                            </div>
-
-
-                            <div>
-
-                                <h3 class="font-bold text-gray-900">
-                                    Education & Work
-                                </h3>
-
-                                <p class="text-xs text-gray-500">
-                                    Help us understand your background
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-
-
-                            <!-- QUALIFICATION -->
-
-                            <div>
-
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">
-                                    Educational Qualification *
-                                </label>
-
-                                <select name="qualification"
-                                        id="qualification"
-                                        required
-                                        class="input-focus
-                                               w-full
-                                               rounded-xl
-                                               border border-gray-200
-                                               bg-white
-                                               px-4 py-3.5
-                                               outline-none
-                                               transition">
-
-                                    <option value="">
-                                        Select Qualification
-                                    </option>
-
-                                    <option>Diploma</option>
-                                    <option>Undergraduate</option>
-                                    <option>Graduate</option>
-                                    <option>Post Graduate</option>
-                                    <option>Ph.D.</option>
-                                    <option>Working Professional</option>
-                                    <option>Other</option>
-
-                                </select>
-
-                            </div>
-
-
-
-                            <!-- ORGANIZATION -->
-
-                            <div>
-
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">
-                                    Institution / Organization *
-                                </label>
-
-                                <input type="text"
-                                       name="organization"
-                                       id="organization"
-                                       required
-                                       placeholder="College / Company name"
-                                       class="input-focus
-                                              w-full
-                                              rounded-xl
-                                              border border-gray-200
-                                              px-4 py-3.5
-                                              outline-none
-                                              transition">
-
-                            </div>
-
-
-
-                            <!-- DEPARTMENT -->
-
-                            <div class="md:col-span-2">
-
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">
-                                    Department / Course *
-                                </label>
-
-                                <input type="text"
-                                       name="department"
-                                       id="department"
-                                       required
-                                       placeholder="Computer Science / B.Tech / MBA"
-                                       class="input-focus
-                                              w-full
-                                              rounded-xl
-                                              border border-gray-200
-                                              px-4 py-3.5
-                                              outline-none
-                                              transition">
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- ================================================= -->
-                    <!-- SECTION 4 -->
-                    <!-- ================================================= -->
-
-                    <div class="mb-10">
-
-                        <div class="flex items-center gap-3 mb-6">
-
-                            <div class="w-8 h-8
-                                        rounded-lg
-                                        bg-[#6D1A36]
-                                        text-white
-                                        flex items-center justify-center
-                                        text-sm
-                                        font-bold">
-
-                                4
-
-                            </div>
-
-
-                            <div>
-
-                                <h3 class="font-bold text-gray-900">
-                                    Your Question
-                                </h3>
-
-                                <p class="text-xs text-gray-500">
-                                    Optional — ask something for our speaker
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <textarea name="question"
-                                  id="question"
-                                  rows="5"
-                                  placeholder="What would you like to ask the speaker?"
-                                  class="input-focus
-                                         w-full
-                                         rounded-xl
-                                         border border-gray-200
-                                         px-4 py-3.5
-                                         outline-none
-                                         transition"></textarea>
-
-                    </div>
-
-
-
-                    <!-- ================================================= -->
-                    <!-- CONSENT -->
-                    <!-- ================================================= -->
-
-                    <div class="mb-7">
-
-                        <label class="flex items-start gap-3
-                                      rounded-2xl
-                                      border border-gray-200
-                                      bg-gray-50
-                                      p-5
-                                      cursor-pointer
-                                      hover:bg-gray-100
-                                      transition">
-
-                            <input type="checkbox"
-                                   name="consent"
-                                   id="consent"
-                                   required
-                                   class="mt-1
-                                          h-5 w-5
-                                          rounded
-                                          border-gray-300
-                                          text-[#6D1A36]
-                                          focus:ring-[#6D1A36]">
-
-
-                            <span class="text-sm
-                                         text-gray-600
-                                         leading-relaxed">
-
-                                I agree to receive webinar updates,
-                                reminders and important announcements
-                                via Email and WhatsApp.
-
-                            </span>
-
-                        </label>
-
-                    </div>
-
-
-
-                    <!-- ================================================= -->
-                    <!-- PAYMENT SUMMARY -->
-                    <!-- ================================================= -->
-
-                    <div class="rounded-2xl
-                                border border-[#ead4da]
-                                bg-[#fff8fa]
-                                p-5
-                                mb-6">
-
-                        <div class="flex items-center justify-between">
-
-                            <div>
-
-                                <p class="text-sm text-gray-500">
-                                    Total amount
-                                </p>
-
-                                <p class="text-2xl font-extrabold text-[#6D1A36] mt-1">
-                                    ₹39
-                                </p>
-
-                            </div>
-
-
-                            <div class="text-right">
-
-                                <p class="text-xs text-gray-500">
-                                    Payment method
-                                </p>
-
-                                <p class="font-semibold text-gray-800 mt-1">
-                                    Razorpay
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- ================================================= -->
-                    <!-- PAY BUTTON -->
-                    <!-- ================================================= -->
-
-                    <button type="submit"
-                            id="payButton"
-                            class="w-full
-                                   rounded-2xl
-                                   bg-gradient-to-r
-                                   from-[#5B1024]
-                                   via-[#6D1A36]
-                                   to-[#8B1E3F]
-                                   px-6
-                                   py-4
-                                   text-lg
-                                   font-bold
-                                   text-white
-                                   shadow-lg
-                                   hover:shadow-2xl
-                                   hover:-translate-y-0.5
-                                   transition-all
-                                   duration-300
-                                   focus:outline-none
-                                   focus:ring-4
-                                   focus:ring-[#8B1E3F]/20">
-
-
-                        <span id="payButtonContent"
-                              class="flex items-center justify-center gap-3">
-
-                            <span>
-                                🔒
-                            </span>
-
-                            <span>
-                                Register & Pay ₹39
-                            </span>
-
-                            <span>
-                                →
-                            </span>
-
-                        </span>
-
-                    </button>
-
-
-                    <p class="text-center
-                              text-xs
-                              text-gray-400
-                              mt-4">
-
-                        Your payment is securely processed by Razorpay.
-                        We never store your card or UPI credentials.
-
-                    </p>
-
-                </form>
+            {% else %}
+
+            <div class="md:col-span-2
+                        glass
+                        border border-white/15
+                        rounded-2xl
+                        p-6
+                        text-center">
+
+                <p class="text-white/70">
+                    No upcoming webinars available.
+                </p>
 
             </div>
 
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ========================================================= -->
-<!-- FOOTER -->
-<!-- ========================================================= -->
-
-<footer class="border-t border-gray-200 bg-white">
-
-    <div class="max-w-6xl mx-auto px-6 py-8">
-
-        <div class="text-center">
-
-            <p class="font-semibold text-gray-700">
-                Secrets In The Stains
-            </p>
-
-            <p class="text-sm text-gray-400 mt-2">
-                Learn • Grow • Transform
-            </p>
-
-            <p class="text-xs text-gray-400 mt-4">
-                © 2026 Secrets In The Stains. All Rights Reserved.
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-
-<!-- ========================================================= -->
-<!-- SUCCESS POPUP -->
-<!-- ========================================================= -->
-
-{% if success %}
-
-<div id="successPopup"
-     class="fixed top-6 right-6
-            max-w-sm
-            bg-green-600
-            text-white
-            px-6 py-4
-            rounded-2xl
-            shadow-2xl
-            z-50">
-
-    <div class="flex items-start gap-3">
-
-        <span class="text-xl">
-            ✓
-        </span>
-
-        <div>
-
-            <p class="font-bold">
-                Registration Successful
-            </p>
-
-            <p class="text-sm text-green-100 mt-1">
-                Your webinar registration has been submitted.
-            </p>
+            {% endfor %}
 
         </div>
 
     </div>
 
 </div>
+```
 
-
-<script>
-
-setTimeout(() => {
-
-    const popup =
-        document.getElementById("successPopup");
-
-    if (popup) {
-        popup.remove();
-    }
-
-}, 5000);
-
-</script>
-
-{% endif %}
-
-
+</section>
 
 <!-- ========================================================= -->
+
+<!-- REGISTRATION AREA -->
+
+<!-- ========================================================= -->
+
+<section class="relative max-w-6xl mx-auto px-5 sm:px-6 py-16">
+
+```
+<div class="grid lg:grid-cols-3 gap-8">
+
+
+    <!-- LEFT -->
+
+    <div class="lg:col-span-1">
+
+        <div class="lg:sticky lg:top-8">
+
+
+            <!-- PRICE -->
+
+            <div class="relative
+                        overflow-hidden
+                        rounded-3xl
+                        bg-gradient-to-br
+                        from-[#4A0D1F]
+                        to-[#8B1E3F]
+                        text-white
+                        p-7
+                        payment-glow">
+
+                <div class="absolute
+                            -top-16
+                            -right-16
+                            w-40
+                            h-40
+                            rounded-full
+                            bg-white/10
+                            blur-2xl">
+                </div>
+
+
+                <div class="relative">
+
+                    <p class="text-white/60 text-sm uppercase tracking-wider">
+                        Registration Fee
+                    </p>
+
+
+                    <div class="flex items-end gap-2 mt-2">
+
+                        <span class="text-5xl font-extrabold">
+                            ₹39
+                        </span>
+
+                        <span class="text-white/60 mb-2">
+                            / seat
+                        </span>
+
+                    </div>
+
+
+                    <div class="mt-6 h-px bg-white/10"></div>
+
+
+                    <div class="mt-6 space-y-4">
+
+                        <div class="flex gap-3">
+                            <span>✓</span>
+                            <span class="text-sm text-white/80">
+                                Live webinar access
+                            </span>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <span>✓</span>
+                            <span class="text-sm text-white/80">
+                                Interactive Q&A
+                            </span>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <span>✓</span>
+                            <span class="text-sm text-white/80">
+                                Webinar resources
+                            </span>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <span>✓</span>
+                            <span class="text-sm text-white/80">
+                                Certificate of participation
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SECURE PAYMENT -->
+
+            <div class="mt-5
+                        rounded-2xl
+                        bg-white
+                        border border-gray-100
+                        p-5
+                        shadow-sm">
+
+                <div class="flex items-center gap-3">
+
+                    <div class="w-10 h-10
+                                rounded-xl
+                                bg-green-50
+                                flex items-center justify-center">
+
+                        🔒
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="font-semibold text-gray-800">
+                            Secure Payment
+                        </p>
+
+                        <p class="text-xs text-gray-500 mt-1">
+                            Powered by Razorpay
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mt-4 flex flex-wrap gap-2">
+
+                    <span class="text-xs bg-gray-50 border border-gray-100 px-3 py-1.5 rounded-full">
+                        UPI
+                    </span>
+
+                    <span class="text-xs bg-gray-50 border border-gray-100 px-3 py-1.5 rounded-full">
+                        Cards
+                    </span>
+
+                    <span class="text-xs bg-gray-50 border border-gray-100 px-3 py-1.5 rounded-full">
+                        Net Banking
+                    </span>
+
+                    <span class="text-xs bg-gray-50 border border-gray-100 px-3 py-1.5 rounded-full">
+                        Wallets
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- HELP -->
+
+            <div class="mt-5
+                        rounded-2xl
+                        bg-[#fff7f8]
+                        border border-[#f5dce2]
+                        p-5">
+
+                <p class="font-semibold text-[#6D1A36]">
+                    Need help?
+                </p>
+
+
+                <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+
+                    Complete the registration form and click
+                    <strong>Register & Pay ₹39</strong>.
+                    You will be redirected to secure Razorpay Checkout.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FORM -->
+
+    <div class="lg:col-span-2">
+
+        <div class="bg-white
+                    rounded-3xl
+                    shadow-xl
+                    border border-gray-100
+                    overflow-hidden">
+
+
+            <!-- FORM HEADER -->
+
+            <div class="px-7 sm:px-10 py-7
+                        border-b border-gray-100
+                        bg-gradient-to-r
+                        from-white
+                        to-[#fff9fa]">
+
+                <div class="flex items-center gap-4">
+
+                    <div class="w-12 h-12
+                                rounded-2xl
+                                bg-[#fff0f3]
+                                flex items-center justify-center
+                                text-xl">
+
+                        📝
+
+                    </div>
+
+
+                    <div>
+
+                        <h2 class="text-2xl font-bold text-gray-900">
+                            Reserve Your Seat
+                        </h2>
+
+                        <p class="text-sm text-gray-500 mt-1">
+                            Please provide your details below.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FORM -->
+
+            <form id="webinarRegistrationForm"
+                  class="p-7 sm:p-10">
+
+
+                <!-- CSRF -->
+
+                <input type="hidden"
+                       id="csrf_token"
+                       name="csrf_token"
+                       value="{{ csrf_token() }}">
+
+
+                <!-- SECTION 1 -->
+
+                <div class="mb-10">
+
+                    <div class="flex items-center gap-3 mb-6">
+
+                        <div class="w-8 h-8
+                                    rounded-lg
+                                    bg-[#6D1A36]
+                                    text-white
+                                    flex items-center justify-center
+                                    text-sm
+                                    font-bold">
+
+                            1
+
+                        </div>
+
+
+                        <div>
+
+                            <h3 class="font-bold text-gray-900">
+                                Webinar Details
+                            </h3>
+
+                            <p class="text-xs text-gray-500">
+                                Choose the session you want to attend
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        Select Webinar *
+                    </label>
+
+
+                    <select name="webinar_id"
+                            id="webinar_id"
+                            required
+                            class="input-focus w-full rounded-xl
+                                   border border-gray-200
+                                   bg-white px-4 py-3.5
+                                   outline-none transition">
+
+                        <option value="">
+                            Choose a webinar
+                        </option>
+
+                        {% for webinar in webinars %}
+
+                        <option value="{{ webinar[0] }}">
+                            {{ webinar[1] }}
+                            — {{ webinar[4] }}
+                            at {{ webinar[5] }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- SECTION 2 -->
+
+                <div class="mb-10">
+
+                    <div class="flex items-center gap-3 mb-6">
+
+                        <div class="w-8 h-8 rounded-lg
+                                    bg-[#6D1A36] text-white
+                                    flex items-center justify-center
+                                    text-sm font-bold">
+                            2
+                        </div>
+
+                        <div>
+
+                            <h3 class="font-bold text-gray-900">
+                                Personal Information
+                            </h3>
+
+                            <p class="text-xs text-gray-500">
+                                Tell us a little about yourself
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+
+                        <div>
+
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                Full Name *
+                            </label>
+
+                            <input type="text"
+                                   name="full_name"
+                                   id="full_name"
+                                   required
+                                   placeholder="Enter your full name"
+                                   class="input-focus w-full rounded-xl
+                                          border border-gray-200
+                                          px-4 py-3.5 outline-none transition">
+
+                        </div>
+
+
+                        <div>
+
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                Email Address *
+                            </label>
+
+                            <input type="email"
+                                   name="email"
+                                   id="email"
+                                   required
+                                   placeholder="you@example.com"
+                                   class="input-focus w-full rounded-xl
+                                          border border-gray-200
+                                          px-4 py-3.5 outline-none transition">
+
+                        </div>
+
+
+                        <div>
+
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                WhatsApp Number *
+                            </label>
+
+                            <div class="flex">
+
+                                <span class="inline-flex items-center
+                                             px-4 rounded-l-xl
+                                             border border-r-0
+                                             border-gray-200
+                                             bg-gray-50
+                                             text-sm text-gray-500">
+                                    +91
+                                </span>
+
+                                <input type="tel"
+                                       name="phone"
+                                       id="phone"
+                                       required
+                                       maxlength="10"
+                                       pattern="[0-9]{10}"
+                                       placeholder="9876543210"
+                                       class="input-focus w-full
+                                              rounded-r-xl
+                                              border border-gray-200
+                                              px-4 py-3.5
+                                              outline-none transition">
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                Gender *
+                            </label>
+
+                            <select name="gender"
+                                    id="gender"
+                                    required
+                                    class="input-focus w-full rounded-xl
+                                           border border-gray-200
+                                           bg-white px-4 py-3.5
+                                           outline-none transition">
+
+                                <option value="">
+                                    Select Gender
+                                </option>
+
+                                <option value="Male">
+                                    Male
+                                </option>
+
+                                <option value="Female">
+                                    Female
+                                </option>
+
+                                <option value="Prefer not to say">
+                                    Prefer not to say
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="md:col-span-2">
+
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                City & State *
+                            </label>
+
+                            <input type="text"
+                                   name="city_state"
+                                   id="city_state"
+                                   required
+                                   placeholder="Hyderabad, Telangana"
+                                   class="input-focus w-full rounded-xl
+                                          border border-gray-200
+                                          px-4 py-3.5
+                                          outline-none transition">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SECTION 3 -->
+
+                <div class="mb-10">
+
+                    <div class="flex items-center gap-3 mb-6">
+
+                        <div class="w-8 h-8 rounded-lg
+                                    bg-[#6D1A36] text-white
+                                    flex items-center justify-center
+                                    text-sm font-bold">
+                            3
+                        </div>
+
+                        <div>
+
+                            <h3 class="font-bold text-gray-900">
+                                Education & Work
+                            </h3>
+
+                            <p class="text-xs text-gray-500">
+                                Help us understand your background
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+
+                        <div>
+
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                Educational Qualification *
+                            </label>
+
+                            <select name="qualification"
+                                    id="qualification"
+                                    required
+                                    class="input-focus w-full rounded-xl
+                                           border border-gray-200
+                                           bg-white px-4 py-3.5
+                                           outline-none transition">
+
+                                <option value="">
+                                    Select Qualification
+                                </option>
+
+                                <option>Diploma</option>
+                                <option>Undergraduate</option>
+                                <option>Graduate</option>
+                                <option>Post Graduate</option>
+                                <option>Ph.D.</option>
+                                <option>Working Professional</option>
+                                <option>Other</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div>
+
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                Institution / Organization *
+                            </label>
+
+                            <input type="text"
+                                   name="organization"
+                                   id="organization"
+                                   required
+                                   placeholder="College / Company name"
+                                   class="input-focus w-full rounded-xl
+                                          border border-gray-200
+                                          px-4 py-3.5
+                                          outline-none transition">
+
+                        </div>
+
+
+                        <div class="md:col-span-2">
+
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                Department / Course *
+                            </label>
+
+                            <input type="text"
+                                   name="department"
+                                   id="department"
+                                   required
+                                   placeholder="Computer Science / B.Tech / MBA"
+                                   class="input-focus w-full rounded-xl
+                                          border border-gray-200
+                                          px-4 py-3.5
+                                          outline-none transition">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SECTION 4 -->
+
+                <div class="mb-10">
+
+                    <div class="flex items-center gap-3 mb-6">
+
+                        <div class="w-8 h-8 rounded-lg
+                                    bg-[#6D1A36] text-white
+                                    flex items-center justify-center
+                                    text-sm font-bold">
+                            4
+                        </div>
+
+                        <div>
+
+                            <h3 class="font-bold text-gray-900">
+                                Your Question
+                            </h3>
+
+                            <p class="text-xs text-gray-500">
+                                Optional — ask something for our speaker
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <textarea name="question"
+                              id="question"
+                              rows="5"
+                              placeholder="What would you like to ask the speaker?"
+                              class="input-focus w-full rounded-xl
+                                     border border-gray-200
+                                     px-4 py-3.5
+                                     outline-none transition"></textarea>
+
+                </div>
+
+
+
+                <!-- CONSENT -->
+
+                <div class="mb-7">
+
+                    <label class="flex items-start gap-3
+                                  rounded-2xl
+                                  border border-gray-200
+                                  bg-gray-50
+                                  p-5
+                                  cursor-pointer
+                                  hover:bg-gray-100
+                                  transition">
+
+                        <input type="checkbox"
+                               name="consent"
+                               id="consent"
+                               required
+                               class="mt-1 h-5 w-5 rounded
+                                      border-gray-300
+                                      text-[#6D1A36]
+                                      focus:ring-[#6D1A36]">
+
+                        <span class="text-sm text-gray-600 leading-relaxed">
+
+                            I agree to receive webinar updates,
+                            reminders and important announcements
+                            via Email and WhatsApp.
+
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- PAYMENT SUMMARY -->
+
+                <div class="rounded-2xl
+                            border border-[#ead4da]
+                            bg-[#fff8fa]
+                            p-5
+                            mb-6">
+
+                    <div class="flex items-center justify-between">
+
+                        <div>
+
+                            <p class="text-sm text-gray-500">
+                                Total amount
+                            </p>
+
+                            <p class="text-2xl font-extrabold text-[#6D1A36] mt-1">
+                                ₹39
+                            </p>
+
+                        </div>
+
+
+                        <div class="text-right">
+
+                            <p class="text-xs text-gray-500">
+                                Payment method
+                            </p>
+
+                            <p class="font-semibold text-gray-800 mt-1">
+                                Razorpay
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PAY BUTTON -->
+
+                <button type="submit"
+                        id="payButton"
+                        class="w-full rounded-2xl
+                               bg-gradient-to-r
+                               from-[#5B1024]
+                               via-[#6D1A36]
+                               to-[#8B1E3F]
+                               px-6 py-4
+                               text-lg font-bold text-white
+                               shadow-lg
+                               hover:shadow-2xl
+                               hover:-translate-y-0.5
+                               transition-all duration-300
+                               focus:outline-none
+                               focus:ring-4
+                               focus:ring-[#8B1E3F]/20">
+
+                    <span id="payButtonContent"
+                          class="flex items-center justify-center gap-3">
+
+                        <span>🔒</span>
+
+                        <span>Register & Pay ₹39</span>
+
+                        <span>→</span>
+
+                    </span>
+
+                </button>
+
+
+                <p class="text-center text-xs text-gray-400 mt-4">
+
+                    Your payment is securely processed by Razorpay.
+                    We never store your card or UPI credentials.
+
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- ========================================================= -->
+
+<!-- FOOTER -->
+
+<!-- ========================================================= -->
+
+<footer class="border-t border-gray-200 bg-white">
+
+```
+<div class="max-w-6xl mx-auto px-6 py-8">
+
+    <div class="text-center">
+
+        <p class="font-semibold text-gray-700">
+            Secrets In The Stains
+        </p>
+
+        <p class="text-sm text-gray-400 mt-2">
+            Learn • Grow • Transform
+        </p>
+
+        <p class="text-xs text-gray-400 mt-4">
+            © 2026 Secrets In The Stains. All Rights Reserved.
+        </p>
+
+    </div>
+
+</div>
+```
+
+</footer>
+
+<!-- ========================================================= -->
+
 <!-- RAZORPAY JAVASCRIPT -->
+
 <!-- ========================================================= -->
 
 <script>
 
 const registrationForm =
-    document.getElementById(
-        "webinarRegistrationForm"
-    );
+    document.getElementById("webinarRegistrationForm");
 
 const payButton =
-    document.getElementById(
-        "payButton"
-    );
+    document.getElementById("payButton");
 
 const payButtonContent =
-    document.getElementById(
-        "payButtonContent"
-    );
+    document.getElementById("payButtonContent");
+
+
+/*
+|--------------------------------------------------------------------------
+| Check Razorpay
+|--------------------------------------------------------------------------
+*/
+
+if (typeof Razorpay === "undefined") {
+
+    console.error("Razorpay Checkout failed to load.");
+
+}
 
 
 /*
@@ -1476,7 +1285,7 @@ function setPaymentLoading(message) {
 
 /*
 |--------------------------------------------------------------------------
-| Form submission
+| Form submit
 |--------------------------------------------------------------------------
 */
 
@@ -1489,7 +1298,7 @@ registrationForm.addEventListener(
 
         /*
         |--------------------------------------------------------------------------
-        | Validate form
+        | Validate
         |--------------------------------------------------------------------------
         */
 
@@ -1498,17 +1307,26 @@ registrationForm.addEventListener(
             registrationForm.reportValidity();
 
             return;
+
         }
 
 
         /*
         |--------------------------------------------------------------------------
-        | STEP 1
-        |
-        | Create webinar registration.
-        |
+        | Razorpay loaded?
         |--------------------------------------------------------------------------
         */
+
+        if (typeof Razorpay === "undefined") {
+
+            alert(
+                "Payment service could not be loaded. Please refresh the page and try again."
+            );
+
+            return;
+
+        }
+
 
         setPaymentLoading(
             "Creating registration..."
@@ -1523,6 +1341,13 @@ registrationForm.addEventListener(
                 );
 
 
+            /*
+            |--------------------------------------------------------------------------
+            | STEP 1
+            | Create registration
+            |--------------------------------------------------------------------------
+            */
+
             const registrationResponse =
                 await fetch(
                     "/webinar-registration",
@@ -1531,9 +1356,7 @@ registrationForm.addEventListener(
 
                         headers: {
                             "X-CSRFToken":
-                                formData.get(
-                                    "csrf_token"
-                                )
+                                formData.get("csrf_token")
                         },
 
                         body:
@@ -1544,6 +1367,12 @@ registrationForm.addEventListener(
 
             const registration =
                 await registrationResponse.json();
+
+
+            console.log(
+                "Registration response:",
+                registration
+            );
 
 
             if (
@@ -1572,12 +1401,16 @@ registrationForm.addEventListener(
             }
 
 
+            console.log(
+                "Registration ID:",
+                registrationId
+            );
+
+
             /*
             |--------------------------------------------------------------------------
             | STEP 2
-            |
-            | Create Razorpay order.
-            |
+            | Create Razorpay order
             |--------------------------------------------------------------------------
             */
 
@@ -1597,15 +1430,15 @@ registrationForm.addEventListener(
                                 "application/json",
 
                             "X-CSRFToken":
-                                formData.get(
-                                    "csrf_token"
-                                )
+                                formData.get("csrf_token")
                         },
 
                         body:
                             JSON.stringify({
+
                                 registration_id:
                                     registrationId
+
                             })
                     }
                 );
@@ -1613,6 +1446,12 @@ registrationForm.addEventListener(
 
             const order =
                 await orderResponse.json();
+
+
+            console.log(
+                "Razorpay order response:",
+                order
+            );
 
 
             if (
@@ -1631,9 +1470,7 @@ registrationForm.addEventListener(
             /*
             |--------------------------------------------------------------------------
             | STEP 3
-            |
-            | Open Razorpay Checkout.
-            |
+            | Razorpay Checkout
             |--------------------------------------------------------------------------
             */
 
@@ -1651,8 +1488,7 @@ registrationForm.addEventListener(
                     order.amount,
 
                 currency:
-                    order.currency ||
-                    "INR",
+                    order.currency || "INR",
 
                 name:
                     "Secrets In The Stains",
@@ -1666,44 +1502,38 @@ registrationForm.addEventListener(
 
                 /*
                 |--------------------------------------------------------------------------
-                | Customer details
+                | Customer
                 |--------------------------------------------------------------------------
                 */
 
                 prefill: {
 
                     name:
-                        formData.get(
-                            "full_name"
-                        ),
+                        formData.get("full_name"),
 
                     email:
-                        formData.get(
-                            "email"
-                        ),
+                        formData.get("email"),
 
                     contact:
-                        formData.get(
-                            "phone"
-                        )
+                        formData.get("phone")
 
                 },
 
 
                 /*
                 |--------------------------------------------------------------------------
-                | Razorpay notes
+                | Notes
                 |--------------------------------------------------------------------------
                 */
 
                 notes: {
 
                     registration_id:
-                        registrationId,
+                        String(registrationId),
 
                     webinar_id:
-                        formData.get(
-                            "webinar_id"
+                        String(
+                            formData.get("webinar_id")
                         )
 
                 },
@@ -1711,92 +1541,128 @@ registrationForm.addEventListener(
 
                 /*
                 |--------------------------------------------------------------------------
-                | Payment success
+                | PAYMENT SUCCESS
                 |--------------------------------------------------------------------------
                 */
 
-                handler: async function(response) {
+                handler:
+                    async function(response) {
 
-    setPaymentLoading("Verifying payment...");
+                        console.log(
+                            "Razorpay payment successful:",
+                            response
+                        );
 
-    try {
 
-        const verifyResponse = await fetch(
-            "/api/payment/verify",
-            {
-                method: "POST",
+                        setPaymentLoading(
+                            "Verifying payment..."
+                        );
 
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRFToken": formData.get("csrf_token")
-                },
 
-                body: JSON.stringify({
+                        try {
 
-                    registration_id: registrationId,
+                            /*
+                            |--------------------------------------------------------------------------
+                            | STEP 4
+                            | Verify payment with backend
+                            |--------------------------------------------------------------------------
+                            */
 
-                    razorpay_order_id:
-                        response.razorpay_order_id,
+                            const verifyResponse =
+                                await fetch(
+                                    "/api/payment/verify",
+                                    {
+                                        method: "POST",
 
-                    razorpay_payment_id:
-                        response.razorpay_payment_id,
+                                        headers: {
+                                            "Content-Type":
+                                                "application/json",
 
-                    razorpay_signature:
-                        response.razorpay_signature
+                                            "X-CSRFToken":
+                                                formData.get(
+                                                    "csrf_token"
+                                                )
+                                        },
 
-                })
-            }
-        );
+                                        body:
+                                            JSON.stringify({
 
-        const result = await verifyResponse.json();
+                                                registration_id:
+                                                    registrationId,
 
-        console.log("Payment verification result:", result);
+                                                razorpay_order_id:
+                                                    response.razorpay_order_id,
 
-        if (!verifyResponse.ok || !result.success) {
-            throw new Error(
-                result.message ||
-                "Payment verification failed."
-            );
-        }
+                                                razorpay_payment_id:
+                                                    response.razorpay_payment_id,
 
-        // IMPORTANT
-        window.location.href =
-            "/webinar-registration/success?registration_id="
-            + encodeURIComponent(
-                result.registration_id
-            );
+                                                razorpay_signature:
+                                                    response.razorpay_signature
 
-    } catch (error) {
+                                            })
+                                    }
+                                );
 
-        console.error(
-            "Payment verification error:",
-            error
-        );
 
-        alert(
-            error.message ||
-            "Payment verification failed."
-        );
+                            const result =
+                                await verifyResponse.json();
 
-        resetPaymentButton();
-    }
-}
+
+                            console.log(
+                                "Payment verification response:",
+                                result
+                            );
+
+
+                            /*
+                            |--------------------------------------------------------------------------
+                            | Verification failed
+                            |--------------------------------------------------------------------------
+                            */
+
+                            if (
+                                !verifyResponse.ok ||
+                                !result.success
+                            ) {
+
+                                throw new Error(
+                                    result.message ||
+                                    "Payment verification failed."
+                                );
+
+                            }
+
 
                             /*
                             |--------------------------------------------------------------------------
                             | STEP 5
-                            |
-                            | Redirect after successful payment.
-                            |
+                            | SUCCESS REDIRECT
                             |--------------------------------------------------------------------------
                             */
 
-                            window.location.href =
+                            console.log(
+                                "Payment verified successfully."
+                            );
+
+
+                            const successUrl =
                                 "/webinar-registration/success?registration_id="
                                 +
                                 encodeURIComponent(
-                                    result.registration_id
+                                    result.registration_id ||
+                                    registrationId
                                 );
+
+
+                            console.log(
+                                "Redirecting to:",
+                                successUrl
+                            );
+
+
+                            window.location.assign(
+                                successUrl
+                            );
 
                         }
 
@@ -1810,7 +1676,8 @@ registrationForm.addEventListener(
 
 
                             alert(
-                                "Your payment was received, but verification could not be completed immediately. Please contact support."
+                                error.message ||
+                                "Payment verification failed."
                             );
 
 
@@ -1823,7 +1690,7 @@ registrationForm.addEventListener(
 
                 /*
                 |--------------------------------------------------------------------------
-                | Razorpay modal closed
+                | Razorpay closed
                 |--------------------------------------------------------------------------
                 */
 
@@ -1831,6 +1698,10 @@ registrationForm.addEventListener(
 
                     ondismiss:
                         function() {
+
+                            console.log(
+                                "Razorpay checkout closed."
+                            );
 
                             resetPaymentButton();
 
@@ -1841,7 +1712,7 @@ registrationForm.addEventListener(
 
                 /*
                 |--------------------------------------------------------------------------
-                | Razorpay theme
+                | Theme
                 |--------------------------------------------------------------------------
                 */
 
@@ -1857,7 +1728,7 @@ registrationForm.addEventListener(
 
             /*
             |--------------------------------------------------------------------------
-            | Create Razorpay instance
+            | Create Razorpay
             |--------------------------------------------------------------------------
             */
 
@@ -1884,7 +1755,7 @@ registrationForm.addEventListener(
 
 
                     alert(
-                        response.error.description ||
+                        response.error?.description ||
                         "Payment failed. Please try again."
                     );
 
@@ -1897,7 +1768,7 @@ registrationForm.addEventListener(
 
             /*
             |--------------------------------------------------------------------------
-            | Open Razorpay
+            | Open checkout
             |--------------------------------------------------------------------------
             */
 
@@ -1927,8 +1798,5 @@ registrationForm.addEventListener(
     });
 
 </script>
-
-
 </body>
-
 </html>
