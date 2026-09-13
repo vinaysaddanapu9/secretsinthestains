@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="min-h-[80vh] flex items-center justify-center
+            bg-gradient-to-br from-[#fff7f9] via-white to-[#f8eef2]
+            px-6 py-16">
+
+    <div class="max-w-xl w-full bg-white rounded-3xl
+                shadow-2xl border border-gray-100
+                p-10 text-center">
+
+        <!-- Success Icon -->
+        <div class="mx-auto mb-6 w-20 h-20 rounded-full
+                    bg-green-100 flex items-center justify-center">
+
+            <svg class="w-10 h-10 text-green-600"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2.5"
+                 viewBox="0 0 24 24">
+
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M5 13l4 4L19 7" />
+
+            </svg>
+
+        </div>
+
+        <p class="text-sm font-semibold uppercase
+                  tracking-widest text-[#6D1A36] mb-3">
+            Registration Successful
+        </p>
+
+        <h1 class="text-3xl md:text-4xl font-extrabold
+                   text-gray-900 mb-4">
+
+            You're Registered! 🎉
+
+        </h1>
+
+        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+
+            Your webinar registration and payment have been
+            successfully completed.
+
+        </p>
+
+        {% if registration_id %}
+
+        <div class="bg-gray-50 rounded-2xl p-5 mb-8">
+
+            <p class="text-sm text-gray-500 mb-1">
+                Registration ID
+            </p>
+
+            <p class="text-xl font-bold text-[#6D1A36]">
+                {{ registration_id }}
+            </p>
+
+        </div>
+
+        {% endif %}
+
+        <p class="text-sm text-gray-500 mb-8">
+
+            Please check your email for further webinar details.
+
+        </p>
+
+        <a href="/"
+           class="inline-flex items-center justify-center
+                  px-7 py-3 rounded-xl
+                  bg-[#6D1A36] text-white font-semibold
+                  hover:bg-[#551329]
+                  transition">
+
+            Back to Home
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, jsonify
 from routes.auth_utils import admin_required
 from datetime import date
 from database.db import get_connection
@@ -24,22 +24,46 @@ def webinar_registration():
 
     consent = "consent" in request.form
 
-    webinar_id = request.form["webinar_id"]
-    save_webinar_registration(
+    webinar_id = request.form.get("webinar_id")
+
+    if not webinar_id:
+        return jsonify({
+            "success": False,
+            "message": "Please select a webinar."
+        }), 400
+
+    try:
+        webinar_id = int(webinar_id)
+    except (TypeError, ValueError):
+        return jsonify({
+            "success": False,
+            "message": "Invalid webinar."
+        }), 400
+
+    registration_id = save_webinar_registration(
         webinar_id,
-        request.form["full_name"],
-        request.form["email"],
-        request.form["phone"],
-        request.form["gender"],
-        request.form["qualification"],
-        request.form["organization"],
-        request.form["department"],
-        request.form["city_state"],
-        request.form.get("question", ""),
+        request.form.get("full_name", "").strip(),
+        request.form.get("email", "").strip(),
+        request.form.get("phone", "").strip(),
+        request.form.get("gender", "").strip(),
+        request.form.get("qualification", "").strip(),
+        request.form.get("organization", "").strip(),
+        request.form.get("department", "").strip(),
+        request.form.get("city_state", "").strip(),
+        request.form.get("question", "").strip(),
         consent
     )
 
-    return redirect(url_for("webinar.webinar", success=1))
+    if not registration_id:
+        return jsonify({
+            "success": False,
+            "message": "Unable to create registration."
+        }), 500
+
+    return jsonify({
+        "success": True,
+        "registration_id": registration_id
+    })
 
 @webinar_bp.route("/admin/create-webinar", methods=["POST"])
 @admin_required
@@ -101,6 +125,7 @@ def save_webinar_registration(
     # -----------------------------
     with get_connection() as conn:
         with conn.cursor() as cur:
+
             cur.execute("""
                 INSERT INTO webinar_registrations
                 (
@@ -116,7 +141,10 @@ def save_webinar_registration(
                     question,
                     consent
                 )
-                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                VALUES (
+                    %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s
+                )
+                RETURNING id
             """, (
                 webinar_id,
                 full_name,
@@ -131,7 +159,11 @@ def save_webinar_registration(
                 consent
             ))
 
+            registration_id = cur.fetchone()[0]
+
         conn.commit()
+
+    return registration_id
 
 
 def get_active_webinars():
@@ -233,3 +265,15 @@ def get_webinar_registrations():
                 ORDER BY wr.created_at DESC
             """)
             return cur.fetchall()
+
+@webinar_bp.route("/webinar-registration/success")
+def webinar_registration_success():
+    registration_id = request.args.get("registration_id")
+
+    if not registration_id:
+        return redirect(url_for("webinar.webinar_registration_page"))
+
+    return render_template(
+        "webinar-registration-success.html",
+        registration_id=registration_id
+    )
