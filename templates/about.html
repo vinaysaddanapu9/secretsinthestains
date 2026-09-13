@@ -2,70 +2,457 @@
 
 {% block content %}
 
-<div class="overflow-x-hidden">
-<!-- HERO SECTION -->
-<section class="relative overflow-hidden bg-gradient-to-br from-[#2b0a12] via-[#5b1024] to-black text-white">
+<div class="overflow-x-hidden bg-white">
 
-    <!-- Background Glow -->
-    <div class="absolute inset-0 opacity-20">
-        <div class="absolute -top-24 -left-24 w-80 h-80 bg-pink-400 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-purple-500 rounded-full blur-3xl"></div>
+<!-- ========================================================= -->
+<!-- HERO SECTION -->
+<!-- ========================================================= -->
+
+<section class="relative min-h-[680px] flex items-center overflow-hidden
+                bg-gradient-to-br from-[#16050a] via-[#4b0d1d] to-black text-white">
+
+    <!-- Ambient Background -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+
+        <div class="absolute -top-32 -left-32
+                    w-[28rem] h-[28rem]
+                    bg-[#b33654]/30 rounded-full blur-[120px]">
+        </div>
+
+        <div class="absolute top-1/3 right-[-10rem]
+                    w-[30rem] h-[30rem]
+                    bg-purple-700/20 rounded-full blur-[130px]">
+        </div>
+
+        <div class="absolute bottom-[-12rem] left-1/3
+                    w-[30rem] h-[30rem]
+                    bg-[#8b1e3f]/20 rounded-full blur-[120px]">
+        </div>
+
+        <!-- Grid -->
+        <div class="absolute inset-0 opacity-[0.05]"
+             style="background-image: linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px); background-size: 60px 60px;">
+        </div>
+
     </div>
 
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24">
 
-        <!-- Back Button Inside Page -->
-        <div class="mb-8">
+    <div class="relative max-w-7xl mx-auto w-full px-5 sm:px-8 py-20 md:py-28">
+
+        <!-- Back Button -->
+        <div class="mb-12">
+
             <a href="/"
-               class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-5 py-3 rounded-full shadow-lg hover:bg-white hover:text-[#5b1024] transition-all duration-300 hover:scale-105">
+               class="group inline-flex items-center gap-2
+                      px-5 py-3 rounded-full
+                      bg-white/10 backdrop-blur-xl
+                      border border-white/15
+                      text-white
+                      shadow-xl
+                      hover:bg-white hover:text-[#5b1024]
+                      hover:-translate-x-1
+                      transition-all duration-300">
 
                 <svg xmlns="http://www.w3.org/2000/svg"
-                     class="w-5 h-5"
+                     class="w-5 h-5 group-hover:-translate-x-1 transition"
                      fill="none"
                      viewBox="0 0 24 24"
                      stroke="currentColor">
+
                     <path stroke-linecap="round"
                           stroke-linejoin="round"
                           stroke-width="2"
                           d="M15 19l-7-7 7-7" />
+
                 </svg>
 
-                <span class="font-medium">Back to Home</span>
+                <span class="font-medium">
+                    Back to Home
+                </span>
+
             </a>
+
         </div>
 
-        <div class="text-center">
 
-            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 text-sm mb-6">
-                🔬 Secrets in the Stains
+        <!-- Hero Content -->
+        <div class="max-w-4xl mx-auto text-center">
+
+            <div class="inline-flex items-center gap-2
+                        px-5 py-2.5 rounded-full
+                        bg-white/10 backdrop-blur-xl
+                        border border-white/15
+                        text-sm font-medium
+                        mb-7
+                        shadow-lg">
+
+                <span class="w-2 h-2 rounded-full bg-pink-400 animate-pulse"></span>
+
+                Secrets in the Stains
+
             </div>
 
-            <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight tracking-tight">
-                About Secrets in the Stains
+
+            <h1 class="text-4xl sm:text-5xl md:text-7xl
+                       font-black tracking-tight leading-[1.05]">
+
+                Where Science
+                <span class="block text-transparent bg-clip-text
+                             bg-gradient-to-r from-pink-300 via-[#d85b7b] to-purple-300">
+                    Meets Investigation
+                </span>
+
             </h1>
 
-            <p class="mt-6 max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-white/85 leading-relaxed">
-                A modern forensic science learning platform dedicated to internships,
-                practical training, case-based education, and professional skill development
-                for aspiring forensic experts.
+
+            <p class="mt-7 max-w-3xl mx-auto
+                      text-base sm:text-lg md:text-xl
+                      text-white/75
+                      leading-relaxed">
+
+                A modern forensic science learning platform helping students
+                transform academic knowledge into practical investigative skills,
+                professional confidence, and real-world understanding.
+
             </p>
 
-            <!-- Stats -->
-            <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
 
-                <div class="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl px-6 py-5">
-                    <div class="text-3xl font-bold">100%</div>
-                    <div class="text-sm text-white/70 mt-1">Practical Focus</div>
+            <!-- Hero Buttons -->
+            <div class="mt-10 flex flex-col sm:flex-row
+                        justify-center gap-4">
+
+                <a href="/"
+                   class="px-7 py-3.5 rounded-2xl
+                          bg-white text-[#5b1024]
+                          font-bold shadow-xl
+                          hover:scale-105
+                          transition duration-300">
+
+                    Explore Our Platform
+
+                </a>
+
+
+                <a href="https://chat.whatsapp.com/IqDgLMljCq8FKX7BCDfcde"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="px-7 py-3.5 rounded-2xl
+                          bg-green-500/90 hover:bg-green-500
+                          text-white font-bold
+                          shadow-xl shadow-green-900/20
+                          hover:scale-105
+                          transition duration-300">
+
+                    💬 Join WhatsApp Community
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Stats -->
+        <div class="mt-16 grid grid-cols-1 sm:grid-cols-3
+                    max-w-4xl mx-auto gap-4">
+
+            <div class="group rounded-3xl
+                        bg-white/[0.07]
+                        backdrop-blur-xl
+                        border border-white/10
+                        p-6 text-center
+                        hover:bg-white/[0.12]
+                        hover:-translate-y-1
+                        transition duration-300">
+
+                <div class="text-4xl font-black">
+                    100%
                 </div>
 
-                <div class="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl px-6 py-5">
-                    <div class="text-3xl font-bold">CSI</div>
-                    <div class="text-sm text-white/70 mt-1">Case Based Learning</div>
+                <p class="mt-2 text-white/60 text-sm">
+                    Practical Focus
+                </p>
+
+            </div>
+
+
+            <div class="group rounded-3xl
+                        bg-white/[0.07]
+                        backdrop-blur-xl
+                        border border-white/10
+                        p-6 text-center
+                        hover:bg-white/[0.12]
+                        hover:-translate-y-1
+                        transition duration-300">
+
+                <div class="text-4xl font-black">
+                    CSI
                 </div>
 
-                <div class="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl px-6 py-5">
-                    <div class="text-3xl font-bold">24×7</div>
-                    <div class="text-sm text-white/70 mt-1">Learning Support</div>
+                <p class="mt-2 text-white/60 text-sm">
+                    Case-Based Learning
+                </p>
+
+            </div>
+
+
+            <div class="group rounded-3xl
+                        bg-white/[0.07]
+                        backdrop-blur-xl
+                        border border-white/10
+                        p-6 text-center
+                        hover:bg-white/[0.12]
+                        hover:-translate-y-1
+                        transition duration-300">
+
+                <div class="text-4xl font-black">
+                    24×7
+                </div>
+
+                <p class="mt-2 text-white/60 text-sm">
+                    Learning Support
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- WHO WE ARE -->
+<!-- ========================================================= -->
+
+<section class="relative py-20 md:py-28 px-5 sm:px-8 bg-white">
+
+    <div class="max-w-7xl mx-auto">
+
+        <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+            <!-- Image -->
+            <div class="relative group">
+
+                <div class="absolute -inset-5
+                            bg-gradient-to-r
+                            from-[#5b1024]
+                            to-[#b33654]
+                            rounded-[3rem]
+                            blur-2xl
+                            opacity-15
+                            group-hover:opacity-30
+                            transition duration-700">
+                </div>
+
+
+                <div class="relative overflow-hidden
+                            rounded-[2.5rem]
+                            shadow-2xl">
+
+                    <img src="{{ url_for('static', filename='images/about.jpg') }}"
+                         alt="Forensic Science"
+                         class="w-full aspect-[4/3]
+                                object-cover
+                                group-hover:scale-105
+                                transition duration-700">
+
+                    <div class="absolute inset-0
+                                bg-gradient-to-t
+                                from-black/40
+                                via-transparent
+                                to-transparent">
+                    </div>
+
+                </div>
+
+
+                <!-- Floating Badge -->
+                <div class="absolute -bottom-6 -right-4 sm:right-8
+                            bg-white
+                            rounded-2xl
+                            shadow-2xl
+                            px-5 py-4
+                            border border-gray-100">
+
+                    <div class="flex items-center gap-3">
+
+                        <div class="w-11 h-11
+                                    rounded-xl
+                                    bg-[#5b1024]/10
+                                    flex items-center justify-center
+                                    text-xl">
+                            🔬
+                        </div>
+
+                        <div>
+                            <p class="font-bold text-gray-900">
+                                Forensic Science
+                            </p>
+
+                            <p class="text-xs text-gray-500">
+                                Learn • Investigate • Discover
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Content -->
+            <div>
+
+                <span class="inline-flex items-center gap-2
+                             px-4 py-2
+                             rounded-full
+                             bg-[#5b1024]/10
+                             text-[#5b1024]
+                             text-sm font-bold">
+
+                    📘 Who We Are
+
+                </span>
+
+
+                <h2 class="mt-6
+                           text-3xl sm:text-4xl md:text-5xl
+                           font-black
+                           text-[#5b1024]
+                           leading-tight">
+
+                    Bridging Academic Knowledge
+                    <span class="text-gray-900">
+                        with Real-World Forensics
+                    </span>
+
+                </h2>
+
+
+                <p class="mt-6 text-gray-600
+                          text-base md:text-lg
+                          leading-relaxed">
+
+                    Secrets in the Stains is a forensic science education
+                    and training platform designed to help students move
+                    beyond theoretical learning and develop practical,
+                    career-oriented exposure to forensic investigation.
+
+                </p>
+
+
+                <p class="mt-5 text-gray-500 leading-relaxed">
+
+                    Our goal is to create accessible, structured and
+                    professionally designed learning experiences that
+                    encourage analytical thinking, investigative reasoning
+                    and confidence in forensic science applications.
+
+                </p>
+
+
+                <!-- Feature Grid -->
+                <div class="mt-9 grid grid-cols-2 gap-4">
+
+                    <div class="group p-5 rounded-2xl
+                                bg-gray-50
+                                border border-gray-100
+                                hover:bg-[#5b1024]
+                                hover:text-white
+                                hover:-translate-y-1
+                                transition duration-300">
+
+                        <div class="text-3xl mb-3">
+                            🎓
+                        </div>
+
+                        <h3 class="font-bold">
+                            Internships
+                        </h3>
+
+                        <p class="text-xs text-gray-500
+                                  group-hover:text-white/70 mt-1">
+                            Career exposure
+                        </p>
+
+                    </div>
+
+
+                    <div class="group p-5 rounded-2xl
+                                bg-gray-50
+                                border border-gray-100
+                                hover:bg-[#5b1024]
+                                hover:text-white
+                                hover:-translate-y-1
+                                transition duration-300">
+
+                        <div class="text-3xl mb-3">
+                            🧪
+                        </div>
+
+                        <h3 class="font-bold">
+                            Practical Training
+                        </h3>
+
+                        <p class="text-xs text-gray-500
+                                  group-hover:text-white/70 mt-1">
+                            Learn by doing
+                        </p>
+
+                    </div>
+
+
+                    <div class="group p-5 rounded-2xl
+                                bg-gray-50
+                                border border-gray-100
+                                hover:bg-[#5b1024]
+                                hover:text-white
+                                hover:-translate-y-1
+                                transition duration-300">
+
+                        <div class="text-3xl mb-3">
+                            📂
+                        </div>
+
+                        <h3 class="font-bold">
+                            Case Studies
+                        </h3>
+
+                        <p class="text-xs text-gray-500
+                                  group-hover:text-white/70 mt-1">
+                            Investigative thinking
+                        </p>
+
+                    </div>
+
+
+                    <div class="group p-5 rounded-2xl
+                                bg-gray-50
+                                border border-gray-100
+                                hover:bg-[#5b1024]
+                                hover:text-white
+                                hover:-translate-y-1
+                                transition duration-300">
+
+                        <div class="text-3xl mb-3">
+                            🏅
+                        </div>
+
+                        <h3 class="font-bold">
+                            Certification
+                        </h3>
+
+                        <p class="text-xs text-gray-500
+                                  group-hover:text-white/70 mt-1">
+                            Recognize your skills
+                        </p>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -76,63 +463,129 @@
 
 </section>
 
-<!-- WHO WE ARE -->
-<section class="py-16 md:py-24 px-4 sm:px-6 bg-white">
 
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-        <div class="relative group">
+<!-- ========================================================= -->
+<!-- MISSION / VISION -->
+<!-- ========================================================= -->
 
-            <div class="absolute -inset-4 bg-gradient-to-r from-[#5b1024] to-[#b33654] rounded-[2rem] blur-xl opacity-20 group-hover:opacity-30 transition duration-500"></div>
+<section class="relative py-20 md:py-28
+                bg-gradient-to-b from-gray-50 to-white">
 
-            <img src="{{ url_for('static', filename='images/about.jpg') }}"
-                 alt="Forensic Science"
-                 class="relative rounded-[2rem] shadow-2xl w-full object-cover group-hover:scale-[1.02] transition duration-500">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
 
-        </div>
+        <div class="text-center mb-14">
 
-        <div>
+            <span class="inline-flex px-4 py-2 rounded-full
+                         bg-[#5b1024]/10
+                         text-[#5b1024]
+                         text-sm font-bold">
 
-            <div class="inline-flex items-center gap-2 bg-[#5b1024]/10 text-[#5b1024] px-4 py-2 rounded-full text-sm font-semibold mb-5">
-                📘 Who We Are
-            </div>
+                🎯 Our Purpose
 
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[#5b1024] mb-6 leading-tight">
-                Bridging Academic Knowledge with Real-World Forensics
+            </span>
+
+            <h2 class="mt-5 text-3xl md:text-5xl
+                       font-black text-[#5b1024]">
+
+                Learning With a Purpose
+
             </h2>
 
-            <p class="text-gray-600 leading-relaxed mb-5 text-base md:text-lg">
-                Secrets in the Stains is a forensic science education and training platform
-                designed to help students move beyond theoretical learning and gain practical,
-                career-oriented exposure to forensic investigation concepts.
+            <p class="mt-4 max-w-2xl mx-auto
+                      text-gray-500">
+
+                We believe forensic science education should go beyond
+                textbooks and classrooms.
+
             </p>
 
-            <p class="text-gray-600 leading-relaxed mb-8">
-                Our mission is to create accessible, structured, and professionally designed
-                learning experiences that develop analytical thinking, investigative reasoning,
-                and confidence in forensic science applications.
-            </p>
+        </div>
 
-            <div class="grid grid-cols-2 gap-4">
 
-                <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition duration-300">
-                    <div class="text-3xl mb-3">🎓</div>
-                    <div class="font-semibold text-gray-900">Internships</div>
+        <div class="grid md:grid-cols-2 gap-7">
+
+            <!-- Mission -->
+            <div class="relative overflow-hidden
+                        rounded-[2rem]
+                        bg-[#5b1024]
+                        text-white p-8 md:p-10
+                        shadow-xl">
+
+                <div class="absolute -right-16 -top-16
+                            w-48 h-48
+                            bg-white/10 rounded-full">
                 </div>
 
-                <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition duration-300">
-                    <div class="text-3xl mb-3">🧪</div>
-                    <div class="font-semibold text-gray-900">Practical Training</div>
+                <div class="relative">
+
+                    <div class="w-14 h-14
+                                rounded-2xl
+                                bg-white/10
+                                flex items-center justify-center
+                                text-2xl mb-6">
+
+                        🎯
+
+                    </div>
+
+                    <h3 class="text-2xl font-bold mb-4">
+                        Our Mission
+                    </h3>
+
+                    <p class="text-white/75 leading-relaxed">
+
+                        To make forensic science learning practical,
+                        accessible and career-oriented by connecting
+                        academic concepts with investigative applications.
+
+                    </p>
+
                 </div>
 
-                <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition duration-300">
-                    <div class="text-3xl mb-3">📂</div>
-                    <div class="font-semibold text-gray-900">Case Studies</div>
+            </div>
+
+
+            <!-- Vision -->
+            <div class="relative overflow-hidden
+                        rounded-[2rem]
+                        bg-white
+                        border border-gray-100
+                        p-8 md:p-10
+                        shadow-xl">
+
+                <div class="absolute -right-16 -top-16
+                            w-48 h-48
+                            bg-[#5b1024]/5 rounded-full">
                 </div>
 
-                <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition duration-300">
-                    <div class="text-3xl mb-3">🏅</div>
-                    <div class="font-semibold text-gray-900">Certification</div>
+                <div class="relative">
+
+                    <div class="w-14 h-14
+                                rounded-2xl
+                                bg-[#5b1024]/10
+                                flex items-center justify-center
+                                text-2xl mb-6">
+
+                        🔭
+
+                    </div>
+
+                    <h3 class="text-2xl font-bold
+                               text-[#5b1024] mb-4">
+
+                        Our Vision
+
+                    </h3>
+
+                    <p class="text-gray-600 leading-relaxed">
+
+                        To build a community of curious, analytical and
+                        professionally prepared forensic science learners
+                        who are ready to explore the field with confidence.
+
+                    </p>
+
                 </div>
 
             </div>
@@ -143,81 +596,207 @@
 
 </section>
 
+
+
+<!-- ========================================================= -->
 <!-- LEADERSHIP -->
-<section class="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-gray-50 to-white">
+<!-- ========================================================= -->
 
-    <div class="max-w-6xl mx-auto text-center mb-14">
+<section class="py-20 md:py-28 px-5 sm:px-8 bg-white">
 
-        <div class="inline-flex items-center gap-2 bg-[#5b1024]/10 text-[#5b1024] px-4 py-2 rounded-full text-sm font-semibold mb-4">
-            👥 Our Leadership
+    <div class="max-w-7xl mx-auto">
+
+        <div class="text-center max-w-3xl mx-auto mb-14">
+
+            <span class="inline-flex items-center gap-2
+                         px-4 py-2 rounded-full
+                         bg-[#5b1024]/10
+                         text-[#5b1024]
+                         text-sm font-bold">
+
+                👥 Our Leadership
+
+            </span>
+
+            <h2 class="mt-5
+                       text-3xl sm:text-4xl md:text-5xl
+                       font-black
+                       text-[#5b1024]">
+
+                Meet the Minds Behind the Platform
+
+            </h2>
+
+            <p class="mt-5 text-gray-500
+                      text-base md:text-lg">
+
+                Experienced educators and forensic professionals
+                committed to advancing forensic science learning
+                and practical skill development.
+
+            </p>
+
         </div>
 
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[#5b1024]">
-            Meet the Minds Behind the Platform
-        </h2>
 
-        <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-base md:text-lg">
-            Experienced educators and forensic professionals committed to advancing
-            forensic science learning and practical skill development.
-        </p>
+        <div class="grid md:grid-cols-2
+                    gap-8 max-w-5xl mx-auto">
 
-    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto">
+            <!-- Founder -->
+            <div class="group relative overflow-hidden
+                        bg-white
+                        rounded-[2rem]
+                        border border-gray-100
+                        shadow-xl
+                        hover:shadow-2xl
+                        hover:-translate-y-2
+                        transition-all duration-500">
 
-        <!-- Founder -->
-        <div class="group bg-white rounded-[2rem] p-6 md:p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-500 border border-gray-100 relative overflow-hidden">
-
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#5b1024] to-[#b33654]"></div>
-
-            <img src="{{ url_for('static', filename='images/founder.jpg') }}"
-                 alt="Founder"
-                 class="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 mx-auto rounded-full object-cover mb-6 shadow-xl ring-4 ring-[#5b1024]/10 group-hover:ring-[#5b1024]/20 transition duration-300">
-
-            <div class="text-center">
-
-                <h3 class="text-xl md:text-2xl font-bold text-gray-900">
-                    Sai Sudha Kandukuri
-                </h3>
-
-                <div class="inline-block mt-3 bg-[#5b1024]/10 text-[#5b1024] px-4 py-1 rounded-full text-sm font-semibold">
-                    Founder
+                <div class="h-2
+                            bg-gradient-to-r
+                            from-[#5b1024]
+                            to-[#b33654]">
                 </div>
 
-                <p class="mt-5 text-gray-600 text-sm leading-relaxed">
-                    Assistant Professor in Forensic Science, UGC NET (2023) and
-                    FACT Chemical Sciences (2024) qualified. Her expertise includes
-                    Forensic Toxicology, Analytical Instrumentation, and Forensic Science Education.
-                </p>
+
+                <div class="p-7 md:p-9 text-center">
+
+                    <div class="relative inline-block">
+
+                        <div class="absolute inset-0
+                                    rounded-full
+                                    bg-[#5b1024]/10
+                                    scale-110
+                                    group-hover:scale-125
+                                    transition duration-500">
+                        </div>
+
+                        <img src="{{ url_for('static', filename='images/founder.jpg') }}"
+                             alt="Sai Sudha Kandukuri"
+                             class="relative
+                                    w-32 h-32 md:w-40 md:h-40
+                                    mx-auto
+                                    rounded-full
+                                    object-cover
+                                    ring-4 ring-white
+                                    shadow-2xl">
+
+                    </div>
+
+
+                    <h3 class="mt-7
+                               text-xl md:text-2xl
+                               font-black
+                               text-gray-900">
+
+                        Sai Sudha Kandukuri
+
+                    </h3>
+
+
+                    <span class="inline-flex mt-3
+                                 px-4 py-1.5
+                                 rounded-full
+                                 bg-[#5b1024]/10
+                                 text-[#5b1024]
+                                 text-sm font-bold">
+
+                        Founder
+
+                    </span>
+
+
+                    <p class="mt-6 text-gray-500
+                              text-sm leading-relaxed">
+
+                        Assistant Professor in Forensic Science,
+                        UGC NET (2023) and FACT Chemical Sciences (2024)
+                        qualified. Her expertise includes Forensic Toxicology,
+                        Analytical Instrumentation and Forensic Science Education.
+
+                    </p>
+
+                </div>
 
             </div>
 
-        </div>
 
-        <!-- Co-Founder -->
-        <div class="group bg-white rounded-[2rem] p-6 md:p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-500 border border-gray-100 relative overflow-hidden">
 
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#5b1024] to-[#b33654]"></div>
+            <!-- Co-Founder -->
+            <div class="group relative overflow-hidden
+                        bg-white
+                        rounded-[2rem]
+                        border border-gray-100
+                        shadow-xl
+                        hover:shadow-2xl
+                        hover:-translate-y-2
+                        transition-all duration-500">
 
-            <img src="{{ url_for('static', filename='images/cofounder.jpg') }}"
-                 alt="Co-Founder"
-                 class="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 mx-auto rounded-full object-cover mb-6 shadow-xl ring-4 ring-[#5b1024]/10 group-hover:ring-[#5b1024]/20 transition duration-300">
-
-            <div class="text-center">
-
-                <h3 class="text-xl md:text-2xl font-bold text-gray-900">
-                    Vijay Krishna Mulaparthi
-                </h3>
-
-                <div class="inline-block mt-3 bg-[#5b1024]/10 text-[#5b1024] px-4 py-1 rounded-full text-sm font-semibold">
-                    Co-Founder
+                <div class="h-2
+                            bg-gradient-to-r
+                            from-[#5b1024]
+                            to-[#b33654]">
                 </div>
 
-                <p class="mt-5 text-gray-600 text-sm leading-relaxed">
-                    Specialist in Insurance Fraud Investigation, Fingerprint Analysis,
-                    Handwriting & Signature Examination, Multimedia Forensics,
-                    and Forensic Research.
-                </p>
+
+                <div class="p-7 md:p-9 text-center">
+
+                    <div class="relative inline-block">
+
+                        <div class="absolute inset-0
+                                    rounded-full
+                                    bg-[#5b1024]/10
+                                    scale-110
+                                    group-hover:scale-125
+                                    transition duration-500">
+                        </div>
+
+                        <img src="{{ url_for('static', filename='images/cofounder.jpg') }}"
+                             alt="Vijay Krishna Mulaparthi"
+                             class="relative
+                                    w-32 h-32 md:w-40 md:h-40
+                                    mx-auto
+                                    rounded-full
+                                    object-cover
+                                    ring-4 ring-white
+                                    shadow-2xl">
+
+                    </div>
+
+
+                    <h3 class="mt-7
+                               text-xl md:text-2xl
+                               font-black
+                               text-gray-900">
+
+                        Vijay Krishna Mulaparthi
+
+                    </h3>
+
+
+                    <span class="inline-flex mt-3
+                                 px-4 py-1.5
+                                 rounded-full
+                                 bg-[#5b1024]/10
+                                 text-[#5b1024]
+                                 text-sm font-bold">
+
+                        Co-Founder
+
+                    </span>
+
+
+                    <p class="mt-6 text-gray-500
+                              text-sm leading-relaxed">
+
+                        Specialist in Insurance Fraud Investigation,
+                        Fingerprint Analysis, Handwriting & Signature
+                        Examination, Multimedia Forensics and Forensic Research.
+
+                    </p>
+
+                </div>
 
             </div>
 
@@ -227,43 +806,274 @@
 
 </section>
 
-<!-- SOCIAL CONNECT -->
-<section class="py-16 md:py-24 bg-gradient-to-br from-[#2b0b12] to-black text-center text-white">
 
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
 
-        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 text-sm mb-4">
-            🌐 Connect With Us
+<!-- ========================================================= -->
+<!-- WHATSAPP COMMUNITY -->
+<!-- ========================================================= -->
+
+<section class="relative overflow-hidden
+                py-20 md:py-24
+                bg-gradient-to-br
+                from-[#075E54]
+                via-[#087f6f]
+                to-[#064e47]
+                text-white">
+
+    <!-- Decorative Circles -->
+    <div class="absolute -top-24 -right-24
+                w-80 h-80
+                bg-white/10
+                rounded-full">
+    </div>
+
+    <div class="absolute -bottom-32 -left-20
+                w-96 h-96
+                bg-black/10
+                rounded-full">
+    </div>
+
+
+    <div class="relative max-w-5xl mx-auto
+                px-5 sm:px-8 text-center">
+
+        <div class="mx-auto w-16 h-16
+                    rounded-2xl
+                    bg-white/15
+                    backdrop-blur-md
+                    flex items-center justify-center
+                    text-3xl shadow-xl">
+
+            💬
+
         </div>
 
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            Stay Connected
+
+        <h2 class="mt-6
+                   text-3xl sm:text-4xl md:text-5xl
+                   font-black">
+
+            Join Our WhatsApp Community
+
         </h2>
 
-        <p class="text-white/75 max-w-2xl mx-auto mb-10 text-base md:text-lg">
-            Follow our journey for forensic learning resources, internship updates,
-            workshops, and educational content.
+
+        <p class="mt-5 max-w-2xl mx-auto
+                  text-white/75
+                  text-base md:text-lg
+                  leading-relaxed">
+
+            Stay connected with the forensic science community.
+            Get internship updates, workshops, learning resources,
+            announcements and new opportunities directly on WhatsApp.
+
         </p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
 
+        <a href="https://chat.whatsapp.com/IqDgLMljCq8FKX7BCDfcde"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-3
+                  mt-8
+                  px-8 py-4
+                  bg-white
+                  text-[#075E54]
+                  rounded-2xl
+                  font-black
+                  shadow-2xl
+                  hover:scale-105
+                  hover:shadow-white/20
+                  transition duration-300">
+
+            <span class="text-xl">
+                💬
+            </span>
+
+            Join Community
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="w-5 h-5"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke="currentColor">
+
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+
+            </svg>
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- SOCIAL CONNECT -->
+<!-- ========================================================= -->
+
+<section class="relative overflow-hidden
+                py-20 md:py-28
+                bg-gradient-to-br
+                from-[#19060b]
+                via-[#3b0b18]
+                to-black
+                text-white">
+
+    <div class="absolute inset-0 pointer-events-none">
+
+        <div class="absolute top-0 left-1/4
+                    w-72 h-72
+                    bg-[#b33654]/20
+                    rounded-full blur-[100px]">
+        </div>
+
+        <div class="absolute bottom-0 right-1/4
+                    w-72 h-72
+                    bg-purple-700/10
+                    rounded-full blur-[100px]">
+        </div>
+
+    </div>
+
+
+    <div class="relative max-w-5xl mx-auto
+                px-5 sm:px-8 text-center">
+
+        <!-- Badge -->
+        <span class="inline-flex items-center gap-2
+                     px-4 py-2
+                     rounded-full
+                     bg-white/10
+                     border border-white/10
+                     backdrop-blur-md
+                     text-sm">
+
+            🌐 Connect With Us
+
+        </span>
+
+
+        <!-- Heading -->
+        <h2 class="mt-6
+                   text-3xl sm:text-4xl md:text-5xl
+                   font-black">
+
+            Stay Connected
+
+        </h2>
+
+
+        <!-- Description -->
+        <p class="mt-5 max-w-2xl mx-auto
+                  text-white/60
+                  text-base md:text-lg">
+
+            Follow our journey for forensic learning resources,
+            internship updates, workshops and educational content.
+
+        </p>
+
+
+        <!-- Social Buttons -->
+        <div class="mt-10
+                    grid grid-cols-1 sm:grid-cols-3
+                    gap-4 max-w-3xl mx-auto">
+
+
+            <!-- YouTube -->
             <a href="https://www.youtube.com/@secretsinthestains"
                target="_blank"
-               class="w-full text-center px-6 py-3 bg-red-600 hover:bg-red-700 rounded-2xl font-semibold shadow-lg hover:scale-105 transition duration-300">
-                ▶ YouTube
+               rel="noopener noreferrer"
+               class="group flex items-center justify-center gap-3
+                      px-5 py-4
+                      rounded-2xl
+                      bg-white/10
+                      border border-white/10
+                      backdrop-blur-md
+                      hover:bg-red-600
+                      hover:-translate-y-1
+                      hover:shadow-xl hover:shadow-red-900/30
+                      transition duration-300">
+
+                <span class="text-xl">
+                    ▶
+                </span>
+
+                <span class="font-bold">
+                    YouTube
+                </span>
+
             </a>
 
-            <a href="https://www.instagram.com/secretsinthestains?igsh=MTltaTkzbWhkNjNydQ=="
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/secretsinthestains"
                target="_blank"
-               class="w-full text-center px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 rounded-2xl font-semibold shadow-lg hover:scale-105 transition duration-300">
-                📸 Instagram
+               rel="noopener noreferrer"
+               class="group flex items-center justify-center gap-3
+                      px-5 py-4
+                      rounded-2xl
+                      bg-white/10
+                      border border-white/10
+                      backdrop-blur-md
+                      hover:bg-gradient-to-r
+                      hover:from-pink-500
+                      hover:to-purple-600
+                      hover:-translate-y-1
+                      hover:shadow-xl
+                      transition duration-300">
+
+                <span class="text-xl">
+                    📸
+                </span>
+
+                <span class="font-bold">
+                    Instagram
+                </span>
+
             </a>
 
-            <a href="https://www.linkedin.com/in/secrets-in-the-stains-13b910391?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/secrets-in-the-stains-13b910391"
                target="_blank"
-               class="w-full text-center px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-2xl font-semibold shadow-lg hover:scale-105 transition duration-300">
-                💼 LinkedIn
+               rel="noopener noreferrer"
+               class="group flex items-center justify-center gap-3
+                      px-5 py-4
+                      rounded-2xl
+                      bg-white/10
+                      border border-white/10
+                      backdrop-blur-md
+                      hover:bg-blue-600
+                      hover:-translate-y-1
+                      hover:shadow-xl hover:shadow-blue-900/30
+                      transition duration-300">
+
+                <span class="text-xl">
+                    💼
+                </span>
+
+                <span class="font-bold">
+                    LinkedIn
+                </span>
+
             </a>
+
+        </div>
+
+
+        <!-- Bottom Tagline -->
+        <div class="mt-14 pt-8
+                    border-t border-white/10">
+
+            <p class="text-sm text-white/40">
+
+                Science • Investigation • Education • Discovery
+
+            </p>
 
         </div>
 
@@ -274,3 +1084,4 @@
 </div>
 
 {% endblock %}
+

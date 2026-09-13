@@ -32,7 +32,6 @@ app.config.update(
 
 csrf = CSRFProtect(app)
 
-
 @app.before_request
 def redirect_non_www():
     if request.host == 'secretsinthestains.in':
