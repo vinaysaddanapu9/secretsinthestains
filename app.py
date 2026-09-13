@@ -6,16 +6,16 @@ from routes.webinar import webinar_bp,get_all_webinars, get_past_webinars, get_w
 from werkzeug.security import generate_password_hash, check_password_hash
 from routes.auth_utils import admin_required
 from routes.certificate import certificate_bp
-from reportlab.pdfgen import canvas
 from scheduler import start_scheduler
 from routes.quiz import quiz_bp
 from dotenv import load_dotenv
 from flask import send_from_directory
+from routes.payment import payment_bp
 
 load_dotenv()   # Loads DATABASE_URL from .env (ignored on Render)
 
 ADMIN_USERNAME = "admin"
-ADMIN_PASSWORD_HASH = generate_password_hash("KanDukuri@98")
+ADMIN_PASSWORD_HASH = generate_password_hash("KanDukuri@99")
 
 app = Flask(__name__)
 app.secret_key = "SecretsInTheStains_AdminPanel_2026@SecureKey"
@@ -23,6 +23,7 @@ app.secret_key = "SecretsInTheStains_AdminPanel_2026@SecureKey"
 app.register_blueprint(quiz_bp)
 app.register_blueprint(webinar_bp)
 app.register_blueprint(certificate_bp)
+app.register_blueprint(payment_bp)
 
 app.config.update(
     SESSION_COOKIE_HTTPONLY=True,

@@ -7,6 +7,6 @@ python-dotenv
 APScheduler==3.11.0
 psycopg_pool
 Flask-WTF
-Flask-Mail
 reportlab
 qrcode[pil]
+razorpay
